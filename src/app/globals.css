@@ -1,0 +1,336 @@
+@import url('https://fonts.cdnfonts.com/css/norwester');
+@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bg-dark: #0B0F19;
+  --color-surface-panel: #161C2C;
+  --color-surface-card: #20293F;
+  --color-primary-cyan: var(--color-primary-theme);
+  --color-secondary-cyan: var(--color-secondary-theme);
+  --color-success-teal: #00E5A3;
+  --color-border-dark: #2A3650;
+  --color-text-light: #F8FAFC;
+  --color-text-muted: #A0AEC0;
+  
+  --font-sans: var(--font-space-grotesk), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+  --font-norwester: 'Norwester', sans-serif;
+  --font-chelsea: var(--font-chelsea-market), cursive;
+}
+
+:root {
+  --background: #0B0F19;
+  --foreground: #F8FAFC;
+  
+  /* Theme Custom Properties - Default Cyan */
+  --color-primary-theme: #6CF4FF;
+  --color-secondary-theme: #3388FF;
+  --color-primary-theme-op: rgba(108, 244, 255, 0.04);
+  --color-primary-theme-glow: rgba(108, 244, 255, 0.25);
+  --color-primary-theme-border: rgba(108, 244, 255, 0.1);
+}
+
+html, body {
+  max-width: 100%;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: clip;
+}
+
+p {
+  font-family: var(--font-chelsea-market), var(--font-sans), sans-serif;
+}
+
+/* Grid backgrounds */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, var(--color-primary-theme-op) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-primary-theme-op) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px 0 var(--color-primary-theme-glow);
+}
+
+.glow-teal {
+  box-shadow: 0 0 20px 0 rgba(0, 229, 163, 0.25);
+}
+
+.glass-panel {
+  background: rgba(22, 28, 44, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-primary-theme-border);
+}
+
+.metallic-card {
+  background-color: #111625; /* Solid background to prevent transparency bleed-through */
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.01) 0%, rgba(32, 41, 63, 0.7) 100%);
+  border: 1px solid var(--color-primary-theme-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.metallic-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-primary-theme-glow), transparent);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--color-primary-theme), var(--color-secondary-theme));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0F19;
+}
+::-webkit-scrollbar-thumb {
+  background: #20293F;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-theme);
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.status-pulse {
+  animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Futuristic Scanline Animation & Small Grid Pattern */
+@keyframes scanline {
+  0% {
+    transform: translateY(0);
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(280px);
+    opacity: 0.2;
+  }
+}
+
+.animate-scanline {
+  animation: scanline 3.5s linear infinite;
+}
+
+.bg-grid-pattern-sm {
+  background-image: 
+    linear-gradient(to right, rgba(108, 244, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(108, 244, 255, 0.035) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Custom slowly rotating tech rings and reverse spin */
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 22s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 14s linear infinite;
+}
+
+/* ----------------------------------------------------
+   SENIOR MOTION DESIGN SYSTEM (PERFORMANCE OPTIMIZED)
+   ---------------------------------------------------- */
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
+
+/* 1. Page Load Animations */
+@keyframes page-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+body {
+  animation: page-fade-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes logo-zoom {
+  from { transform: scale(0.9) rotate(-3deg); opacity: 0; }
+  to { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.animate-logo-zoom {
+  animation: logo-zoom 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Coordinated Entrance Orchestration */
+@keyframes nav-inner-entrance {
+  from {
+    transform: translateY(-25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-nav-inner {
+  animation: nav-inner-entrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-reveal {
+  animation: hero-fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-stagger-1 { animation: hero-fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) 150ms forwards; opacity: 0; }
+.hero-stagger-2 { animation: hero-fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) 250ms forwards; opacity: 0; }
+.hero-stagger-3 { animation: hero-fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) 350ms forwards; opacity: 0; }
+.hero-stagger-4 { animation: hero-fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) 450ms forwards; opacity: 0; }
+
+@keyframes hero-mockup-reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.93) rotateY(-12deg) rotateX(6deg) translateY(20px);
+    filter: brightness(0.4) contrast(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg) rotateX(0deg) translateY(0);
+    filter: brightness(1) contrast(1);
+  }
+}
+
+.animate-hero-mockup {
+  animation: hero-mockup-reveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) 300ms forwards;
+  opacity: 0;
+  transform-style: preserve-3d;
+}
+
+/* 2. Scroll Reveal Transitions */
+.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale {
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* Disable transitions entirely during scroll-up to prevent any fade-out/reveal animations */
+.scrolling-up .reveal,
+.scrolling-up .reveal-up,
+.scrolling-up .reveal-left,
+.scrolling-up .reveal-right,
+.scrolling-up .reveal-scale {
+  transition: none !important;
+}
+
+.reveal-up { transform: translateY(35px); }
+.reveal-left { transform: translateX(-35px); }
+.reveal-right { transform: translateX(35px); }
+.reveal-scale { transform: scale(0.96); }
+
+.reveal-visible {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) scale(1) !important;
+}
+
+/* Staggered load delays */
+.delay-75 { transition-delay: 75ms; }
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* 3. Hover Interactions */
+/* Professional button lift */
+.btn-hover-lift {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease;
+  will-change: transform, box-shadow;
+}
+
+.btn-hover-lift:hover {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 12px 24px -8px var(--color-primary-theme-glow), 0 0 15px rgba(108, 244, 255, 0.15);
+}
+
+.btn-hover-lift:active {
+  transform: translateY(-1px) scale(0.985);
+}
+
+/* Smooth card transitions & lifting */
+.metallic-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.metallic-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(108, 244, 255, 0.4) !important;
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.4), 0 0 25px 0 rgba(108, 244, 255, 0.12);
+}
+
+/* Card Sibling Focus Effect */
+.stagger-dim-grid:hover .metallic-card:not(:hover) {
+  opacity: 0.55;
+  filter: brightness(0.85) blur(0.3px);
+  transform: scale(0.985);
+}
+
+/* Input Focus Glows */
+input:focus, textarea:focus, select:focus {
+  border-color: var(--color-primary-theme) !important;
+  box-shadow: 0 0 15px var(--color-primary-theme-glow) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Ensure page backgrounds are transparent so layout background shapes show through */
+main > div,
+main > section {
+  background-color: transparent !important;
+}
