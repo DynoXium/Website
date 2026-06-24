@@ -10,29 +10,29 @@ export default function BackgroundShapes({ pageId }: BackgroundShapesProps) {
   // Shared helper elements to keep the code clean while generating rich homepage-inspired backgrounds
   const AmbientGlows = ({ color1 = "bg-primary-cyan/8", color2 = "bg-[#3388FF]/6" }) => (
     <>
-      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] ${color1} rounded-full blur-[120px] pointer-events-none`} />
-      <div className={`absolute bottom-1/4 right-1/4 w-[500px] h-[400px] ${color2} rounded-full blur-[150px] pointer-events-none`} />
+      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-[90vw] md:w-[700px] h-[200px] md:h-[300px] ${color1} rounded-full blur-[120px] pointer-events-none`} />
+      <div className={`absolute bottom-1/4 right-1/4 w-[70vw] md:w-[500px] h-[250px] md:h-[400px] ${color2} rounded-full blur-[150px] pointer-events-none hidden sm:block`} />
     </>
   );
 
   const VectorRings = ({ left = "-left-28", top = "top-12" }) => (
     <>
-      <div className={`absolute ${left} ${top} w-96 h-96 rounded-full border border-primary-cyan/5 animate-spin-slow pointer-events-none -z-10`} />
-      <div className={`absolute ${left} ${top} w-80 h-80 rounded-full border border-dashed border-[#3388FF]/5 animate-spin-reverse pointer-events-none -z-10`} />
+      <div className={`absolute ${left} ${top} w-96 h-96 rounded-full border border-primary-cyan/5 animate-spin-slow pointer-events-none -z-10 hidden md:block`} />
+      <div className={`absolute ${left} ${top} w-80 h-80 rounded-full border border-dashed border-[#3388FF]/5 animate-spin-reverse pointer-events-none -z-10 hidden md:block`} />
     </>
   );
 
   const GlowingPills = ({ align = "left", top = "top-36" }) => {
     if (align === "left") {
       return (
-        <div className={`absolute left-0 ${top} flex flex-col gap-2.5 pointer-events-none opacity-15 select-none -z-10`}>
+        <div className={`absolute left-0 ${top} flex flex-col gap-2.5 pointer-events-none opacity-15 select-none -z-10 hidden md:flex`}>
           <div className="h-2 w-80 bg-gradient-to-l from-transparent via-[#3388FF]/30 to-primary-cyan rounded-l-full -translate-x-10" />
           <div className="h-2 w-60 bg-gradient-to-l from-transparent via-[#3388FF]/40 to-primary-cyan rounded-l-full" />
         </div>
       );
     } else {
       return (
-        <div className={`absolute right-0 ${top} flex flex-col gap-2.5 pointer-events-none opacity-15 select-none -z-10`}>
+        <div className={`absolute right-0 ${top} flex flex-col gap-2.5 pointer-events-none opacity-15 select-none -z-10 hidden md:flex`}>
           <div className="h-2 w-60 bg-gradient-to-r from-transparent via-[#3388FF]/40 to-primary-cyan rounded-r-full" />
           <div className="h-2 w-80 bg-gradient-to-r from-transparent via-[#3388FF]/30 to-primary-cyan rounded-r-full translate-x-10" />
         </div>

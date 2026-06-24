@@ -27,11 +27,11 @@ export default function FreeHosting() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative pt-44 pb-20 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto z-10 reveal-up">
+      <section className="relative pt-28 sm:pt-44 pb-20 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto z-10 reveal-up">
         <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-500/30 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-purple-400 uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(168,85,247,0.15)] reveal-up delay-75`}>
           DynoXium Freemium Tier
         </div>
-        <h1 className="font-norwester text-4xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words reveal-up delay-100">
+        <h1 className="font-norwester text-2xl sm:text-4xl md:text-7xl lg:text-8xl tracking-wide md:tracking-widest text-white mb-6 uppercase leading-none break-words reveal-up delay-100">
           Build Your Community For <span className="text-purple-400 drop-shadow-[0_0_30px_rgba(168,85,247,0.3)]">Free</span>
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium reveal-up delay-150">

@@ -61,7 +61,7 @@ export default function AboutUs() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10 reveal-up">
+      <section className="relative pt-28 sm:pt-40 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10 reveal-up">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Text Column */}
           <div className="lg:col-span-7 space-y-6 text-left">

@@ -100,13 +100,13 @@ export default function ToolsCatalog() {
   return (
     <div className="relative w-full min-h-screen bg-[#0B0F19] overflow-x-clip" style={{ isolation: 'isolate' }}>
 
-      <div className="max-w-7xl mx-auto pt-44 pb-24 px-4 sm:px-6 relative z-10 space-y-12">
+      <div className="max-w-7xl mx-auto pt-28 sm:pt-44 pb-24 px-4 sm:px-6 relative z-10 space-y-12">
         {/* HEADER SECTION */}
         <div className="text-center space-y-4 max-w-2xl mx-auto reveal-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/30 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)] reveal-up delay-75">
             Minecraft Utilities
           </div>
-          <h1 className="font-norwester text-4xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white uppercase leading-none reveal-up delay-100">
+          <h1 className="font-norwester text-2xl sm:text-4xl md:text-7xl lg:text-8xl tracking-wide md:tracking-widest text-white uppercase leading-none reveal-up delay-100">
             Minecraft <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Tools</span>
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-text-muted/90 max-w-xl mx-auto font-medium reveal-up delay-150">

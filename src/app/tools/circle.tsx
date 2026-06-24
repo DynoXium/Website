@@ -144,12 +144,12 @@ export default function CircleGenerator() {
         <div className="absolute bottom-40 left-1/4 w-[400px] h-[400px] bg-primary-cyan/3 rounded-full blur-[150px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto pt-44 pb-20 px-4 sm:px-6 relative z-10 space-y-12">
+      <div className="max-w-7xl mx-auto pt-28 sm:pt-44 pb-20 px-4 sm:px-6 relative z-10 space-y-12">
         <BackToToolsLink />
 
         {/* HEADER SECTION */}
         <div className="text-center space-y-4 max-w-2xl mx-auto reveal-up delay-75">
-          <h1 className="font-norwester text-4xl sm:text-7xl tracking-wide sm:tracking-widest text-white uppercase leading-none reveal-up delay-100">
+          <h1 className="font-norwester text-2xl sm:text-4xl md:text-7xl tracking-wide md:tracking-widest text-white uppercase leading-none reveal-up delay-100">
             Circle <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Generator</span>
           </h1>
           <p className="text-sm sm:text-base text-text-muted/90 font-medium reveal-up delay-150">

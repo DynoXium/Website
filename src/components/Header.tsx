@@ -267,9 +267,9 @@ export default function Header() {
             <div className="xl:hidden flex items-center">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-text-muted hover:text-text-light p-1.5 focus:outline-none cursor-pointer"
+                className="text-text-muted hover:text-text-light p-2 focus:outline-none cursor-pointer"
               >
-                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
             </div>
           </div>

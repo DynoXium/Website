@@ -125,8 +125,8 @@ export default function ContactPage() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative pt-40 pb-10 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto z-10 reveal-up">
-        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-4 uppercase leading-none break-words reveal-up delay-100">
+      <section className="relative pt-28 sm:pt-40 pb-10 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto z-10 reveal-up">
+        <h1 className="font-norwester text-2xl sm:text-4xl md:text-7xl lg:text-8xl tracking-wide md:tracking-widest text-white mb-4 uppercase leading-none break-words reveal-up delay-100">
           Contact <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Us</span>
         </h1>
         <p className="text-base sm:text-lg text-text-muted/90 max-w-2xl mx-auto font-sans leading-relaxed font-medium reveal-up delay-150">

@@ -388,11 +388,11 @@ export default function GameDetails() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto z-10 reveal-up">
+      <section className="relative pt-28 sm:pt-40 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto z-10 reveal-up">
         <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold uppercase mb-8 tracking-widest ${theme.accentText} ${theme.accentBorder} reveal-up delay-75`} style={{ boxShadow: `0 0 15px ${theme.accentColorHex}20` }}>
           {config.name} Hosting Nodes
         </div>
-        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words reveal-up delay-100">
+        <h1 className="font-norwester text-2xl sm:text-4xl md:text-7xl lg:text-8xl tracking-wide md:tracking-widest text-white mb-6 uppercase leading-none break-words reveal-up delay-100">
           {config.name} <span className={theme.accentText} style={{ filter: `drop-shadow(0 0 30px ${theme.accentColorHex}40)` }}>Server Hosting</span>
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium reveal-up delay-150">
