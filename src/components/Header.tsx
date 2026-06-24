@@ -277,7 +277,9 @@ export default function Header() {
 
         {/* Mobile Drawer */}
         <div
-          className={`xl:hidden absolute left-0 w-full bg-[#0B0F19]/98 backdrop-blur-2xl transition-all duration-300 overflow-y-auto max-h-[85vh] ${scrolled ? "top-[calc(100%+12px)] rounded-2xl border border-primary-cyan/30 shadow-2xl" : "top-full border-b border-[#2A3650]/55"
+          className={`xl:hidden absolute left-0 w-full bg-[#0B0F19]/98 backdrop-blur-2xl transition-all duration-300 overflow-y-auto max-h-[85vh] ${scrolled 
+            ? "top-full sm:top-[calc(100%+12px)] sm:rounded-2xl sm:border border-primary-cyan/30 shadow-2xl" 
+            : "top-full border-b border-[#2A3650]/55"
             } ${isOpen ? "opacity-100 py-6 visible" : "opacity-0 invisible h-0"}`}
         >
           <div className="px-4 space-y-4">
