@@ -92,17 +92,17 @@ export default function PartnershipPage() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-6xl mx-auto z-10 animate-fade-in">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)]">
+      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-6xl mx-auto z-10 reveal-up">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)] reveal-up delay-75">
           Creator & Affiliate Program
         </div>
-        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words">
+        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words reveal-up delay-100">
           Partnership <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Program</span>
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium">
+        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium reveal-up delay-150">
           Join our partnership program and earn rewards while promoting high-quality cloud and Minecraft hosting services to your audience.
         </p>
-        <div className="mt-8 flex justify-center">
+        <div className="mt-8 flex justify-center reveal-up delay-200">
           <button
             onClick={() => {
               const element = document.getElementById("apply-now");
@@ -118,8 +118,8 @@ export default function PartnershipPage() {
       </section>
 
       {/* WHY PARTNER WITH US SECTION */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-10">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-10 reveal-up">
+        <div className="text-center max-w-3xl mx-auto space-y-3 reveal-up delay-75">
           <span className="text-xs font-mono text-primary-cyan font-bold uppercase tracking-widest">
             Partnership Benefits
           </span>
@@ -128,7 +128,7 @@ export default function PartnershipPage() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-up delay-100">
           {benefits.map((benefit, idx) => {
             const Icon = benefit.icon;
             const theme = benefit.theme;
@@ -183,8 +183,8 @@ export default function PartnershipPage() {
       </section>
 
       {/* APPLICATION FORM SECTION */}
-      <section id="apply-now" className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto relative z-20">
-        <div className="bg-gradient-to-br from-[#0E1321]/90 to-[#141B30]/75 rounded-2xl border border-primary-cyan/25 p-8 sm:p-12 shadow-[0_0_40px_rgba(108,244,255,0.08)] relative overflow-hidden">
+      <section id="apply-now" className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto relative z-20 reveal-up">
+        <div className="bg-gradient-to-br from-[#0E1321]/90 to-[#141B30]/75 rounded-2xl border border-primary-cyan/25 p-8 sm:p-12 shadow-[0_0_40px_rgba(108,244,255,0.08)] relative overflow-hidden reveal-up delay-75">
           {/* Grid backdrop */}
           <div className="absolute inset-0 bg-grid-pattern-sm opacity-10 pointer-events-none" />
 

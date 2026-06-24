@@ -13,5 +13,5 @@ export default function GlobalBackground() {
   const segments = pathname.split("/").filter(Boolean);
   const pageId = segments[segments.length - 1] || "default";
 
-  return <BackgroundShapes pageId={pageId} />;
+  return <BackgroundShapes key={pageId} pageId={pageId} />;
 }

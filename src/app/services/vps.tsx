@@ -152,21 +152,21 @@ export default function VpsDbHosting() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto z-10 animate-fade-in">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)]">
+      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto z-10 reveal-up">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)] reveal-up delay-75">
           KVM Virtualization Nodes
         </div>
-        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words">
+        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words reveal-up delay-100">
           High-Performance <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">VPS Hosting</span>
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium">
+        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium reveal-up delay-150">
           Full root access, enterprise-grade hardware, and 99.9% uptime guarantee.
         </p>
       </section>
 
       {/* CONFIGURATOR SECTION */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 reveal-up">
+        <div className="text-center max-w-3xl mx-auto space-y-3 reveal-up delay-75">
           <span className="font-mono text-[10px] sm:text-xs font-bold text-primary-cyan uppercase tracking-widest">
             Enterprise Grade Infrastructure
           </span>
@@ -179,7 +179,7 @@ export default function VpsDbHosting() {
         </div>
 
         {/* Configuration Selectors */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 bg-[#0E1321]/60 border border-[#2A3650]/60 p-5 rounded-2xl max-w-2xl mx-auto backdrop-blur-md">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 bg-[#0E1321]/60 border border-[#2A3650]/60 p-5 rounded-2xl max-w-2xl mx-auto backdrop-blur-md reveal-up delay-100">
           {/* Location */}
           <div className="flex flex-col items-center sm:items-start gap-2 w-full sm:w-auto">
             <span className="text-[10px] font-mono font-bold text-text-muted uppercase tracking-wider">Location:</span>
@@ -232,7 +232,7 @@ export default function VpsDbHosting() {
         </div>
 
         {/* Dynamic CPU Note banner */}
-        <div className="max-w-3xl mx-auto bg-[#131A2E]/50 border border-[#2A3650]/50 rounded-2xl p-5 flex gap-4 items-start relative overflow-hidden">
+        <div className="max-w-3xl mx-auto bg-[#131A2E]/50 border border-[#2A3650]/50 rounded-2xl p-5 flex gap-4 items-start relative overflow-hidden reveal-up delay-150">
           <div className="absolute top-0 left-0 w-1.5 h-full bg-primary-cyan" />
           <Cpu className="h-6 w-6 text-primary-cyan flex-shrink-0 mt-0.5" />
           <div className="space-y-1">
@@ -246,7 +246,7 @@ export default function VpsDbHosting() {
         </div>
 
         {/* 8 Plans Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-4 reveal-up delay-200">
           {plans.map((plan) => (
             <div
               key={plan.id}
@@ -335,8 +335,8 @@ export default function VpsDbHosting() {
       </section>
 
       {/* CORE FEATURES SECTION */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12 reveal-up">
+        <div className="text-center max-w-3xl mx-auto space-y-3 reveal-up delay-75">
           <h2 className="font-norwester text-2xl sm:text-5xl text-white uppercase tracking-wider">
             Cutting-Edge <span className="text-primary-cyan drop-shadow-[0_0_20px_rgba(108,244,255,0.2)]">Features</span>
           </h2>
@@ -376,10 +376,12 @@ export default function VpsDbHosting() {
               iconStyle = "bg-[#3388FF]/10 border-[#3388FF]/20 text-[#3388FF]";
             }
 
+            const delayClass = idx === 0 ? "delay-75" : idx === 1 ? "delay-100" : idx === 2 ? "delay-150" : idx === 3 ? "delay-200" : idx === 4 ? "delay-300" : "delay-400";
+
             return (
               <div
-                key={idx}
-                className={`group relative rounded-2xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 flex flex-col justify-between space-y-4 transition-all duration-300 ${borderStyle} hover:scale-[1.01]`}
+                key={feat.title}
+                className={`group relative rounded-2xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 flex flex-col justify-between space-y-4 transition-all duration-300 hover:scale-[1.01] ${borderStyle} reveal-up ${delayClass}`}
               >
                 <div className="absolute top-2 left-2 w-3.5 h-3.5 border-t border-l border-[#2A3650]/50 group-hover:border-primary-cyan/40" />
                 <div className="absolute top-2 right-2 w-3.5 h-3.5 border-t border-r border-[#2A3650]/50 group-hover:border-primary-cyan/40" />
@@ -404,8 +406,8 @@ export default function VpsDbHosting() {
       </section>
 
       {/* VIRTUALIZOR CONTROL PANEL SHOWCASE */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12 reveal-up">
+        <div className="text-center max-w-3xl mx-auto space-y-3 reveal-up delay-75">
           <h2 className="font-norwester text-2xl sm:text-5xl text-white uppercase tracking-wider">
             Experience Our <span className="text-primary-cyan drop-shadow-[0_0_20px_rgba(108,244,255,0.2)]">Virtualizor Panel</span>
           </h2>
@@ -414,7 +416,7 @@ export default function VpsDbHosting() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch reveal-up delay-150">
           {/* Tabs Menu (5 cols) */}
           <div className="lg:col-span-4 flex flex-col gap-3">
             {[
@@ -486,8 +488,8 @@ export default function VpsDbHosting() {
       </section>
 
       {/* GLOBAL PRESENCE LATENCY MAP */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12 reveal-up">
+        <div className="text-center max-w-3xl mx-auto space-y-3 reveal-up delay-75">
           <h2 className="font-norwester text-2xl sm:text-5xl text-white uppercase tracking-wider">
             Global Presence, <span className="text-primary-cyan drop-shadow-[0_0_20px_rgba(108,244,255,0.2)]">Local Performance</span>
           </h2>
@@ -496,7 +498,7 @@ export default function VpsDbHosting() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center reveal-up delay-150">
           {/* Map Display (7 cols) */}
           <div className="lg:col-span-7 bg-[#0E1321]/50 border border-[#2A3650]/60 rounded-3xl p-6 sm:p-8 relative overflow-hidden backdrop-blur-md">
             {/* World Map vector mockup */}
@@ -578,8 +580,8 @@ export default function VpsDbHosting() {
       </section>
 
       {/* FAQs SECTION WITH NEED HELP SIDECARD */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12 reveal-up">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start reveal-up delay-100">
           {/* FAQ Accordions (7 cols) */}
           <div className="lg:col-span-8 space-y-6">
             <div className="space-y-2">

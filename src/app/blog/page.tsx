@@ -178,20 +178,20 @@ export default function BlogIndex() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative pt-40 pb-12 px-4 sm:px-6 lg:px-8 text-center max-w-6xl mx-auto z-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-6 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)]">
+      <section className="relative pt-40 pb-12 px-4 sm:px-6 lg:px-8 text-center max-w-6xl mx-auto z-10 reveal-up">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-6 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)] reveal-up delay-75">
           Latest News & Guides
         </div>
-        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words">
+        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words reveal-up delay-100">
           DynoXium <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Blog</span>
         </h1>
-        <p className="text-base sm:text-lg text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium">
+        <p className="text-base sm:text-lg text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium reveal-up delay-150">
           Insights, tutorials, and engineering deep-dives from the developers behind DynoXium cloud infrastructure.
         </p>
       </section>
 
       {/* FILTER & SEARCH CONTROLS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 relative z-20">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 relative z-20 reveal-up delay-75">
         <div className="flex flex-col md:flex-row gap-4 justify-between items-center bg-[#0E1321]/60 border border-[#2A3650]/60 p-4 rounded-2xl backdrop-blur-md">
           {/* Category Tabs */}
           <div className="flex flex-wrap gap-1.5 w-full md:w-auto">
@@ -216,7 +216,7 @@ export default function BlogIndex() {
             <input
               type="text"
               placeholder="Search articles or tags..."
-              value={searchQuery.trim()}
+              value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full bg-[#131929] border border-[#2A3650]/60 rounded-xl py-2 pl-10 pr-4 text-xs text-white placeholder-text-muted focus:outline-none focus:border-primary-cyan/40 transition-all font-sans"
             />
@@ -225,10 +225,10 @@ export default function BlogIndex() {
       </section>
 
       {/* BLOG GRID */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24 relative z-20">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24 relative z-20 reveal-up delay-150">
         {filteredPosts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPosts.map((post) => {
+            {filteredPosts.map((post, idx) => {
               const theme = post.theme;
               let cardGlow = "hover:border-primary-cyan/40 hover:shadow-[0_0_30px_rgba(108,244,255,0.06)]";
               if (theme === "red") cardGlow = "hover:border-red-500/40 hover:shadow-[0_0_30px_rgba(239,68,68,0.06)]";
@@ -246,10 +246,12 @@ export default function BlogIndex() {
               else if (post.category === "Web Hosting") Icon = Globe;
               else if (post.category === "Company") Icon = Info;
 
+              const delayClass = idx === 0 ? "delay-75" : idx === 1 ? "delay-100" : idx === 2 ? "delay-150" : idx === 3 ? "delay-200" : idx === 4 ? "delay-300" : "delay-400";
+
               return (
                 <div
                   key={post.slug}
-                  className={`metallic-card rounded-2xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 flex flex-col justify-between space-y-5 transition-all duration-500 ${cardGlow}`}
+                  className={`metallic-card rounded-2xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 flex flex-col justify-between space-y-5 transition-all duration-500 reveal-up ${delayClass} ${cardGlow}`}
                 >
                   <div className="space-y-4">
                     {/* Header: Category Badge & Read Time */}
@@ -316,7 +318,7 @@ export default function BlogIndex() {
             })}
           </div>
         ) : (
-          <div className="text-center py-16 bg-[#0E1321]/40 border border-[#2A3650]/40 rounded-2xl max-w-lg mx-auto space-y-4">
+          <div className="text-center py-16 bg-[#0E1321]/40 border border-[#2A3650]/40 rounded-2xl max-w-lg mx-auto space-y-4 reveal-up">
             <Info className="h-10 w-10 text-text-muted mx-auto" />
             <h3 className="font-display text-white text-lg font-bold uppercase tracking-wide">No Articles Found</h3>
             <p className="text-xs text-text-muted leading-relaxed font-sans max-w-sm mx-auto">

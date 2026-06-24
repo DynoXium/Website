@@ -8,7 +8,12 @@ interface BackgroundShapesProps {
 
 export default function BackgroundShapes({ pageId }: BackgroundShapesProps) {
   // Shared helper elements to keep the code clean while generating rich homepage-inspired backgrounds
-  const AmbientGlows = ({ color1 = "bg-primary-cyan/8", color2 = "bg-[#3388FF]/6" }) => null;
+  const AmbientGlows = ({ color1 = "bg-primary-cyan/8", color2 = "bg-[#3388FF]/6" }) => (
+    <>
+      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] ${color1} rounded-full blur-[120px] pointer-events-none`} />
+      <div className={`absolute bottom-1/4 right-1/4 w-[500px] h-[400px] ${color2} rounded-full blur-[150px] pointer-events-none`} />
+    </>
+  );
 
   const VectorRings = ({ left = "-left-28", top = "top-12" }) => (
     <>

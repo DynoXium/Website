@@ -1,14 +1,13 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
+import BackToToolsLink from "@/components/BackToToolsLink";
 import {
   Sparkles,
   Layers,
   Copy,
   Download,
   Upload,
-  ArrowLeft,
   RefreshCw,
   Sliders,
   CheckCircle,
@@ -240,27 +239,20 @@ export default function MotdEditor() {
       </div>
 
       <div className="max-w-7xl mx-auto pt-44 pb-20 px-4 sm:px-6 relative z-10 space-y-12">
-        {/* Back Link */}
-        <Link
-          href="/tools"
-          className="inline-flex items-center gap-2 text-text-muted hover:text-white transition-all text-xs font-mono font-bold uppercase tracking-wider group"
-        >
-          <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-          <span>Back to Tools</span>
-        </Link>
+        <BackToToolsLink />
 
         {/* HEADER SECTION */}
-        <div className="text-center space-y-4 max-w-2xl mx-auto">
-          <h1 className="font-norwester text-4xl sm:text-7xl tracking-wide sm:tracking-widest text-white uppercase leading-none">
+        <div className="text-center space-y-4 max-w-2xl mx-auto reveal-up delay-75">
+          <h1 className="font-norwester text-4xl sm:text-7xl tracking-wide sm:tracking-widest text-white uppercase leading-none reveal-up delay-100">
             MOTD <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Editor</span>
           </h1>
-          <p className="text-sm sm:text-base text-text-muted/90 font-medium">
+          <p className="text-sm sm:text-base text-text-muted/90 font-medium reveal-up delay-150">
             Create stunning, animated MOTDs for your Minecraft server with colors and formatting.
           </p>
         </div>
 
         {/* WORKSPACE LAYOUT */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-6xl mx-auto reveal-up delay-200">
           {/* LEFT EDITING PANEL (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
             

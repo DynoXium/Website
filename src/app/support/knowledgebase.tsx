@@ -172,19 +172,19 @@ export default function KnowledgebasePage() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto z-10 animate-fade-in">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)]">
+      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto z-10 reveal-up">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)] reveal-up delay-75">
           Knowledge Base & Guides
         </div>
-        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words">
+        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words reveal-up delay-100">
           Knowledge <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Base</span>
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium mb-10">
+        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium mb-10 reveal-up delay-150">
           Explore our comprehensive guides, tutorials, and documentation to get the most out of your server.
         </p>
 
         {/* Glowing Search Bar */}
-        <div className="max-w-2xl mx-auto relative group">
+        <div className="max-w-2xl mx-auto relative group reveal-up delay-200">
           <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-primary-cyan to-secondary-cyan opacity-25 blur-lg group-hover:opacity-40 transition duration-300" />
           <div className="relative flex items-center bg-[#0E1321] border border-[#2A3650]/80 rounded-xl px-4 py-3 shadow-xl">
             <Search className="h-5 w-5 text-text-muted mr-3" />
@@ -200,7 +200,7 @@ export default function KnowledgebasePage() {
       </section>
 
       {/* KNOWLEDGE CATEGORIES GRID */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 reveal-up">
         {filteredCategories.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredCategories.map((cat, idx) => {
@@ -227,11 +227,13 @@ export default function KnowledgebasePage() {
                 iconBox = "bg-[#3388FF]/10 border-[#3388FF]/20 text-[#3388FF]";
               }
 
+              const delayClass = idx % 3 === 0 ? "delay-75" : idx % 3 === 1 ? "delay-150" : "delay-225";
+
               return (
                 <Link
                   key={idx}
                   href={`/blog?category=${encodeURIComponent(cat.blogCategory)}`}
-                  className={`group relative rounded-2xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 pb-12 flex flex-col justify-between space-y-6 transition-all duration-300 ${borderGlow} hover:scale-[1.01]`}
+                  className={`group relative rounded-2xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 pb-12 flex flex-col justify-between space-y-6 transition-all duration-300 ${borderGlow} hover:scale-[1.01] reveal-up ${delayClass}`}
                 >
                   {/* Tech corner brackets */}
                   <div className="absolute top-2.5 left-2.5 w-4 h-4 border-t border-l border-[#2A3650]/80 group-hover:border-primary-cyan/40 transition-colors" />
@@ -263,7 +265,7 @@ export default function KnowledgebasePage() {
             })}
           </div>
         ) : (
-          <div className="text-center py-16 bg-[#0E1321]/30 border border-[#2A3650]/40 rounded-2xl p-8 max-w-xl mx-auto space-y-4">
+          <div className="text-center py-16 bg-[#0E1321]/30 border border-[#2A3650]/40 rounded-2xl p-8 max-w-xl mx-auto space-y-4 reveal-up">
             <HelpCircle className="h-12 w-12 text-[#FF3366] mx-auto animate-bounce" />
             <h3 className="font-norwester text-xl text-white uppercase tracking-wider">No Guides Found</h3>
             <p className="text-xs sm:text-sm text-text-muted leading-relaxed">
@@ -280,8 +282,8 @@ export default function KnowledgebasePage() {
       </section>
 
       {/* DIRECT HELP SUPPORT SECTION */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-10">
-        <div className="text-center max-w-3xl mx-auto space-y-2">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-10 reveal-up">
+        <div className="text-center max-w-3xl mx-auto space-y-2 reveal-up delay-75">
           <h2 className="font-norwester text-2xl sm:text-5xl text-white uppercase tracking-wider">
             Need Direct Help?
           </h2>
@@ -313,10 +315,12 @@ export default function KnowledgebasePage() {
               btnStyle = "bg-[#ec4899] text-white hover:bg-transparent hover:text-pink-400 border-pink-500 shadow-[0_0_10px_rgba(236,72,153,0.15)]";
             }
 
+            const delayClass = idx % 4 === 0 ? "delay-75" : idx % 4 === 1 ? "delay-150" : idx % 4 === 2 ? "delay-225" : "delay-300";
+
             return (
               <div
                 key={idx}
-                className={`group relative rounded-xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-5 flex flex-col justify-between space-y-5 transition-all duration-300 ${borderGlow} hover:scale-[1.01]`}
+                className={`group relative rounded-xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-5 flex flex-col justify-between space-y-5 transition-all duration-300 ${borderGlow} hover:scale-[1.01] reveal-up ${delayClass}`}
               >
                 {/* Tech corner accent brackets */}
                 <div className="absolute top-2 left-2 w-3 h-3 border-t border-l border-[#2A3650]/60 group-hover:border-primary-cyan/40 transition-colors" />

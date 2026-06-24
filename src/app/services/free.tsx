@@ -27,23 +27,23 @@ export default function FreeHosting() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative pt-44 pb-20 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto z-10 animate-fade-in">
-        <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-500/30 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-purple-400 uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(168,85,247,0.15)]`}>
+      <section className="relative pt-44 pb-20 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto z-10 reveal-up">
+        <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-500/30 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-purple-400 uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(168,85,247,0.15)] reveal-up delay-75`}>
           DynoXium Freemium Tier
         </div>
-        <h1 className="font-norwester text-4xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words">
+        <h1 className="font-norwester text-4xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words reveal-up delay-100">
           Build Your Community For <span className="text-purple-400 drop-shadow-[0_0_30px_rgba(168,85,247,0.3)]">Free</span>
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium">
+        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium reveal-up delay-150">
           Launch a Minecraft server or website instantly. No credit card required, just pure performance.
         </p>
       </section>
 
       {/* PRICING PLANS GRID */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-20 space-y-12">
+      <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-20 space-y-12 reveal-up">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Card 1: Free Minecraft Server */}
-          <div className="group relative rounded-2xl border border-purple-500/20 bg-[#0E1321]/60 p-8 flex flex-col justify-between space-y-8 transition-all duration-300 hover:border-purple-500/45 hover:shadow-[0_0_30px_rgba(168,85,247,0.08)]">
+          <div className="group relative rounded-2xl border border-purple-500/20 bg-[#0E1321]/60 p-8 flex flex-col justify-between space-y-8 transition-all duration-300 hover:border-purple-500/45 hover:shadow-[0_0_30px_rgba(168,85,247,0.08)] reveal-up delay-75">
             {/* Tech corner accent brackets */}
             <div className="absolute top-2.5 left-2.5 w-4 h-4 border-t border-l border-[#2A3650]/80 group-hover:border-purple-500/40 transition-colors" />
             <div className="absolute top-2.5 right-2.5 w-4 h-4 border-t border-r border-[#2A3650]/80 group-hover:border-purple-500/40 transition-colors" />
@@ -117,7 +117,7 @@ export default function FreeHosting() {
           </div>
 
           {/* Card 2: Free Webhosting */}
-          <div className="group relative rounded-2xl border border-[#2A3650]/40 bg-[#0E1321]/30 p-8 flex flex-col justify-between space-y-8 opacity-75">
+          <div className="group relative rounded-2xl border border-[#2A3650]/40 bg-[#0E1321]/30 p-8 flex flex-col justify-between space-y-8 opacity-75 reveal-up delay-150">
             <div className="space-y-6">
               {/* Header */}
               <div className="flex justify-between items-start gap-2">
@@ -187,8 +187,8 @@ export default function FreeHosting() {
       </section>
 
       {/* WHY CHOOSE OUR FREE HOSTING */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-16">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-16 reveal-up">
+        <div className="text-center max-w-3xl mx-auto space-y-3 reveal-up delay-75">
           <span className="font-mono text-[10px] sm:text-xs font-bold text-purple-400 uppercase tracking-widest">
             WHY CHOOSE US
           </span>
@@ -219,10 +219,12 @@ export default function FreeHosting() {
               iconStyle = "bg-success-teal/10 border-success-teal/20 text-success-teal";
             }
 
+            const delayClass = idx === 0 ? "delay-75" : idx === 1 ? "delay-100" : "delay-150";
+
             return (
               <div
                 key={idx}
-                className={`group relative rounded-2xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 flex flex-col justify-between space-y-4 transition-all duration-300 ${borderStyle} hover:scale-[1.01]`}
+                className={`group relative rounded-2xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 flex flex-col justify-between space-y-4 transition-all duration-300 ${borderStyle} hover:scale-[1.01] reveal-up ${delayClass}`}
               >
                 <div className="absolute top-2 left-2 w-3.5 h-3.5 border-t border-l border-[#2A3650]/50 group-hover:border-purple-500/40" />
                 <div className="absolute top-2 right-2 w-3.5 h-3.5 border-t border-r border-[#2A3650]/50 group-hover:border-purple-500/40" />
@@ -247,17 +249,17 @@ export default function FreeHosting() {
       </section>
 
       {/* GET STARTED CTA SECTION */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto relative z-20 text-center space-y-8 border-t border-[#2A3650]/30">
-        <span className="font-mono text-[10px] sm:text-xs font-bold text-purple-400 uppercase tracking-widest">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto relative z-20 text-center space-y-8 border-t border-[#2A3650]/30 reveal-up">
+        <span className="font-mono text-[10px] sm:text-xs font-bold text-purple-400 uppercase tracking-widest reveal-up delay-75">
           GET STARTED
         </span>
-        <h2 className="font-norwester text-3xl sm:text-6xl text-white uppercase tracking-wider max-w-3xl mx-auto leading-none">
+        <h2 className="font-norwester text-3xl sm:text-6xl text-white uppercase tracking-wider max-w-3xl mx-auto leading-none reveal-up delay-100">
           Ready to Start Your Minecraft Adventure?
         </h2>
-        <p className="text-xs sm:text-sm text-text-muted max-w-md mx-auto">
+        <p className="text-xs sm:text-sm text-text-muted max-w-md mx-auto reveal-up delay-150">
           Join thousands of players who already launched their free server!
         </p>
-        <div className="flex justify-center">
+        <div className="flex justify-center reveal-up delay-200">
           <button className="flex items-center gap-2.5 px-8 py-3.5 rounded-xl border-2 font-bold text-xs uppercase tracking-widest bg-purple-600 text-white border-purple-600 hover:bg-transparent hover:text-purple-400 shadow-[0_0_20px_rgba(168,85,247,0.2)] transition-all active:scale-[0.98] cursor-pointer">
             <Zap className="h-4 w-4" />
             <span>Launch Your Free Server</span>

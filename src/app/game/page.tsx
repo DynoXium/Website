@@ -91,22 +91,22 @@ export default function GameCatalog() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto z-10 animate-fade-in">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)]">
+      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto z-10 reveal-up">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)] reveal-up delay-75">
           Extreme performance game hosting
         </div>
-        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words">
+        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words reveal-up delay-100">
           Game Server <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Hosting</span>
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium">
+        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium reveal-up delay-150">
           Premium game server hosting for over 9 of the most popular games. Ultra-low latency, NVMe storage, and DDoS protection.
         </p>
       </section>
 
       {/* CATALOG GRID SECTION */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-8">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-8 reveal-up delay-75">
         {/* Search & Filters Row */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-[#0E1321]/60 border border-[#2A3650]/60 p-4 rounded-2xl max-w-5xl mx-auto backdrop-blur-md">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-[#0E1321]/60 border border-[#2A3650]/60 p-4 rounded-2xl max-w-5xl mx-auto backdrop-blur-md reveal-up delay-100">
           {/* Category Tabs */}
           <div className="flex bg-[#070A14] border border-[#2A3650]/50 p-1 rounded-xl gap-1 w-full md:w-auto overflow-x-auto no-scrollbar">
             {[
@@ -141,7 +141,7 @@ export default function GameCatalog() {
         </div>
 
         {/* Game Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-6xl mx-auto pt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-6xl mx-auto pt-4 reveal-up delay-150">
           {filteredGames.map((game) => (
             <Link
               key={game.slug}
@@ -189,8 +189,8 @@ export default function GameCatalog() {
       </section>
 
       {/* CORE FEATURES SECTION */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12 reveal-up">
+        <div className="text-center max-w-3xl mx-auto space-y-3 reveal-up delay-75">
           <h2 className="font-norwester text-2xl sm:text-5xl text-white uppercase tracking-wider">
             Cutting-Edge <span className="text-primary-cyan drop-shadow-[0_0_20px_rgba(108,244,255,0.2)]">Features</span>
           </h2>
@@ -258,8 +258,8 @@ export default function GameCatalog() {
       </section>
 
       {/* GAME CONTROL PANEL SHOWCASE */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12 reveal-up">
+        <div className="text-center max-w-3xl mx-auto space-y-3 reveal-up delay-75">
           <h2 className="font-norwester text-2xl sm:text-5xl text-white uppercase tracking-wider">
             Experience Our <span className="text-primary-cyan drop-shadow-[0_0_20px_rgba(108,244,255,0.2)]">Control Panel</span>
           </h2>
@@ -268,7 +268,7 @@ export default function GameCatalog() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch reveal-up delay-150">
           {/* Tabs Menu (5 cols) */}
           <div className="lg:col-span-4 flex flex-col gap-3">
             {[
@@ -340,8 +340,8 @@ export default function GameCatalog() {
       </section>
 
       {/* GLOBAL PRESENCE LATENCY MAP */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12 reveal-up">
+        <div className="text-center max-w-3xl mx-auto space-y-3 reveal-up delay-75">
           <h2 className="font-norwester text-2xl sm:text-5xl text-white uppercase tracking-wider">
             Global Presence, <span className="text-primary-cyan drop-shadow-[0_0_20px_rgba(108,244,255,0.2)]">Local Performance</span>
           </h2>
@@ -350,7 +350,7 @@ export default function GameCatalog() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center reveal-up delay-150">
           {/* Map Display (7 cols) */}
           <div className="lg:col-span-7 bg-[#0E1321]/50 border border-[#2A3650]/60 rounded-3xl p-6 sm:p-8 relative overflow-hidden backdrop-blur-md">
             {/* World Map vector mockup */}
@@ -452,8 +452,8 @@ export default function GameCatalog() {
       </section>
 
       {/* FAQs SECTION WITH NEED HELP SIDECARD */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12 reveal-up">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start reveal-up delay-100">
           {/* FAQ Accordions (7 cols) */}
           <div className="lg:col-span-8 space-y-6">
             <div className="space-y-2">

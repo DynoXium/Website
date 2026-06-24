@@ -8,7 +8,6 @@ import Nbt from "../nbt";
 import ServerProperties from "../server-properties";
 import CoordinateCalculator from "../coordinate-calculator";
 import TickCalculator from "../tick-calculator";
-import BackgroundShapes from "@/components/BackgroundShapes";
 import { notFound } from "next/navigation";
 
 interface PageProps {
@@ -73,7 +72,6 @@ export default async function ToolDynamicPage({ params }: PageProps) {
 
   return (
     <>
-      <BackgroundShapes pageId={tool} />
       {content}
     </>
   );

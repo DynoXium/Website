@@ -4,7 +4,10 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GlobalBackground from "@/components/GlobalBackground";
+import ScrollReveal from "@/components/ScrollReveal";
+import PageOpenTransition from "@/components/PageOpenTransition";
 import { CurrencyProvider } from "@/context/CurrencyContext";
+import ScrollToTop from "@/components/ScrollToTop";
 const chelseaMarket = Chelsea_Market({
   variable: "--font-chelsea-market",
   weight: "400",
@@ -27,6 +30,12 @@ export const metadata: Metadata = {
     "Deploy Minecraft servers, Discord bots, Web apps, VPS servers, and databases with high performance and zero friction. All-In-One freemium hosting built for developers.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,9 +49,13 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-bg-dark text-text-light font-sans antialiased">
         <CurrencyProvider>
           <GlobalBackground />
+          <ScrollReveal />
           <Header />
-          <main className="flex-grow pb-28">{children}</main>
+          <main className="flex-grow pb-28">
+            <PageOpenTransition>{children}</PageOpenTransition>
+          </main>
           <Footer />
+          <ScrollToTop />
         </CurrencyProvider>
       </body>
     </html>

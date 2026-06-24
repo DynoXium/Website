@@ -9,7 +9,6 @@ import {
   User,
   ArrowLeft,
   Share2,
-  Bookmark,
   Gamepad2,
   Cpu,
   Globe,
@@ -28,14 +27,14 @@ export default function BlogPostDetail() {
   if (!post) {
     return (
       <div className="relative w-full min-h-screen bg-[#0B0F19] flex flex-col items-center justify-center text-center px-4">
-        <div className="space-y-4">
-          <h1 className="font-norwester text-4xl text-white uppercase">Article Not Found</h1>
-          <p className="text-sm text-text-muted max-w-md mx-auto">
+        <div className="space-y-4 reveal-up">
+          <h1 className="font-norwester text-4xl text-white uppercase reveal-up delay-75">Article Not Found</h1>
+          <p className="text-sm text-text-muted max-w-md mx-auto reveal-up delay-100">
             The blog post you are looking for might have been moved, renamed, or deleted.
           </p>
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary-cyan border border-primary-cyan text-black font-bold text-xs uppercase tracking-wider hover:bg-transparent hover:text-primary-cyan transition-all"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary-cyan border border-primary-cyan text-black font-bold text-xs uppercase tracking-wider hover:bg-transparent hover:text-primary-cyan transition-all reveal-up delay-150"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Blog
@@ -46,19 +45,15 @@ export default function BlogPostDetail() {
   }
 
   const theme = post.theme;
-  let accentColor = "text-primary-cyan";
   let borderGlow = "border-primary-cyan/20 shadow-[0_0_30px_rgba(108,244,255,0.05)]";
   let tagColor = "bg-primary-cyan/10 text-primary-cyan border-primary-cyan/20";
   if (theme === "red") {
-    accentColor = "text-red-400";
     borderGlow = "border-red-500/20 shadow-[0_0_30px_rgba(239,68,68,0.05)]";
     tagColor = "bg-red-500/10 text-red-400 border-red-500/20";
   } else if (theme === "green") {
-    accentColor = "text-success-teal";
     borderGlow = "border-success-teal/20 shadow-[0_0_30px_rgba(0,229,163,0.05)]";
     tagColor = "bg-success-teal/10 text-success-teal border-success-teal/20";
   } else if (theme === "amber") {
-    accentColor = "text-amber-400";
     borderGlow = "border-amber-500/20 shadow-[0_0_30px_rgba(245,158,11,0.05)]";
     tagColor = "bg-amber-500/10 text-amber-400 border-amber-500/20";
   }
@@ -94,7 +89,7 @@ export default function BlogPostDetail() {
       </div>
 
       {/* TOP HEADER CONTROLS */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-6 relative z-20 flex justify-between items-center">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-6 relative z-20 flex justify-between items-center reveal-up">
         <Link
           href="/blog"
           className="inline-flex items-center gap-2 text-xs font-bold text-text-muted hover:text-white transition-colors"
@@ -116,8 +111,8 @@ export default function BlogPostDetail() {
       {/* ARTICLE CONTENT */}
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 relative z-20 space-y-8">
         {/* Article Meta Header */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
+        <div className="space-y-4 reveal-up delay-75">
+          <div className="flex items-center gap-3 reveal-up delay-100">
             <span className={`flex items-center gap-1.5 px-3 py-1 rounded-full border text-[10px] font-bold uppercase tracking-wider ${tagColor}`}>
               <Icon className="h-3 w-3" />
               {post.category}
@@ -128,12 +123,12 @@ export default function BlogPostDetail() {
             </span>
           </div>
 
-          <h1 className="font-norwester text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase leading-tight tracking-wide">
+          <h1 className="font-norwester text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase leading-tight tracking-wide reveal-up delay-150">
             {post.title}
           </h1>
 
           {/* Author Details & Date */}
-          <div className="flex items-center gap-3 border-y border-[#2A3650]/40 py-4">
+          <div className="flex items-center gap-3 border-y border-[#2A3650]/40 py-4 reveal-up delay-200">
             <div className={`w-10 h-10 rounded-xl border flex items-center justify-center ${
               theme === "red" ? "bg-red-500/10 text-red-400 border-red-500/20"
                 : theme === "green" ? "bg-success-teal/10 text-success-teal border-success-teal/20"
@@ -157,12 +152,12 @@ export default function BlogPostDetail() {
 
         {/* Article Body */}
         <div 
-          className={`metallic-card p-6 sm:p-10 rounded-3xl border bg-[#0E1321]/60 font-sans font-medium text-sm sm:text-base text-[#D0D6E2] leading-relaxed space-y-6 blog-content-styles ${borderGlow}`}
+          className={`metallic-card p-6 sm:p-10 rounded-3xl border bg-[#0E1321]/60 font-sans font-medium text-sm sm:text-base text-[#D0D6E2] leading-relaxed space-y-6 blog-content-styles reveal-up delay-100 ${borderGlow}`}
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
 
         {/* CTA Banner at bottom */}
-        <div className="bg-gradient-to-br from-[#0E1321]/90 to-[#141B30]/75 rounded-2xl border border-primary-cyan/25 p-8 shadow-[0_0_40px_rgba(108,244,255,0.08)] relative overflow-hidden">
+        <div className="bg-gradient-to-br from-[#0E1321]/90 to-[#141B30]/75 rounded-2xl border border-primary-cyan/25 p-8 shadow-[0_0_40px_rgba(108,244,255,0.08)] relative overflow-hidden reveal-scale delay-150">
           <div className="absolute inset-0 bg-grid-pattern-sm opacity-10" />
           <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="space-y-2">

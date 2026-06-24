@@ -106,21 +106,21 @@ export default function BotHosting() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto z-10 animate-fade-in">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)]">
+      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto z-10 reveal-up">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)] reveal-up delay-75">
           Discord bot hosting
         </div>
-        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words">
+        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words reveal-up delay-100">
           Premium <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Bot Hosting</span>
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium">
+        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium reveal-up delay-150">
           High-performance hosting with DDR5 RAM, instant setup, and 24/7 uptime.
         </p>
       </section>
 
       {/* PRICING PLANS SECTION */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 reveal-up">
+        <div className="text-center max-w-3xl mx-auto space-y-3 reveal-up delay-75">
           <span className="font-mono text-[10px] sm:text-xs font-bold text-primary-cyan uppercase tracking-widest">
             CHOOSE YOUR PERFECT PLAN
           </span>
@@ -133,16 +133,18 @@ export default function BotHosting() {
         </div>
 
         {/* 3 Plans Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto pt-4">
-          {plans.map((plan) => (
-            <div
-              key={plan.id}
-              className={`group relative rounded-2xl border bg-[#0E1321]/50 p-8 flex flex-col justify-between space-y-8 transition-all duration-300 ${
-                plan.id === "coder"
-                  ? "border-primary-cyan shadow-[0_0_30px_rgba(108,244,255,0.08)] scale-[1.02] md:scale-[1.04]"
-                  : "border-[#2A3650]/60 hover:border-primary-cyan/45 hover:shadow-[0_0_25px_rgba(108,244,255,0.06)]"
-              }`}
-            >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto pt-4 reveal-up delay-100">
+          {plans.map((plan, idx) => {
+            const delayClass = idx === 0 ? "delay-75" : idx === 1 ? "delay-100" : "delay-150";
+            return (
+              <div
+                key={plan.id}
+                className={`group relative rounded-2xl border bg-[#0E1321]/50 p-8 flex flex-col justify-between space-y-8 transition-all duration-300 reveal-up ${delayClass} ${
+                  plan.id === "coder"
+                    ? "border-primary-cyan shadow-[0_0_30px_rgba(108,244,255,0.08)] scale-[1.02] md:scale-[1.04]"
+                    : "border-[#2A3650]/60 hover:border-primary-cyan/45 hover:shadow-[0_0_25px_rgba(108,244,255,0.06)]"
+                }`}
+              >
               {plan.id === "coder" && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary-cyan text-black px-3 py-1 rounded-full text-[9px] font-extrabold uppercase tracking-widest font-mono shadow-[0_0_15px_rgba(108,244,255,0.25)]">
                   Most Popular
@@ -214,13 +216,13 @@ export default function BotHosting() {
                 Order Now
               </button>
             </div>
-          ))}
+          )})}
         </div>
       </section>
 
       {/* CORE FEATURES SECTION */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12 reveal-up">
+        <div className="text-center max-w-3xl mx-auto space-y-3 reveal-up delay-75">
           <h2 className="font-norwester text-2xl sm:text-5xl text-white uppercase tracking-wider">
             Cutting-Edge <span className="text-primary-cyan drop-shadow-[0_0_20px_rgba(108,244,255,0.2)]">Features</span>
           </h2>
@@ -260,10 +262,12 @@ export default function BotHosting() {
               iconStyle = "bg-[#3388FF]/10 border-[#3388FF]/20 text-[#3388FF]";
             }
 
+            const delayClass = idx === 0 ? "delay-75" : idx === 1 ? "delay-100" : idx === 2 ? "delay-150" : idx === 3 ? "delay-200" : idx === 4 ? "delay-300" : "delay-400";
+
             return (
               <div
                 key={idx}
-                className={`group relative rounded-2xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 flex flex-col justify-between space-y-4 transition-all duration-300 ${borderStyle} hover:scale-[1.01]`}
+                className={`group relative rounded-2xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 flex flex-col justify-between space-y-4 transition-all duration-300 ${borderStyle} hover:scale-[1.01] reveal-up ${delayClass}`}
               >
                 <div className="absolute top-2 left-2 w-3.5 h-3.5 border-t border-l border-[#2A3650]/50 group-hover:border-primary-cyan/40" />
                 <div className="absolute top-2 right-2 w-3.5 h-3.5 border-t border-r border-[#2A3650]/50 group-hover:border-primary-cyan/40" />
@@ -288,8 +292,8 @@ export default function BotHosting() {
       </section>
 
       {/* EXPERIENCE OUR CONTROL PANEL */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12 reveal-up">
+        <div className="text-center max-w-3xl mx-auto space-y-3 reveal-up delay-75">
           <h2 className="font-norwester text-2xl sm:text-5xl text-white uppercase tracking-wider">
             Experience Our <span className="text-primary-cyan drop-shadow-[0_0_20px_rgba(108,244,255,0.2)]">Bot Control Panel</span>
           </h2>
@@ -298,7 +302,7 @@ export default function BotHosting() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch reveal-up delay-100">
           {/* Tabs Menu (5 cols) */}
           <div className="lg:col-span-4 flex flex-col gap-3">
             {[
@@ -368,8 +372,8 @@ export default function BotHosting() {
       </section>
 
       {/* GLOBAL PRESENCE LATENCY MAP */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12 reveal-up">
+        <div className="text-center max-w-3xl mx-auto space-y-3 reveal-up delay-75">
           <h2 className="font-norwester text-2xl sm:text-5xl text-white uppercase tracking-wider">
             Global Presence, <span className="text-primary-cyan drop-shadow-[0_0_20px_rgba(108,244,255,0.2)]">Local Performance</span>
           </h2>
@@ -378,7 +382,7 @@ export default function BotHosting() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center reveal-up delay-100">
           {/* Map Display (7 cols) */}
           <div className="lg:col-span-7 bg-[#0E1321]/50 border border-[#2A3650]/60 rounded-3xl p-6 sm:p-8 relative overflow-hidden backdrop-blur-md">
             {/* World Map vector mockup */}
@@ -467,8 +471,8 @@ export default function BotHosting() {
       </section>
 
       {/* FAQs SECTION WITH NEED HELP SIDECARD */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12 reveal-up">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start reveal-up delay-100">
           {/* FAQ Accordions (7 cols) */}
           <div className="lg:col-span-8 space-y-6">
             <div className="space-y-2">

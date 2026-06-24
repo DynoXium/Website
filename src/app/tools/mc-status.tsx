@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
+import BackToToolsLink from "@/components/BackToToolsLink";
 import {
   Search,
   Zap,
@@ -14,7 +14,6 @@ import {
   Activity,
   CheckCircle,
   XCircle,
-  ArrowLeft,
 } from "lucide-react";
 
 interface ServerStatusResult {
@@ -93,27 +92,20 @@ export default function MinecraftStatus() {
 
       {/* MAIN CONTAINER */}
       <div className="max-w-4xl mx-auto pt-44 pb-20 px-4 sm:px-6 relative z-10 space-y-12">
-        {/* Back Link */}
-        <Link
-          href="/tools"
-          className="inline-flex items-center gap-2 text-text-muted hover:text-white transition-all text-xs font-mono font-bold uppercase tracking-wider group"
-        >
-          <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-          <span>Back to Tools</span>
-        </Link>
+        <BackToToolsLink />
         
         {/* HEADER SECTION */}
-        <div className="text-center space-y-4 max-w-2xl mx-auto">
-          <h1 className="font-norwester text-4xl sm:text-7xl tracking-wide sm:tracking-widest text-white uppercase leading-none">
+        <div className="text-center space-y-4 max-w-2xl mx-auto reveal-up delay-75">
+          <h1 className="font-norwester text-4xl sm:text-7xl tracking-wide sm:tracking-widest text-white uppercase leading-none reveal-up delay-100">
             Minecraft <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Server Status</span>
           </h1>
-          <p className="text-sm sm:text-base text-text-muted/90 font-medium">
+          <p className="text-sm sm:text-base text-text-muted/90 font-medium reveal-up delay-150">
             Check server status, player counts, and version information in real-time.
           </p>
         </div>
 
         {/* INPUT FORM */}
-        <form onSubmit={checkStatus} className="max-w-xl mx-auto relative group">
+        <form onSubmit={checkStatus} className="max-w-xl mx-auto relative group reveal-up delay-200">
           <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-cyan/30 to-success-teal/30 rounded-2xl blur opacity-30 group-hover:opacity-75 transition duration-500" />
           <div className="relative flex items-center bg-[#0E1321]/80 border border-[#2A3650]/80 rounded-2xl p-2.5 backdrop-blur-md transition-all duration-300 focus-within:border-primary-cyan/60 focus-within:shadow-[0_0_20px_rgba(108,244,255,0.1)]">
             <Search className="h-5 w-5 text-text-muted ml-3.5 flex-shrink-0" />

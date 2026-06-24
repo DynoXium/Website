@@ -388,21 +388,21 @@ export default function GameDetails() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto z-10 animate-fade-in">
-        <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold uppercase mb-8 tracking-widest ${theme.accentText} ${theme.accentBorder}`} style={{ boxShadow: `0 0 15px ${theme.accentColorHex}20` }}>
+      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto z-10 reveal-up">
+        <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold uppercase mb-8 tracking-widest ${theme.accentText} ${theme.accentBorder} reveal-up delay-75`} style={{ boxShadow: `0 0 15px ${theme.accentColorHex}20` }}>
           {config.name} Hosting Nodes
         </div>
-        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words">
+        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words reveal-up delay-100">
           {config.name} <span className={theme.accentText} style={{ filter: `drop-shadow(0 0 30px ${theme.accentColorHex}40)` }}>Server Hosting</span>
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium">
+        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium reveal-up delay-150">
           {config.heroSubtitle}
         </p>
       </section>
 
       {/* PLANS SELECTION SECTION */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 reveal-up">
+        <div className="text-center max-w-3xl mx-auto space-y-3 reveal-up delay-75">
           <span className={`font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest ${theme.accentText}`}>
             PLANS FOR SERVERS OF ALL SHAPES AND SIZES
           </span>
@@ -412,7 +412,7 @@ export default function GameDetails() {
         </div>
 
         {/* 8 Plans Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-4 reveal-up delay-150">
           {config.plans.map((plan, idx) => (
             <div
               key={idx}
@@ -495,8 +495,8 @@ export default function GameDetails() {
       </section>
 
       {/* CORE FEATURES SECTION */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12 reveal-up">
+        <div className="text-center max-w-3xl mx-auto space-y-3 reveal-up delay-75">
           <h2 className="font-norwester text-2xl sm:text-5xl text-white uppercase tracking-wider">
             Cutting-Edge <span className={theme.accentText} style={{ filter: `drop-shadow(0 0 20px ${theme.accentColorHex}30)` }}>Features</span>
           </h2>
@@ -505,7 +505,7 @@ export default function GameDetails() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-up delay-150">
           {[
             { title: "Instant Setup", desc: "Deployment in under 60 seconds. Our automated systems provision your resources the moment your payment is confirmed.", icon: Zap, color: "blue" },
             { title: "DDoS Protection", desc: "Enterprise-grade mitigation capable of filtering up to 1Tbps+. Stay online during the most volumetric attacks.", icon: Shield, color: "green" },
@@ -564,14 +564,14 @@ export default function GameDetails() {
       </section>
 
       {/* LATENCY PRESENCE MAP */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12 reveal-up">
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <h2 className="font-norwester text-2xl sm:text-5xl text-white uppercase tracking-wider">
             Global Presence, <span className={theme.accentText} style={{ filter: `drop-shadow(0 0 20px ${theme.accentColorHex}30)` }}>Local Performance</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center reveal-up delay-100">
           <div className="lg:col-span-7 bg-[#0E1321]/50 border border-[#2A3650]/60 rounded-3xl p-6 sm:p-8 relative overflow-hidden backdrop-blur-md">
             <div className="relative min-h-[280px] w-full bg-[url('/world-map.svg')] bg-center bg-no-repeat bg-contain opacity-80 flex items-center justify-center">
               <div className="absolute top-[35%] left-[25%] group">
@@ -629,8 +629,8 @@ export default function GameDetails() {
       </section>
 
       {/* FAQs SECTION */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12 reveal-up">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start reveal-up delay-75">
           <div className="lg:col-span-8 space-y-6">
             <h2 className="font-norwester text-2xl sm:text-5xl text-white uppercase tracking-wider">
               Frequently Asked <span className={theme.accentText}>Questions</span>

@@ -977,62 +977,6 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [visibleSlides, isMouseDown]);
 
-  // Scroll reveal IntersectionObserver (runs repeatedly on scroll up and down)
-  useEffect(() => {
-    const reveals = document.querySelectorAll(".reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("reveal-visible");
-          } else if (entry.boundingClientRect.top > 0) {
-            entry.target.classList.remove("reveal-visible");
-          }
-        });
-      },
-      {
-        threshold: 0.05,
-        rootMargin: "0px 0px -40px 0px"
-      }
-    );
-    reveals.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
-  // Track scroll direction to toggle 'scrolling-up' class for disabling animations during scroll-up
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-
-    const updateScrollDirection = () => {
-      const scrollY = window.scrollY;
-      if (scrollY < lastScrollY) {
-        document.body.classList.add("scrolling-up");
-      } else {
-        document.body.classList.remove("scrolling-up");
-      }
-      lastScrollY = scrollY <= 0 ? 0 : scrollY;
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateScrollDirection);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Force scroll restoration to top on page reload
-  useEffect(() => {
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual';
-    }
-    window.scrollTo(0, 0);
-  }, []);
 
   // FAQ State
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
@@ -1481,6 +1425,11 @@ CMD ["node", "main.js"]`;
         .animate-marquee {
           animation: marquee 28s linear infinite;
           will-change: transform;
+        }
+        @media (max-width: 767px) {
+          .animate-marquee {
+            animation: marquee 12s linear infinite;
+          }
         }
         .animate-marquee-slow {
           animation: marquee 40s linear infinite;

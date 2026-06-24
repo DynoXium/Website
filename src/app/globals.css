@@ -252,6 +252,21 @@ body {
   transform-style: preserve-3d;
 }
 
+@keyframes page-open-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-open-rise {
+  animation: page-open-rise 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 /* 2. Scroll Reveal Transitions */
 .reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale {
   opacity: 0;
@@ -283,6 +298,7 @@ body {
 .delay-100 { transition-delay: 100ms; }
 .delay-150 { transition-delay: 150ms; }
 .delay-200 { transition-delay: 200ms; }
+.delay-225 { transition-delay: 225ms; }
 .delay-300 { transition-delay: 300ms; }
 .delay-400 { transition-delay: 400ms; }
 .delay-500 { transition-delay: 500ms; }
@@ -331,6 +347,7 @@ input:focus, textarea:focus, select:focus {
 
 /* Ensure page backgrounds are transparent so layout background shapes show through */
 main > div,
-main > section {
+main > section,
+main .page-open-rise > div {
   background-color: transparent !important;
 }

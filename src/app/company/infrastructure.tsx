@@ -156,25 +156,25 @@ export default function InfrastructurePage() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative pt-40 pb-12 px-4 sm:px-6 lg:px-8 text-center max-w-6xl mx-auto z-10 animate-fade-in">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)]">
+      <section className="relative pt-40 pb-12 px-4 sm:px-6 lg:px-8 text-center max-w-6xl mx-auto z-10 reveal-up">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)] reveal-up delay-75">
           <Globe className="h-4 w-4 text-primary-cyan animate-pulse" />
           Global Node Network
         </div>
-        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words">
+        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words reveal-up delay-100">
           Global Presence, <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Local Performance</span>
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium">
+        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium reveal-up delay-150">
           Our rapidly expanding datacenter network spans across the globe, delivering ultra-low latency and lightning-fast connections wherever you are.
         </p>
       </section>
 
       {/* MAP & REGIONS INTERACTIVE CONTAINER */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 reveal-up">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:items-stretch items-start">
           
           {/* MAP COLUMN (Stretches vertically to cover all 4 stacked location cards on desktop) */}
-          <div className="lg:col-span-8 bg-[#0E1321]/45 border border-[#2A3650]/60 rounded-2xl p-6 relative shadow-[0_0_40px_rgba(0,0,0,0.4)] overflow-hidden lg:h-full min-h-[500px] flex flex-col justify-between">
+          <div className="lg:col-span-8 bg-[#0E1321]/45 border border-[#2A3650]/60 rounded-2xl p-6 relative shadow-[0_0_40px_rgba(0,0,0,0.4)] overflow-hidden lg:h-full min-h-[500px] flex flex-col justify-between reveal-up delay-75">
             {/* Tech bracket accents */}
             <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-[#2A3650]/80" />
             <div className="absolute top-3 right-3 w-4 h-4 border-t border-r border-[#2A3650]/80" />
@@ -275,7 +275,7 @@ export default function InfrastructurePage() {
           </div>
 
           {/* REGIONS LIST COLUMN */}
-          <div className="lg:col-span-4 flex flex-col gap-5 w-full">
+          <div className="lg:col-span-4 flex flex-col gap-5 w-full reveal-up delay-150">
             {regions.map((region) => {
               const isIndia = region.id === "india";
               const isHovered = activeRegion === region.id;

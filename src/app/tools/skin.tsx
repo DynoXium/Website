@@ -1,10 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
+import BackToToolsLink from "@/components/BackToToolsLink";
 import {
   Search,
-  ArrowLeft,
   User,
   Download,
   Eye,
@@ -73,27 +72,20 @@ export default function SkinDownloader() {
       </div>
 
       <div className="max-w-7xl mx-auto pt-44 pb-20 px-4 sm:px-6 relative z-10 space-y-12">
-        {/* Back Link */}
-        <Link
-          href="/tools"
-          className="inline-flex items-center gap-2 text-text-muted hover:text-white transition-all text-xs font-mono font-bold uppercase tracking-wider group"
-        >
-          <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-          <span>Back to Tools</span>
-        </Link>
+        <BackToToolsLink />
 
         {/* HEADER SECTION */}
-        <div className="text-center space-y-4 max-w-2xl mx-auto">
-          <h1 className="font-norwester text-4xl sm:text-7xl tracking-wide sm:tracking-widest text-white uppercase leading-none">
+        <div className="text-center space-y-4 max-w-2xl mx-auto reveal-up delay-75">
+          <h1 className="font-norwester text-4xl sm:text-7xl tracking-wide sm:tracking-widest text-white uppercase leading-none reveal-up delay-100">
             Skin <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Downloader</span>
           </h1>
-          <p className="text-sm sm:text-base text-text-muted/90 font-medium">
+          <p className="text-sm sm:text-base text-text-muted/90 font-medium reveal-up delay-150">
             View and download Minecraft skins with multiple format options.
           </p>
         </div>
 
         {/* WORKSPACE LAYOUT */}
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="max-w-4xl mx-auto space-y-8 reveal-up delay-200">
           
           {/* SEARCH BOX */}
           <div className="rounded-3xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 space-y-6 relative overflow-hidden backdrop-blur-md">

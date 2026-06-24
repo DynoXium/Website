@@ -452,20 +452,20 @@ export default function TermsOfService() {
   return (
     <div className="relative w-full min-h-screen bg-[#0B0F19] overflow-x-clip" style={{ isolation: 'isolate' }}>
       {/* HERO TITLE */}
-      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-6xl mx-auto z-10 animate-fade-in">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)]">
+      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-6xl mx-auto z-10 reveal-up">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)] reveal-up delay-75">
           Legal Agreement
         </div>
-        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words">
+        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words reveal-up delay-100">
           Terms of <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Service</span>
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium">
+        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium reveal-up delay-150">
           Please review the legal terms governing your use of the DynoXium hosting network, servers, and command console. <span className="text-primary-cyan/80 block mt-3 font-mono text-xs sm:text-sm uppercase tracking-wider">Last updated: June 21, 2026</span>
         </p>
       </section>
 
       {/* MAIN LAYOUT */}
-      <section className="py-8 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20">
+      <section className="py-8 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 reveal-up delay-200">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
           {/* Left Navigation Column */}
@@ -492,28 +492,26 @@ export default function TermsOfService() {
                             element.scrollIntoView({ behavior: "smooth", block: "center" });
                           }
                         }}
-                        className={`flex items-center gap-3 p-3 rounded-xl text-left transition-all duration-300 font-display text-xs sm:text-sm font-bold border ${
-                          isActive
-                            ? theme === "red"
-                              ? "bg-red-500/10 border-red-500/40 text-red-400 shadow-[0_0_15px_rgba(239,68,68,0.25)]"
-                              : theme === "green"
+                        className={`flex items-center gap-3 p-3 rounded-xl text-left transition-all duration-300 font-display text-xs sm:text-sm font-bold border ${isActive
+                          ? theme === "red"
+                            ? "bg-red-500/10 border-red-500/40 text-red-400 shadow-[0_0_15px_rgba(239,68,68,0.25)]"
+                            : theme === "green"
                               ? "bg-success-teal/10 border-success-teal/40 text-success-teal shadow-[0_0_15px_rgba(0,229,163,0.25)]"
                               : theme === "amber"
-                              ? "bg-amber-500/10 border-amber-500/40 text-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.25)]"
-                              : "bg-primary-cyan/10 border-primary-cyan/40 text-primary-cyan shadow-[0_0_15px_var(--color-primary-theme-glow)]"
-                            : "border-transparent text-text-muted hover:bg-[#161C2C]/50 hover:text-white"
-                        }`}
+                                ? "bg-amber-500/10 border-amber-500/40 text-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.25)]"
+                                : "bg-primary-cyan/10 border-primary-cyan/40 text-primary-cyan shadow-[0_0_15px_var(--color-primary-theme-glow)]"
+                          : "border-transparent text-text-muted hover:bg-[#161C2C]/50 hover:text-white"
+                          }`}
                       >
-                        <Icon className={`h-4.5 w-4.5 flex-shrink-0 transition-colors duration-300 ${
-                          isActive
-                            ? theme === "red" ? "text-red-400 fill-red-500/25"
-                              : theme === "green" ? "text-success-teal fill-success-teal/25"
+                        <Icon className={`h-4.5 w-4.5 flex-shrink-0 transition-colors duration-300 ${isActive
+                          ? theme === "red" ? "text-red-400 fill-red-500/25"
+                            : theme === "green" ? "text-success-teal fill-success-teal/25"
                               : theme === "amber" ? "text-amber-400 fill-amber-500/25"
-                              : "text-primary-cyan fill-primary-cyan/25"
-                            : theme === "red" ? "text-red-500/40"
-                              : theme === "green" ? "text-success-teal/40"
+                                : "text-primary-cyan fill-primary-cyan/25"
+                          : theme === "red" ? "text-red-500/40"
+                            : theme === "green" ? "text-success-teal/40"
                               : theme === "amber" ? "text-amber-500/40"
-                              : "text-primary-cyan/40"
+                                : "text-primary-cyan/40"
                         }`} />
                         <span>{sec.title}</span>
                       </button>

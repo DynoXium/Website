@@ -274,21 +274,21 @@ export default function FAQPage() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto z-10 animate-fade-in">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)]">
+      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto z-10 reveal-up">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-8 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)] reveal-up delay-75">
           Help Center
         </div>
-        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words">
+        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words reveal-up delay-100">
           Frequently Asked <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Questions</span>
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium">
+        <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium reveal-up delay-150">
           Everything you need to know about our services, billing, and technical details.
         </p>
       </section>
 
       {/* FAQ CONTENT GRID BY CATEGORY */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-20 pb-32">
-        <div className="text-center font-mono text-[10px] sm:text-xs font-bold text-primary-cyan uppercase tracking-[0.25em] mb-12">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-20 pb-32 reveal-up">
+        <div className="text-center font-mono text-[10px] sm:text-xs font-bold text-primary-cyan uppercase tracking-[0.25em] mb-12 reveal-up delay-75">
           Common Questions
         </div>
 
@@ -334,9 +334,9 @@ export default function FAQPage() {
           }
 
           return (
-            <div key={catIdx} className="space-y-8">
+            <div key={catIdx} className="space-y-8 reveal-up">
               {/* Category Header */}
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-4 reveal-up delay-75">
                 <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center flex-shrink-0 ${iconBoxBg}`}>
                   <Icon className={`h-6 w-6 ${iconColor}`} />
                 </div>
@@ -352,12 +352,13 @@ export default function FAQPage() {
 
               {/* Accordion Questions Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {category.items.map((item) => {
+                {category.items.map((item, itemIdx) => {
                   const isExpanded = !!expandedItems[item.id];
+                  const delayClass = itemIdx % 2 === 0 ? "delay-75" : "delay-150";
                   return (
                     <div
                       key={item.id}
-                      className={`group relative rounded-xl border border-[#2A3650]/60 bg-[#0E1321]/40 transition-all duration-300 ${faqBorderGlow} h-fit overflow-hidden`}
+                      className={`group relative rounded-xl border border-[#2A3650]/60 bg-[#0E1321]/40 transition-all duration-300 ${faqBorderGlow} h-fit overflow-hidden reveal-up ${delayClass}`}
                     >
                       {/* Tech corner accent lines */}
                       <div className="absolute top-2 left-2 w-2 h-2 border-t border-l border-[#2A3650]/50 group-hover:border-primary-cyan/30 transition-colors" />

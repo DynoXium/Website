@@ -125,18 +125,18 @@ export default function ContactPage() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative pt-40 pb-10 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto z-10 animate-fade-in">
-        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-4 uppercase leading-none break-words">
+      <section className="relative pt-40 pb-10 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto z-10 reveal-up">
+        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-4 uppercase leading-none break-words reveal-up delay-100">
           Contact <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Us</span>
         </h1>
-        <p className="text-base sm:text-lg text-text-muted/90 max-w-2xl mx-auto font-sans leading-relaxed font-medium">
+        <p className="text-base sm:text-lg text-text-muted/90 max-w-2xl mx-auto font-sans leading-relaxed font-medium reveal-up delay-150">
           Contact our 24/7 support team
         </p>
       </section>
 
       {/* MAIN CONTAINER */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-20 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-[#0E1321]/60 border border-[#2A3650]/60 rounded-3xl p-6 sm:p-8 backdrop-blur-md relative">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-20 pb-20 reveal-up">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-[#0E1321]/60 border border-[#2A3650]/60 rounded-3xl p-6 sm:p-8 backdrop-blur-md relative reveal-up delay-75">
           
           {/* Tech decorative brackets on the large container */}
           <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-primary-cyan/30" />
@@ -146,9 +146,10 @@ export default function ContactPage() {
 
           {/* LEFT COLUMN: PROFILE SELECTOR (5 cols) */}
           <div className="lg:col-span-5 flex flex-col gap-4">
-            {profileOptions.map((opt) => {
+            {profileOptions.map((opt, idx) => {
               const Icon = opt.icon;
               const isActive = activeProfile === opt.id;
+              const delayClass = idx === 0 ? "delay-75" : idx === 1 ? "delay-150" : idx === 2 ? "delay-225" : "delay-300";
               
               return (
                 <button
@@ -157,7 +158,7 @@ export default function ContactPage() {
                     setActiveProfile(opt.id);
                     setSubmitted(false);
                   }}
-                  className={`relative w-full text-left p-5 rounded-2xl border transition-all duration-300 group cursor-pointer ${
+                  className={`relative w-full text-left p-5 rounded-2xl border transition-all duration-300 group cursor-pointer reveal-up ${delayClass} ${
                     isActive
                       ? "bg-primary-cyan/5 border-primary-cyan shadow-[0_0_20px_rgba(108,244,255,0.1)]"
                       : "bg-[#0A0D1A]/50 border-[#2A3650]/50 hover:border-primary-cyan/40 hover:bg-[#0E1225]/45"
@@ -198,9 +199,9 @@ export default function ContactPage() {
           </div>
 
           {/* RIGHT COLUMN: CONTACT FORM (7 cols) */}
-          <div className="lg:col-span-7 bg-[#070A14]/75 border border-[#2A3650]/40 rounded-2xl p-6 sm:p-8 space-y-6 relative overflow-hidden">
+          <div className="lg:col-span-7 bg-[#070A14]/75 border border-[#2A3650]/40 rounded-2xl p-6 sm:p-8 space-y-6 relative overflow-hidden reveal-up delay-150">
             {submitted ? (
-              <div className="py-16 text-center space-y-4 animate-fade-in">
+              <div className="py-16 text-center space-y-4 reveal-up">
                 <div className="w-16 h-16 rounded-full bg-success-teal/10 border-2 border-success-teal flex items-center justify-center mx-auto shadow-[0_0_20px_rgba(0,229,163,0.15)] animate-bounce">
                   <Check className="h-8 w-8 text-success-teal animate-pulse" />
                 </div>
@@ -348,8 +349,8 @@ export default function ContactPage() {
       </section>
 
       {/* BOTTOM SECTION: TICKET CALLOUT */}
-      <section className="py-12 border-t border-[#2A3650]/40 bg-[#070A14]/40 text-center relative z-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <section className="py-12 border-t border-[#2A3650]/40 bg-[#070A14]/40 text-center relative z-20 reveal-up">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 reveal-up delay-75">
           <h3 className="font-norwester text-xl sm:text-3xl text-white uppercase tracking-wider">
             Already an existing customer?
           </h3>

@@ -224,20 +224,20 @@ export default function TeamPage() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative pt-40 pb-6 px-4 sm:px-6 lg:px-8 text-center max-w-6xl mx-auto z-10 animate-fade-in flex-shrink-0">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-6 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)]">
+      <section className="relative pt-40 pb-6 px-4 sm:px-6 lg:px-8 text-center max-w-6xl mx-auto z-10 flex-shrink-0 reveal-up">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase mb-6 tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)] reveal-up delay-75">
           The People Behind DynoXium
         </div>
-        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words">
+        <h1 className="font-norwester text-3xl sm:text-7xl md:text-8xl tracking-wide sm:tracking-widest text-white mb-6 uppercase leading-none break-words reveal-up delay-100">
           Meet Our <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Team</span>
         </h1>
-        <p className="text-base sm:text-lg text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium">
+        <p className="text-base sm:text-lg text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium reveal-up delay-150">
           Dedicated professionals working together to deliver exceptional hosting services and support.
         </p>
       </section>
 
       {/* DRAGGABLE CAROUSEL VIEWPORT */}
-      <section className="relative w-full py-8 px-4 sm:px-8 lg:px-16 z-20 flex-grow flex flex-col justify-center max-w-7xl mx-auto overflow-hidden">
+      <section className="relative w-full py-8 px-4 sm:px-8 lg:px-16 z-20 flex-grow flex flex-col justify-center max-w-7xl mx-auto overflow-hidden reveal-scale delay-200">
         
         {/* Drag Container */}
         <div

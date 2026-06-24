@@ -61,23 +61,23 @@ export default function AboutUs() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10">
+      <section className="relative pt-40 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10 reveal-up">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Text Column */}
-          <div className="lg:col-span-7 space-y-6 text-left animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)]">
+          <div className="lg:col-span-7 space-y-6 text-left">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)] reveal-up delay-75">
               Who We Are
             </div>
-            <h1 className="font-norwester text-4xl sm:text-6xl lg:text-7xl tracking-wide text-white uppercase leading-none">
+            <h1 className="font-norwester text-4xl sm:text-6xl lg:text-7xl tracking-wide text-white uppercase leading-none reveal-up delay-100">
               About <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">DynoXium</span>
             </h1>
-            <p className="text-sm sm:text-base text-text-muted leading-relaxed font-sans font-medium">
+            <p className="text-sm sm:text-base text-text-muted leading-relaxed font-sans font-medium reveal-up delay-150">
               At DynoXium, we are dedicated to delivering exceptional server hosting solutions tailored to the diverse needs of gamers, content creators, developers, and studios. Founded in India by Kr Arjan, our journey began with a passion for gaming and hosting, and a commitment to revolutionize the hosting experience.
             </p>
-            <p className="text-sm sm:text-base text-text-muted leading-relaxed font-sans font-medium">
+            <p className="text-sm sm:text-base text-text-muted leading-relaxed font-sans font-medium reveal-up delay-200">
               Frustrated by subpar customer support and prolonged wait times from existing providers, we set out to create a platform where customers would receive prompt, knowledgeable, and comprehensive assistance.
             </p>
-            <div className="pt-4 flex flex-wrap gap-6 items-center">
+            <div className="pt-4 flex flex-wrap gap-6 items-center reveal-up delay-300">
               <div className="flex flex-col">
                 <span className="text-3xl sm:text-4xl font-extrabold text-white font-display">10,000+</span>
                 <span className="text-xs text-primary-cyan font-mono uppercase tracking-wider">Servers Configured</span>
@@ -96,7 +96,7 @@ export default function AboutUs() {
           </div>
 
           {/* Right Visual Graphic Column */}
-          <div className="lg:col-span-5 flex justify-center items-center">
+          <div className="lg:col-span-5 flex justify-center items-center reveal-scale delay-150">
             <div className="relative w-full max-w-[400px] aspect-square rounded-3xl border border-primary-cyan/35 bg-gradient-to-br from-[#0E1321]/90 to-[#141B30]/80 p-8 shadow-[0_0_50px_rgba(108,244,255,0.08)] flex flex-col justify-between items-center group overflow-hidden">
               {/* Dynamic Accent glows on card */}
               <div className="absolute -top-12 -right-12 w-28 h-28 bg-primary-cyan/15 rounded-full blur-[30px] group-hover:scale-125 transition-transform duration-500" />
@@ -143,8 +143,8 @@ export default function AboutUs() {
       </section>
 
       {/* OUR MISSION SECTION */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20">
-        <div className="bg-gradient-to-r from-[#0E1321]/90 to-[#141B30]/70 rounded-2xl border border-primary-cyan/25 p-8 sm:p-12 shadow-[0_0_40px_rgba(108,244,255,0.06)] relative overflow-hidden">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 reveal-up">
+        <div className="bg-gradient-to-r from-[#0E1321]/90 to-[#141B30]/70 rounded-2xl border border-primary-cyan/25 p-8 sm:p-12 shadow-[0_0_40px_rgba(108,244,255,0.06)] relative overflow-hidden reveal-scale delay-75">
           <div className="absolute top-0 right-0 w-[300px] h-[100px] bg-primary-cyan/5 rounded-full blur-[60px] pointer-events-none" />
           <div className="relative z-10 max-w-3xl space-y-4">
             <h2 className="font-norwester text-2xl sm:text-4xl text-white uppercase tracking-wider">
@@ -158,8 +158,8 @@ export default function AboutUs() {
       </section>
 
       {/* COMPREHENSIVE HOSTING SOLUTIONS */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-8">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-8 reveal-up">
+        <div className="text-center max-w-3xl mx-auto space-y-3 reveal-up">
           <h2 className="font-norwester text-2xl sm:text-4xl text-white uppercase tracking-wider">
             Comprehensive Hosting Solutions
           </h2>
@@ -170,7 +170,7 @@ export default function AboutUs() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1: Game Server Hosting */}
-          <div className="metallic-card p-6 sm:p-8 rounded-2xl border border-[#2A3650]/60 bg-[#0E1321]/50 hover:border-primary-cyan/35 transition-all duration-300 flex flex-col justify-between space-y-4">
+          <div className="metallic-card p-6 sm:p-8 rounded-2xl border border-[#2A3650]/60 bg-[#0E1321]/50 hover:border-primary-cyan/35 transition-all duration-300 flex flex-col justify-between space-y-4 reveal-up delay-75">
             <div className="space-y-4">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-cyan/20 to-blue-950/40 border border-primary-cyan/35 flex items-center justify-center text-primary-cyan shadow-[0_0_10px_rgba(108,244,255,0.15)]">
                 <Gamepad2 className="h-6 w-6" />
@@ -189,7 +189,7 @@ export default function AboutUs() {
           </div>
 
           {/* Card 2: VPS Hosting */}
-          <div className="metallic-card p-6 sm:p-8 rounded-2xl border border-[#2A3650]/60 bg-[#0E1321]/50 hover:border-amber-500/35 transition-all duration-300 flex flex-col justify-between space-y-4">
+          <div className="metallic-card p-6 sm:p-8 rounded-2xl border border-[#2A3650]/60 bg-[#0E1321]/50 hover:border-amber-500/35 transition-all duration-300 flex flex-col justify-between space-y-4 reveal-up delay-150">
             <div className="space-y-4">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-950/40 border border-amber-500/35 flex items-center justify-center text-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.15)]">
                 <Cpu className="h-6 w-6" />
@@ -208,7 +208,7 @@ export default function AboutUs() {
           </div>
 
           {/* Card 3: Dedicated Server Hosting */}
-          <div className="metallic-card p-6 sm:p-8 rounded-2xl border border-[#2A3650]/60 bg-[#0E1321]/50 hover:border-success-teal/35 transition-all duration-300 flex flex-col justify-between space-y-4">
+          <div className="metallic-card p-6 sm:p-8 rounded-2xl border border-[#2A3650]/60 bg-[#0E1321]/50 hover:border-success-teal/35 transition-all duration-300 flex flex-col justify-between space-y-4 reveal-up delay-200">
             <div className="space-y-4">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-success-teal/20 to-emerald-950/40 border border-success-teal/35 flex items-center justify-center text-success-teal shadow-[0_0_10px_rgba(0,229,163,0.15)]">
                 <Server className="h-6 w-6" />
@@ -232,7 +232,7 @@ export default function AboutUs() {
       <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Card 1: Unparalleled Support */}
-          <div className="metallic-card p-8 rounded-2xl border border-primary-cyan/20 bg-gradient-to-br from-[#0E1321]/90 to-[#141B30]/65 hover:border-primary-cyan/40 transition-all duration-300 relative overflow-hidden">
+          <div className="metallic-card p-8 rounded-2xl border border-primary-cyan/20 bg-gradient-to-br from-[#0E1321]/90 to-[#141B30]/65 hover:border-primary-cyan/40 transition-all duration-300 relative overflow-hidden reveal-left delay-75">
             <div className="absolute top-0 right-0 w-[200px] h-[50px] bg-primary-cyan/5 rounded-full blur-[40px] pointer-events-none" />
             <div className="flex items-center gap-3 border-b border-[#2A3650]/40 pb-4 mb-4">
               <div className="w-10 h-10 rounded-xl bg-primary-cyan/10 border border-primary-cyan/20 flex items-center justify-center text-primary-cyan">
@@ -248,7 +248,7 @@ export default function AboutUs() {
           </div>
 
           {/* Card 2: Community-Driven */}
-          <div className="metallic-card p-8 rounded-2xl border border-primary-cyan/20 bg-gradient-to-br from-[#0E1321]/90 to-[#141B30]/65 hover:border-primary-cyan/40 transition-all duration-300 relative overflow-hidden">
+          <div className="metallic-card p-8 rounded-2xl border border-primary-cyan/20 bg-gradient-to-br from-[#0E1321]/90 to-[#141B30]/65 hover:border-primary-cyan/40 transition-all duration-300 relative overflow-hidden reveal-right delay-75">
             <div className="absolute top-0 right-0 w-[200px] h-[50px] bg-primary-cyan/5 rounded-full blur-[40px] pointer-events-none" />
             <div className="flex items-center gap-3 border-b border-[#2A3650]/40 pb-4 mb-4">
               <div className="w-10 h-10 rounded-xl bg-primary-cyan/10 border border-primary-cyan/20 flex items-center justify-center text-primary-cyan">
@@ -267,7 +267,7 @@ export default function AboutUs() {
 
       {/* STUDIO PARTNERSHIPS */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20">
-        <div className="bg-gradient-to-r from-[#0E1321]/90 to-[#141B30]/70 rounded-2xl border border-[#2A3650]/60 p-8 sm:p-12 shadow-[0_0_40px_rgba(108,244,255,0.06)] relative overflow-hidden">
+        <div className="bg-gradient-to-r from-[#0E1321]/90 to-[#141B30]/70 rounded-2xl border border-[#2A3650]/60 p-8 sm:p-12 shadow-[0_0_40px_rgba(108,244,255,0.06)] relative overflow-hidden reveal-scale delay-75">
           <div className="absolute top-0 right-0 w-[300px] h-[100px] bg-[#3388FF]/5 rounded-full blur-[60px] pointer-events-none" />
           <div className="relative z-10 max-w-4xl space-y-4">
             <div className="flex items-center gap-2 text-primary-cyan font-mono text-xs uppercase tracking-widest font-bold">
@@ -292,7 +292,7 @@ export default function AboutUs() {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             {/* Image/Mockup Left */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-start">
+            <div className="lg:col-span-5 flex justify-center lg:justify-start reveal-left delay-100">
               <div className="relative w-full max-w-[320px] aspect-[4/3] rounded-2xl overflow-hidden border border-[#2A3650]/60 shadow-lg bg-[#080B14]">
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary-cyan/20 to-blue-500/10 mix-blend-overlay" />
                 <div className="absolute inset-0 flex flex-col justify-center items-center p-6 text-center space-y-3">
@@ -306,7 +306,7 @@ export default function AboutUs() {
             </div>
 
             {/* CTA Text Right */}
-            <div className="lg:col-span-7 space-y-4">
+            <div className="lg:col-span-7 space-y-4 reveal-right delay-150">
               <h2 className="font-norwester text-2xl sm:text-4xl text-white uppercase tracking-wider">
                 Get Started Today
               </h2>
@@ -333,7 +333,7 @@ export default function AboutUs() {
       </section>
 
       {/* CONTACT US */}
-      <section className="py-12 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 text-center space-y-6">
+      <section className="py-12 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 text-center space-y-6 reveal-up">
         <h2 className="font-norwester text-2xl sm:text-4xl text-white uppercase tracking-wider">
           Contact Us
         </h2>
