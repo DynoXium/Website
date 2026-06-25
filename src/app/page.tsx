@@ -1086,42 +1086,8 @@ CMD ["node", "main.js"]`;
         if (active) setDemoStep(1);
       }
 
-      // Step 1: Type Dockerfile
+      // Step 1: Type npm run deploy
       else if (demoStep === 1) {
-        await new Promise((resolve) => setTimeout(resolve, 800));
-        if (!active) return;
-        setActiveFile("Dockerfile");
-
-        let currentText = "";
-        for (let i = 0; i < txtDocker.length; i += 3) {
-          if (!active) return;
-          currentText += txtDocker.slice(i, i + 3);
-          setTypedDocker(currentText);
-          await new Promise((resolve) => setTimeout(resolve, 15));
-        }
-
-        if (active) setDemoStep(2);
-      }
-
-      // Step 2: Type index.html
-      else if (demoStep === 2) {
-        await new Promise((resolve) => setTimeout(resolve, 800));
-        if (!active) return;
-        setActiveFile("index.html");
-
-        let currentText = "";
-        for (let i = 0; i < txtHtml.length; i += 4) {
-          if (!active) return;
-          currentText += txtHtml.slice(i, i + 4);
-          setTypedHtml(currentText);
-          await new Promise((resolve) => setTimeout(resolve, 15));
-        }
-
-        if (active) setDemoStep(3);
-      }
-
-      // Step 3: Type npm run deploy
-      else if (demoStep === 3) {
         await new Promise((resolve) => setTimeout(resolve, 800));
         if (!active) return;
         setActiveFile("main.ts");
@@ -1135,11 +1101,11 @@ CMD ["node", "main.js"]`;
           await new Promise((resolve) => setTimeout(resolve, 40));
         }
 
-        if (active) setDemoStep(4);
+        if (active) setDemoStep(2);
       }
 
-      // Step 4: Run deploy sequence
-      else if (demoStep === 4) {
+      // Step 2: Run deploy sequence
+      else if (demoStep === 2) {
         if (!active) return;
         setIsDeploying(true);
         setTerminalCmd("");
@@ -1164,12 +1130,12 @@ CMD ["node", "main.js"]`;
           setIsDeploying(false);
           setIsDeployed(true);
           setActiveFile("preview");
-          setDemoStep(5);
+          setDemoStep(3);
         }
       }
 
-      // Step 5: Live App interactions loop
-      else if (demoStep === 5) {
+      // Step 3: Live App interactions loop
+      else if (demoStep === 3) {
         await new Promise((resolve) => setTimeout(resolve, 2000));
         if (!active) return;
         setClickCount((c) => c + 1);
