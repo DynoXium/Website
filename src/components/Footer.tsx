@@ -148,6 +148,7 @@ export default function Footer() {
                 alt="DynoXium Logo"
                 width={68}
                 height={68}
+                unoptimized
                 className="object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
               />
               <span className="font-norwester text-[1.95rem] tracking-widest text-white transition-colors">

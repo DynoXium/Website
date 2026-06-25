@@ -1476,9 +1476,9 @@ CMD ["node", "main.js"]`;
             alt="Minecraft Wallpaper"
             fill
             sizes="100vw"
-            className="object-cover opacity-35 grayscale contrast-110 brightness-75"
+            className="object-cover opacity-35 grayscale contrast-110 brightness-75 transform-gpu"
             priority
-            fetchPriority="high"
+            unoptimized
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F19]/10 via-[#0B0F19]/80 to-[#0B0F19]" />
         </div>
