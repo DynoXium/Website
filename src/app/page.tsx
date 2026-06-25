@@ -1484,15 +1484,15 @@ CMD ["node", "main.js"]`;
         </div>
 
         {/* Ambient Glows */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-cyan/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-cyan/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-cyan/10 rounded-full blur-[60px] md:blur-[120px] transform-gpu pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-cyan/10 rounded-full blur-[60px] md:blur-[120px] transform-gpu pointer-events-none" />
 
         {/* Floating Game Spore Particles */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
-          <div className="absolute top-[25%] left-[8%] w-2 h-2 bg-primary-cyan/30 rounded-sm animate-bounce-slow" />
-          <div className="absolute top-[65%] left-[40%] w-3 h-3 bg-secondary-cyan/20 rounded-sm animate-bounce-slow" style={{ animationDelay: "2s", animationDuration: "8s" }} />
-          <div className="absolute top-[35%] right-[15%] w-2 h-2 bg-[#3388FF]/30 rounded-sm animate-bounce-slow" style={{ animationDelay: "4s", animationDuration: "5s" }} />
-          <div className="absolute bottom-[20%] left-[20%] w-2 h-2 bg-primary-cyan/15 rounded-sm animate-bounce-slow" style={{ animationDelay: "1s", animationDuration: "7s" }} />
+          <div className="absolute top-[25%] left-[8%] w-2 h-2 bg-primary-cyan/30 rounded-sm animate-bounce-slow transform-gpu" />
+          <div className="absolute top-[65%] left-[40%] w-3 h-3 bg-secondary-cyan/20 rounded-sm animate-bounce-slow transform-gpu" style={{ animationDelay: "2s", animationDuration: "8s" }} />
+          <div className="absolute top-[35%] right-[15%] w-2 h-2 bg-[#3388FF]/30 rounded-sm animate-bounce-slow transform-gpu" style={{ animationDelay: "4s", animationDuration: "5s" }} />
+          <div className="absolute bottom-[20%] left-[20%] w-2 h-2 bg-primary-cyan/15 rounded-sm animate-bounce-slow transform-gpu" style={{ animationDelay: "1s", animationDuration: "7s" }} />
         </div>
 
         <div className="relative z-10 max-w-[96%] xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
