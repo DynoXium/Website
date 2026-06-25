@@ -177,7 +177,6 @@ export default function Header() {
                 width={56}
                 height={56}
                 priority
-                unoptimized
                 className={`object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 animate-logo-zoom ${
                   scrolled ? "w-8 h-8 sm:w-10 sm:h-10" : "w-10 h-10 sm:w-14 sm:h-14"
                 }`}

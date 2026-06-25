@@ -1629,7 +1629,7 @@ CMD ["node", "main.js"]`;
                     {/* Filename tab */}
                     <span className="text-[10px] font-mono text-text-muted font-medium flex items-center gap-1.5">
                       <span className={`w-1.5 h-1.5 rounded-full ${isDeploying ? "bg-[#FFBD2E] animate-spin" : isDeployed ? "bg-success-teal animate-pulse" : "bg-primary-cyan animate-pulse"}`} />
-                      {isDeployed ? "browser: node-8.dynoxium.cloud" : `${activeFile} — workspace (Code Server)`}
+                      <span>workspace (Code Server)</span>
                     </span>
                   </div>
 

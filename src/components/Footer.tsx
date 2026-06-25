@@ -59,10 +59,14 @@ export default function Footer() {
   } | null>(null);
 
   useEffect(() => {
-    fetch("https://discord.com/api/guilds/1507859529625501906/widget.json")
-      .then((res) => res.json())
-      .then((data) => setDiscordWidget(data))
-      .catch((err) => console.error("Error fetching Discord widget:", err));
+    const timer = setTimeout(() => {
+      fetch("https://discord.com/api/guilds/1507859529625501906/widget.json")
+        .then((res) => res.json())
+        .then((data) => setDiscordWidget(data))
+        .catch((err) => console.error("Error fetching Discord widget:", err));
+    }, 2500);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -148,7 +152,6 @@ export default function Footer() {
                 alt="DynoXium Logo"
                 width={68}
                 height={68}
-                unoptimized
                 className="object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
               />
               <span className="font-norwester text-[1.95rem] tracking-widest text-white transition-colors">

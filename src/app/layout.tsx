@@ -57,6 +57,7 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${chelseaMarket.variable} ${jetbrainsMono.variable} ${norwester.variable} h-full dark`}
     >
       <head>
+        <link rel="preload" href="/minecraft-bg.webp" as="image" type="image/webp" fetchPriority="high" />
         <link rel="icon" href="/favicon.ico?v=2" />
         <link rel="shortcut icon" href="/favicon.ico?v=2" />
         <link rel="apple-touch-icon" href="/favicon.ico?v=2" />
