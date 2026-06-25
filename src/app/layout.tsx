@@ -36,6 +36,9 @@ export const metadata: Metadata = {
   title: "DynoXium | Freemium All-In-One Cloud Hosting",
   description:
     "Deploy Minecraft servers, Discord bots, Web apps, VPS servers, and databases with high performance and zero friction. All-In-One freemium hosting built for developers.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export const viewport = {
