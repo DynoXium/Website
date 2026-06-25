@@ -1478,6 +1478,7 @@ CMD ["node", "main.js"]`;
             sizes="100vw"
             className="object-cover opacity-35 grayscale contrast-110 brightness-75"
             priority
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F19]/10 via-[#0B0F19]/80 to-[#0B0F19]" />
         </div>
@@ -1533,7 +1534,7 @@ CMD ["node", "main.js"]`;
               <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto hero-stagger-3">
                 <Link
                   href="/web"
-                  className="w-full sm:w-auto bg-[#3388FF] text-white hover:bg-[#6CF4FF] hover:text-[#0B0F19] px-8 py-3.5 rounded font-bold hover:glow-cyan transition-all duration-300 text-center btn-hover-lift"
+                  className="w-full sm:w-auto bg-[#2563EB] text-white hover:bg-[#6CF4FF] hover:text-[#0B0F19] px-8 py-3.5 rounded font-bold hover:glow-cyan transition-all duration-300 text-center btn-hover-lift"
                 >
                   Deploy Code Server
                 </Link>
@@ -1638,7 +1639,7 @@ CMD ["node", "main.js"]`;
 
                     {/* Sidebar File Tree */}
                     <div className="w-24 sm:w-28 bg-[#0D1321] border-r border-[#2A3650]/40 p-3 select-none flex flex-col gap-2 font-sans text-[10px] text-text-muted">
-                      <span className="font-bold text-[8px] uppercase tracking-wider text-text-light/40">WORKSPACE</span>
+                      <span className="font-bold text-[8px] uppercase tracking-wider text-text-light/75">WORKSPACE</span>
                       <div className="flex flex-col gap-1">
                         <div className="flex items-center gap-1 text-[9px] font-semibold text-text-light/70 mb-1">
                           <span>📁 src</span>
@@ -1917,7 +1918,7 @@ CMD ["node", "main.js"]`;
 
                   {/* Terminal Panel */}
                   <div className="h-[120px] bg-[#070B14] border-t border-[#2A3650]/40 p-3 flex flex-col font-mono text-[8.5px] select-none text-[#A0AEC0] overflow-hidden">
-                    <div className="flex justify-between text-[9px] font-sans font-bold uppercase tracking-wider text-text-light/40 border-b border-[#2A3650]/20 pb-1.5 mb-1.5 flex-shrink-0">
+                    <div className="flex justify-between text-[9px] font-sans font-bold uppercase tracking-wider text-text-light/75 border-b border-[#2A3650]/20 pb-1.5 mb-1.5 flex-shrink-0">
                       <span className="flex items-center gap-1.5">
                         <Terminal className="w-3.5 h-3.5 text-primary-cyan" /> Console Logs Terminal
                       </span>
@@ -2607,7 +2608,7 @@ CMD ["node", "main.js"]`;
                         className="object-cover"
                       />
                     </div>
-                    <h4 className="text-xs font-bold text-text-light group-hover:text-white transition-colors">{test.name}</h4>
+                    <div className="text-xs font-bold text-text-light group-hover:text-white transition-colors">{test.name}</div>
                     <span className="text-[10px] font-mono text-primary-cyan mt-0.5">{test.role}</span>
                   </div>
                 </div>
@@ -2623,12 +2624,16 @@ CMD ["node", "main.js"]`;
                 <button
                   key={i}
                   onClick={() => setCurrentSlide(i)}
-                  className={`transition-all duration-300 ${isActive
-                      ? "w-3 h-3 rounded-sm rotate-45 bg-primary-cyan shadow-[0_0_10px_var(--color-primary-theme-glow)]"
-                      : "w-2 h-2 rounded-sm bg-[#2A3650]/80 hover:bg-text-muted"
-                    }`}
+                  className="w-6 h-6 flex items-center justify-center transition-all duration-300 focus:outline-none cursor-pointer"
                   aria-label={`Go to page ${i + 1}`}
-                />
+                >
+                  <span
+                    className={`transition-all duration-300 ${isActive
+                        ? "w-3 h-3 rounded-sm rotate-45 bg-primary-cyan shadow-[0_0_10px_var(--color-primary-theme-glow)]"
+                        : "w-2 h-2 rounded-sm bg-[#2A3650]/80 hover:bg-text-muted"
+                      }`}
+                  />
+                </button>
               );
             })}
           </div>

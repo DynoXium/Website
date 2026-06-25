@@ -181,19 +181,19 @@ export default function Footer() {
             {/* Support Emails */}
             <div className="flex flex-col gap-1.5 text-sm text-text-muted font-mono mt-2">
               <div>
-                <span className="text-text-muted/50">Support:</span>{" "}
+                <span className="text-text-muted/85">Support:</span>{" "}
                 <a href="mailto:support@dynoxium.com" className="hover:text-primary-cyan transition-colors">
                   support@dynoxium.com
                 </a>
               </div>
               <div>
-                <span className="text-text-muted/50">Business:</span>{" "}
+                <span className="text-text-muted/85">Business:</span>{" "}
                 <a href="mailto:business@dynoxium.com" className="hover:text-primary-cyan transition-colors">
                   business@dynoxium.com
                 </a>
               </div>
               <div>
-                <span className="text-text-muted/50">Abuse:</span>{" "}
+                <span className="text-text-muted/85">Abuse:</span>{" "}
                 <a href="mailto:abuse@dynoxium.com" className="hover:text-primary-cyan transition-colors">
                   abuse@dynoxium.com
                 </a>
@@ -203,9 +203,9 @@ export default function Footer() {
 
           {/* COLUMN 1: GAME SERVER */}
           <div className="flex flex-col gap-4">
-            <h4 className="font-display text-sm font-bold text-white uppercase tracking-wider">
+            <div className="font-display text-sm font-bold text-white uppercase tracking-wider">
               Game Server
-            </h4>
+            </div>
             <ul className="flex flex-col gap-3 text-sm">
               {[
                 { name: "Minecraft", icon: Gamepad2, path: "/game/minecraft" },
@@ -242,9 +242,9 @@ export default function Footer() {
 
           {/* COLUMN 2: SERVICES */}
           <div className="flex flex-col gap-4">
-            <h4 className="font-display text-sm font-bold text-white uppercase tracking-wider">
+            <div className="font-display text-sm font-bold text-white uppercase tracking-wider">
               Services
-            </h4>
+            </div>
             <ul className="flex flex-col gap-3 text-sm">
               {[
                 { name: "VPS Hosting", icon: Cpu, path: "/vps" },
@@ -281,9 +281,9 @@ export default function Footer() {
 
           {/* COLUMN 3: TOOLS */}
           <div className="flex flex-col gap-4">
-            <h4 className="font-display text-sm font-bold text-white uppercase tracking-wider">
+            <div className="font-display text-sm font-bold text-white uppercase tracking-wider">
               Tools
-            </h4>
+            </div>
             <ul className="flex flex-col gap-3 text-sm">
               {[
                 { name: "MC Status", icon: Activity, path: "/tools/mc-status" },
@@ -319,9 +319,9 @@ export default function Footer() {
 
           {/* COLUMN 4: SUPPORT */}
           <div className="flex flex-col gap-4">
-            <h4 className="font-display text-sm font-bold text-white uppercase tracking-wider">
+            <div className="font-display text-sm font-bold text-white uppercase tracking-wider">
               Support
-            </h4>
+            </div>
             <ul className="flex flex-col gap-3 text-sm">
               {[
                 { name: "Knowledgebase", icon: Library, path: "/knowledgebase" },
@@ -349,9 +349,9 @@ export default function Footer() {
 
           {/* COLUMN 5: COMPANY */}
           <div className="flex flex-col gap-4">
-            <h4 className="font-display text-sm font-bold text-white uppercase tracking-wider">
+            <div className="font-display text-sm font-bold text-white uppercase tracking-wider">
               Company
-            </h4>
+            </div>
             <ul className="flex flex-col gap-3 text-sm">
               {[
                 { name: "About Us", icon: Info, path: "/about" },
@@ -378,9 +378,9 @@ export default function Footer() {
 
           {/* COLUMN 6: LEGAL */}
           <div className="flex flex-col gap-4">
-            <h4 className="font-display text-sm font-bold text-white uppercase tracking-wider">
+            <div className="font-display text-sm font-bold text-white uppercase tracking-wider">
               Legal
-            </h4>
+            </div>
             <ul className="flex flex-col gap-3 text-sm">
               {[
                 { name: "Terms of Service", icon: Scale, path: "/terms" },
@@ -407,10 +407,10 @@ export default function Footer() {
 
         {/* BOTTOM ROW */}
         <div className="pt-8 border-t border-[#2A3650]/40 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-text-muted/60">
+          <p className="text-sm text-text-muted/85">
             © 2026 DynoXium. All Rights Reserved.
           </p>
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-text-muted/40 text-center sm:text-right">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-text-muted/75 text-center sm:text-right">
             BUILT FOR RELIABILITY <br />
             AND PERFORMANCE
           </span>

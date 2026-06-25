@@ -267,6 +267,7 @@ export default function Header() {
             <div className="xl:hidden flex items-center">
               <button
                 onClick={() => setIsOpen(!isOpen)}
+                aria-label={isOpen ? "Close menu" : "Open menu"}
                 className="text-text-muted hover:text-text-light p-2 focus:outline-none cursor-pointer"
               >
                 {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
