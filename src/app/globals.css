@@ -246,9 +246,15 @@ body {
 }
 
 .animate-hero-mockup {
-  animation: hero-mockup-reveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) 300ms forwards;
-  opacity: 0;
+  opacity: 1;
   transform-style: preserve-3d;
+}
+
+@media (min-width: 768px) {
+  .animate-hero-mockup {
+    animation: hero-mockup-reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 150ms forwards;
+    opacity: 0;
+  }
 }
 
 @keyframes page-open-rise {
