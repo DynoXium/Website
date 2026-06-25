@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -260,8 +259,8 @@ export default function Home() {
                     <button
                       onClick={() => setInstalledMods(prev => ({ ...prev, [mod.name]: !prev[mod.name] }))}
                       className={`px-3 py-1 text-[10px] font-bold rounded transition-all ${installedMods[mod.name]
-                          ? "bg-success-teal/20 text-success-teal border border-success-teal/40"
-                          : "bg-[#3388FF] text-white hover:bg-primary-cyan hover:text-black"
+                        ? "bg-success-teal/20 text-success-teal border border-success-teal/40"
+                        : "bg-[#3388FF] text-white hover:bg-primary-cyan hover:text-black"
                         }`}
                     >
                       {installedMods[mod.name] ? "✓ Installed" : "Install"}
@@ -295,8 +294,8 @@ export default function Home() {
                       <button
                         onClick={() => setInstalledPlugins(prev => ({ ...prev, [plugin.name]: !prev[plugin.name] }))}
                         className={`mt-2.5 w-full py-1 text-[9px] font-bold rounded transition-all text-center border ${installedPlugins[plugin.name]
-                            ? "bg-success-teal/20 text-success-teal border-success-teal/30"
-                            : "bg-[#111625] text-white border-[#2A3650] hover:border-[#3388FF] hover:text-[#3388FF]"
+                          ? "bg-success-teal/20 text-success-teal border-success-teal/30"
+                          : "bg-[#111625] text-white border-[#2A3650] hover:border-[#3388FF] hover:text-[#3388FF]"
                           }`}
                       >
                         {installedPlugins[plugin.name] ? "✓ Active" : "Install Plugin"}
@@ -436,8 +435,8 @@ export default function Home() {
                       key={ver.name}
                       onClick={() => setSelectedVersion(ver.name)}
                       className={`p-2.5 rounded-lg border text-left flex flex-col justify-between transition-all ${selectedVersion === ver.name
-                          ? "border-primary-cyan bg-primary-cyan/5 shadow-[0_0_15px_var(--color-primary-theme-glow)]"
-                          : "border-[#2A3650]/60 bg-[#161C2C]/30 hover:border-[#3388FF]/30"
+                        ? "border-primary-cyan bg-primary-cyan/5 shadow-[0_0_15px_var(--color-primary-theme-glow)]"
+                        : "border-[#2A3650]/60 bg-[#161C2C]/30 hover:border-[#3388FF]/30"
                         }`}
                     >
                       <div className="flex justify-between items-center w-full">
@@ -639,8 +638,8 @@ export default function Home() {
                           setFirewallRules(prev => ({ ...prev, [key]: !prev[key] }));
                         }}
                         className={`px-3 py-1 rounded text-[9px] font-bold transition-all border ${rule.allowed
-                            ? "bg-success-teal/20 text-success-teal border-success-teal/30"
-                            : "bg-red-500/10 text-red-400 border-red-500/25"
+                          ? "bg-success-teal/20 text-success-teal border-success-teal/30"
+                          : "bg-red-500/10 text-red-400 border-red-500/25"
                           }`}
                       >
                         {rule.allowed ? "ALLOW" : "BLOCK"}
@@ -2629,8 +2628,8 @@ CMD ["node", "main.js"]`;
                 >
                   <span
                     className={`transition-all duration-300 ${isActive
-                        ? "w-3 h-3 rounded-sm rotate-45 bg-primary-cyan shadow-[0_0_10px_var(--color-primary-theme-glow)]"
-                        : "w-2 h-2 rounded-sm bg-[#2A3650]/80 hover:bg-text-muted"
+                      ? "w-3 h-3 rounded-sm rotate-45 bg-primary-cyan shadow-[0_0_10px_var(--color-primary-theme-glow)]"
+                      : "w-2 h-2 rounded-sm bg-[#2A3650]/80 hover:bg-text-muted"
                       }`}
                   />
                 </button>
