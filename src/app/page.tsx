@@ -1472,7 +1472,7 @@ CMD ["node", "main.js"]`;
         {/* Minecraft Game Wallpaper Background with deep dark overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/minecraft-bg.png"
+            src="/minecraft-bg.webp"
             alt="Minecraft Wallpaper"
             fill
             sizes="100vw"

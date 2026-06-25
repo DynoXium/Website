@@ -143,8 +143,8 @@ export default function Footer() {
           {/* Brand & Left Column */}
           <div className="col-span-2 md:col-span-4 lg:col-span-2 flex flex-col gap-5">
             <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
-              <img
-                src="/logo.png?v=2"
+              <Image
+                src="/logo.webp"
                 alt="DynoXium Logo"
                 width={68}
                 height={68}

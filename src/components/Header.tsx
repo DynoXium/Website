@@ -166,9 +166,12 @@ export default function Header() {
               }}
               className="flex items-center gap-1.5 sm:gap-2 group flex-shrink-0 transition-all duration-300"
             >
-              <img
-                src="/logo.png?v=2"
+              <Image
+                src="/logo.webp"
                 alt="DynoXium Logo"
+                width={56}
+                height={56}
+                priority
                 className={`object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 animate-logo-zoom ${
                   scrolled ? "w-8 h-8 sm:w-10 sm:h-10" : "w-10 h-10 sm:w-14 sm:h-14"
                 }`}
