@@ -53,10 +53,6 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${chelseaMarket.variable} ${jetbrainsMono.variable} ${norwester.variable} h-full dark`}
     >
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
       <body className="min-h-screen flex flex-col bg-bg-dark text-text-light font-sans antialiased">
         <CurrencyProvider>
           <GlobalBackground />

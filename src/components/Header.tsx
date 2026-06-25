@@ -18,7 +18,12 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { useCurrency, currencyRates, Currency } from "@/context/CurrencyContext";
-import PreferencesModal, { LANGUAGES } from "./PreferencesModal";
+import PreferencesModalProps from "./PreferencesModal";
+import dynamic from "next/dynamic";
+
+const PreferencesModal = dynamic(() => import("./PreferencesModal"), {
+  ssr: false,
+});
 
 export default function Header() {
   const pathname = usePathname();
