@@ -161,7 +161,10 @@ export default function AboutUs() {
               Our Mission
             </h2>
             <p className="text-sm sm:text-base text-text-muted leading-relaxed font-sans font-medium">
-              Our mission is to empower our clients through player-oriented server options, scalable hosting solutions, and unrivaled support along the way. We strive to build a community where gamers are valued and creators can realize their visions without limitations.
+              At DynoXium, our goal is simple: to provide hosting that people can rely on. We believe everyone deserves fast, stable, and affordable hosting backed by honest service and support that truly cares. From gamers and developers to creators and businesses, we're committed to delivering an experience built on performance, reliability, and trust.
+            </p>
+            <p className="text-sm sm:text-base text-text-muted leading-relaxed font-sans font-medium">
+              As we continue to grow, our vision is to become a trusted hosting provider for customers around the world. We'll keep improving our infrastructure, expanding our services, and listening to our community, while staying true to the reason DynoXium was created: to build a hosting company that people can genuinely trust.
             </p>
           </div>
         </div>
