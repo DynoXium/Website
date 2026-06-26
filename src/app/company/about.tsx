@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Server,
   Zap,
@@ -66,16 +67,26 @@ export default function AboutUs() {
           {/* Left Text Column */}
           <div className="lg:col-span-7 space-y-6 text-left">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-cyan/45 bg-[#141C2F]/80 text-xs sm:text-sm font-mono font-bold text-primary-cyan uppercase tracking-widest shadow-[0_0_15px_rgba(108,244,255,0.15)] reveal-up delay-75">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary-cyan animate-pulse" />
               Who We Are
             </div>
             <h1 className="font-norwester text-4xl sm:text-6xl lg:text-7xl tracking-wide text-white uppercase leading-none reveal-up delay-100">
               About <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">DynoXium</span>
             </h1>
             <p className="text-sm sm:text-base text-text-muted leading-relaxed font-sans font-medium reveal-up delay-150">
-              At DynoXium, we are dedicated to delivering exceptional server hosting solutions tailored to the diverse needs of gamers, content creators, developers, and studios. Founded in India by Kr Arjan, our journey began with a passion for gaming and hosting, and a commitment to revolutionize the hosting experience.
+              At DynoXium, we're committed to delivering fast, reliable, and high-performance hosting solutions for gamers, developers, creators, and businesses worldwide.
+            </p>
+            <p className="text-sm sm:text-base text-text-muted leading-relaxed font-sans font-medium reveal-up delay-150">
+              Founded on 26 June by Kr Arjan (Founder) and Randeep Royal (Co-Founder), DynoXium was built with a simple vision: to provide premium hosting backed by dependable infrastructure, reliable services, and responsive customer support at affordable pricings.
             </p>
             <p className="text-sm sm:text-base text-text-muted leading-relaxed font-sans font-medium reveal-up delay-200">
-              Frustrated by subpar customer support and prolonged wait times from existing providers, we set out to create a platform where customers would receive prompt, knowledgeable, and comprehensive assistance.
+              We currently offer Minecraft Server Hosting, Discord Bot Hosting, Code Server Hosting, Web Hosting, and Game Server Hosting, VPS Hosting, with many more services planned as we continue to grow. Every solution is designed with performance, security, and reliability at its core, ensuring a smooth experience for every customer.
+            </p>
+            <p className="text-sm sm:text-base text-text-muted leading-relaxed font-sans font-medium reveal-up delay-200">
+              Our mission is to provide high-quality, affordable, and reliable hosting services that help our customers achieve their goals. We’re passionate about what we do, and we’re committed to providing our customers with the best possible experience.
+            </p>
+            <p className="text-base sm:text-lg text-primary-cyan font-bold leading-relaxed font-sans reveal-up delay-200 uppercase tracking-wide">
+              Built for Stability. Trusted for Reliability.
             </p>
             <div className="pt-4 flex flex-wrap gap-6 items-center reveal-up delay-300">
               <div className="flex flex-col">
@@ -116,25 +127,24 @@ export default function AboutUs() {
 
               {/* Animated Floating Graphic */}
               <div className="relative z-10 flex flex-col items-center justify-center py-6 group-hover:scale-105 transition-transform duration-500">
-                <div className="w-24 h-24 rounded-2xl bg-gradient-to-tr from-primary-cyan/20 to-blue-500/20 border border-primary-cyan/30 flex items-center justify-center shadow-[0_0_30px_rgba(108,244,255,0.15)] mb-4 animate-bounce-slow">
-                  <Server className="h-12 w-12 text-primary-cyan" />
+                <div className="mb-4 animate-bounce-slow flex items-center justify-center">
+                  <Image src="/logo.webp" alt="DynoXium Logo" width={80} height={80} className="object-contain" />
                 </div>
-                <span className="font-norwester text-2xl tracking-widest text-white uppercase">Dyno<span className="text-primary-cyan">Node</span></span>
-                <span className="text-[10px] font-mono text-text-muted mt-1 uppercase tracking-wide">Active Node Cluster v2.6</span>
+                <span className="font-norwester text-2xl tracking-widest text-white uppercase">Dyno<span className="text-primary-cyan">Xium</span></span>
               </div>
 
               <div className="relative z-10 w-full bg-[#080B14]/80 rounded-xl border border-[#2A3650]/60 p-3 font-mono text-[9px] text-[#A0AEC0] space-y-1">
                 <div className="flex justify-between">
-                  <span className="text-text-muted">LOCATION:</span>
-                  <span className="text-white font-bold">New Delhi, IN</span>
+                  <span className="text-[#8A92A6]">LOCATION:</span>
+                  <span className="text-white font-bold">India</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-text-muted">CAPACITY:</span>
-                  <span className="text-success-teal font-bold">94.8% Operational</span>
+                  <span className="text-[#8A92A6]">Services:</span>
+                  <span className="text-success-teal font-bold">Operational</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-text-muted">NETWORKS:</span>
-                  <span className="text-primary-cyan font-bold">100Gbps Backbone</span>
+                  <span className="text-[#8A92A6]">NETWORKS:</span>
+                  <span className="text-primary-cyan font-bold">DDoS Protected</span>
                 </div>
               </div>
             </div>
@@ -289,7 +299,7 @@ export default function AboutUs() {
         <div className="bg-gradient-to-br from-[#0E1321]/90 to-[#141B30]/75 rounded-2xl border border-primary-cyan/25 p-8 sm:p-12 shadow-[0_0_40px_rgba(108,244,255,0.08)] relative overflow-hidden">
           {/* Grid backdrop */}
           <div className="absolute inset-0 bg-grid-pattern-sm opacity-10" />
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             {/* Image/Mockup Left */}
             <div className="lg:col-span-5 flex justify-center lg:justify-start reveal-left delay-100">

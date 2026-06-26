@@ -1529,8 +1529,8 @@ CMD ["node", "main.js"]`;
               </div>
             </div>
 
-            {/* Right Code Server Visual (Col span 5) */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end w-full relative">
+            {/* Right Code Server Visual (Col span 5) - Hidden on mobile/tablets where it can't be shown on the right */}
+            <div className="hidden lg:flex lg:col-span-5 justify-end w-full relative">
 
               {/* Subtle Radial Glow Backdrop */}
               <div
@@ -1898,7 +1898,7 @@ CMD ["node", "main.js"]`;
                           <span className="w-1.5 h-1.5 rounded-full bg-success-teal animate-pulse" /> Container Active
                         </span>
                       ) : (
-                        <span className="text-text-muted">Idle</span>
+                        <span className="text-[#8A92A6]">Idle</span>
                       )}
                     </div>
 
@@ -1925,7 +1925,7 @@ CMD ["node", "main.js"]`;
                             : log.startsWith("[APP LOG]")
                               ? "text-primary-cyan"
                               : log.startsWith("[SYSTEM]")
-                                ? "text-text-muted"
+                                ? "text-[#8A92A6]"
                                 : "text-[#A0AEC0]"
                             }`}
                         >
