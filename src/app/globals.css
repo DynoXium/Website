@@ -275,8 +275,14 @@ body {
 /* 2. Scroll Reveal Transitions */
 .reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale {
   opacity: 0;
-  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
+}
+
+@media (min-width: 768px) {
+  .reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale {
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
 }
 
 /* Disable transitions entirely during scroll-up to prevent any fade-out/reveal animations */
@@ -288,36 +294,56 @@ body {
   transition: none !important;
 }
 
-.reveal-up { transform: translateY(35px); }
-.reveal-left { transform: translateX(-35px); }
-.reveal-right { transform: translateX(35px); }
-.reveal-scale { transform: scale(0.96); }
+.reveal-up { transform: translateY(12px); }
+.reveal-left { transform: translateX(-12px); }
+.reveal-right { transform: translateX(12px); }
+.reveal-scale { transform: scale(0.98); }
+
+@media (min-width: 768px) {
+  .reveal-up { transform: translateY(35px); }
+  .reveal-left { transform: translateX(-35px); }
+  .reveal-right { transform: translateX(35px); }
+  .reveal-scale { transform: scale(0.96); }
+}
 
 .reveal-visible {
   opacity: 1 !important;
   transform: translateY(0) translateX(0) scale(1) !important;
 }
 
-/* Staggered load delays */
-.delay-75 { transition-delay: 75ms; }
-.delay-100 { transition-delay: 100ms; }
-.delay-150 { transition-delay: 150ms; }
-.delay-200 { transition-delay: 200ms; }
-.delay-225 { transition-delay: 225ms; }
-.delay-300 { transition-delay: 300ms; }
-.delay-400 { transition-delay: 400ms; }
-.delay-500 { transition-delay: 500ms; }
+/* Staggered load delays - shortened slightly for mobile speed */
+.delay-75 { transition-delay: 40ms; }
+.delay-100 { transition-delay: 60ms; }
+.delay-150 { transition-delay: 90ms; }
+.delay-200 { transition-delay: 120ms; }
+.delay-225 { transition-delay: 140ms; }
+.delay-300 { transition-delay: 180ms; }
+.delay-400 { transition-delay: 240ms; }
+.delay-500 { transition-delay: 300ms; }
+
+@media (min-width: 768px) {
+  .delay-75 { transition-delay: 75ms; }
+  .delay-100 { transition-delay: 100ms; }
+  .delay-150 { transition-delay: 150ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-225 { transition-delay: 225ms; }
+  .delay-300 { transition-delay: 300ms; }
+  .delay-400 { transition-delay: 400ms; }
+  .delay-500 { transition-delay: 500ms; }
+}
 
 /* 3. Hover Interactions */
-/* Professional button lift */
+/* Professional button lift (Active touch for mobile, hover for desktop) */
 .btn-hover-lift {
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease;
   will-change: transform, box-shadow;
 }
 
-.btn-hover-lift:hover {
-  transform: translateY(-4px) scale(1.015);
-  box-shadow: 0 12px 24px -8px var(--color-primary-theme-glow), 0 0 15px rgba(108, 244, 255, 0.15);
+@media (hover: hover) {
+  .btn-hover-lift:hover {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow: 0 12px 24px -8px var(--color-primary-theme-glow), 0 0 15px rgba(108, 244, 255, 0.15);
+  }
 }
 
 .btn-hover-lift:active {
@@ -326,21 +352,25 @@ body {
 
 /* Smooth card transitions & lifting */
 .metallic-card {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, box-shadow;
 }
 
-.metallic-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(108, 244, 255, 0.4) !important;
-  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.4), 0 0 25px 0 rgba(108, 244, 255, 0.12);
+@media (hover: hover) {
+  .metallic-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(108, 244, 255, 0.4) !important;
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.4), 0 0 25px 0 rgba(108, 244, 255, 0.12);
+  }
 }
 
-/* Card Sibling Focus Effect */
-.stagger-dim-grid:hover .metallic-card:not(:hover) {
-  opacity: 0.55;
-  filter: brightness(0.85) blur(0.3px);
-  transform: scale(0.985);
+/* Card Sibling Focus Effect - Desktop only to prevent touch interaction lag */
+@media (hover: hover) {
+  .stagger-dim-grid:hover .metallic-card:not(:hover) {
+    opacity: 0.55;
+    filter: brightness(0.85) blur(0.3px);
+    transform: scale(0.985);
+  }
 }
 
 /* Input Focus Glows */
