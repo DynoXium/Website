@@ -87,10 +87,11 @@ export default function RefundPolicy() {
         <div className="bg-red-950/20 border border-red-500/30 rounded-xl p-5 space-y-3">
           <p className="font-bold text-red-400 mb-2">The following services are strictly non-refundable:</p>
           <ul className="list-disc pl-5 space-y-1.5 text-[#A0AEC0]">
-            <li>Dedicated IP addresses</li>
+            <li>VPSs</li>
             <li>Domain registrations and renewals</li>
             <li>Setup fees</li>
             <li>Custom configurations</li>
+            <li>Payment Gateway charges</li>
             <li>Add-ons or extra resources</li>
             <li>Abuse-related suspensions</li>
             <li>Services terminated for Terms violations</li>
@@ -169,24 +170,8 @@ export default function RefundPolicy() {
       ),
     },
     {
-      id: "sla",
-      title: "7. SLA Credits vs Refunds",
-      icon: Zap,
-      content: (
-        <div className="bg-[#161C2C]/50 border border-primary-cyan/20 rounded-xl p-5 space-y-3">
-          <p className="font-bold text-white mb-2">If uptime falls below the guaranteed threshold (for eligible paid plans):</p>
-          <ul className="list-disc pl-5 space-y-1.5 text-[#A0AEC0]">
-            <li>Compensation will be issued as service credit only</li>
-            <li>SLA credits cannot be withdrawn as cash</li>
-            <li>SLA credits must be requested within 7 days of the outage</li>
-          </ul>
-          <p className="text-xs font-semibold text-primary-cyan mt-3">Free plans are not eligible for SLA compensation.</p>
-        </div>
-      ),
-    },
-    {
       id: "fraud",
-      title: "8. Fraud Prevention",
+      title: "7. Fraud Prevention",
       icon: Lock,
       content: (
         <div className="bg-red-950/20 border border-red-500/30 rounded-xl p-5 space-y-3">
@@ -205,7 +190,7 @@ export default function RefundPolicy() {
     },
     {
       id: "modifications",
-      title: "9. Modifications to This Policy",
+      title: "8. Modifications to This Policy",
       icon: FileQuestion,
       content: (
         <div className="bg-[#161C2C]/50 border border-primary-cyan/20 rounded-xl p-5">

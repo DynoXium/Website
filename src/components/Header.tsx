@@ -295,40 +295,56 @@ export default function Header() {
             {navItems.map((item) => {
               const Icon = item.icon;
               const isMenuExpanded = mobileActiveMenu === item.name;
+              const isTools = item.name === "Tools";
               return (
                 <div key={item.name} className="border-b border-[#2A3650]/20 pb-2">
-                  <button
-                    onClick={() => handleMobileMenuToggle(item.name)}
-                    className="flex justify-between items-center w-full py-2.5 text-base font-semibold text-text-light text-left"
-                  >
-                    <div className="flex items-center gap-3">
-                      <Icon className="h-5 w-5 text-primary-cyan" />
-                      <span>{item.name}</span>
-                    </div>
-                    <ChevronDown className={`h-4 w-4 text-text-muted transition-transform duration-300 ${isMenuExpanded ? "rotate-180 text-primary-cyan" : ""}`} />
-                  </button>
-
-                  {/* Collapsible content */}
-                  <div className={`transition-all duration-300 overflow-hidden space-y-2 mt-1 ${isMenuExpanded ? "max-h-96 opacity-100 py-2 pl-8" : "max-h-0 opacity-0"}`}>
-                    {item.items.map((subItem) => (
-                      <Link
-                        key={subItem.name}
-                        href={subItem.path}
-                        onClick={() => setIsOpen(false)}
-                        className="block py-2 text-sm text-[#E2E8F0] hover:text-primary-cyan transition-colors"
+                  {isTools ? (
+                    <Link
+                      href="/tools"
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center justify-between w-full py-2.5 text-base font-semibold text-text-light text-left"
+                    >
+                      <div className="flex items-center gap-3">
+                        <Icon className="h-5 w-5 text-primary-cyan" />
+                        <span>{item.name}</span>
+                      </div>
+                    </Link>
+                  ) : (
+                    <>
+                      <button
+                        onClick={() => handleMobileMenuToggle(item.name)}
+                        className="flex justify-between items-center w-full py-2.5 text-base font-semibold text-text-light text-left"
                       >
-                        <div className="flex items-center gap-2">
-                          <span className="font-semibold">{subItem.name}</span>
-                          {subItem.badge && (
-                            <span className="text-[8px] bg-primary-cyan/20 text-primary-cyan px-1 rounded uppercase font-bold">
-                              {subItem.badge}
-                            </span>
-                          )}
+                        <div className="flex items-center gap-3">
+                          <Icon className="h-5 w-5 text-primary-cyan" />
+                          <span>{item.name}</span>
                         </div>
-                        <span className="text-[10px] text-text-muted block mt-0.5">{subItem.desc}</span>
-                      </Link>
-                    ))}
-                  </div>
+                        <ChevronDown className={`h-4 w-4 text-text-muted transition-transform duration-300 ${isMenuExpanded ? "rotate-180 text-primary-cyan" : ""}`} />
+                      </button>
+
+                      {/* Collapsible content */}
+                      <div className={`transition-all duration-300 overflow-hidden space-y-2 mt-1 ${isMenuExpanded ? "max-h-96 opacity-100 py-2 pl-8" : "max-h-0 opacity-0"}`}>
+                        {item.items.map((subItem) => (
+                          <Link
+                            key={subItem.name}
+                            href={subItem.path}
+                            onClick={() => setIsOpen(false)}
+                            className="block py-2 text-sm text-[#E2E8F0] hover:text-primary-cyan transition-colors"
+                          >
+                            <div className="flex items-center gap-2">
+                              <span className="font-semibold">{subItem.name}</span>
+                              {subItem.badge && (
+                                <span className="text-[8px] bg-primary-cyan/20 text-primary-cyan px-1 rounded uppercase font-bold">
+                                  {subItem.badge}
+                                </span>
+                              )}
+                            </div>
+                            <span className="text-[10px] text-text-muted block mt-0.5">{subItem.desc}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    </>
+                  )}
                 </div>
               );
             })}
@@ -355,10 +371,10 @@ export default function Header() {
               <Link
                 href="#"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-2 w-full bg-[#1C2640] border border-[#2A3650] hover:border-primary-cyan/40 hover:glow-cyan text-white text-center font-bold py-3 rounded-lg shadow-md transition-all active:scale-[0.98]"
+                className="flex items-center justify-center gap-1.5 w-full bg-[#3388FF] hover:bg-[#6CF4FF] text-white hover:text-[#0B0F19] font-black py-3 rounded-lg shadow-md transition-all active:scale-[0.98] uppercase tracking-widest group/btn"
               >
-                <Terminal className="h-4 w-4 text-primary-cyan" />
-                <span>Command Center</span>
+                <span>go</span>
+                <ArrowUpRight className="h-4 w-4 text-white group-hover/btn:text-[#0B0F19] group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-all duration-300" />
               </Link>
             </div>
           </div>

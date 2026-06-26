@@ -52,7 +52,7 @@ export default function MinecraftStatus() {
 
   const checkStatus = async (e: React.FormEvent) => {
     e.preventDefault();
-    const queryIp = ipAddress.trim() || "play.Ateex.cloud";
+    const queryIp = ipAddress.trim() || "play.dynoxium.tech";
     setLoading(true);
     setError("");
     setStatus(null);
@@ -63,7 +63,7 @@ export default function MinecraftStatus() {
         throw new Error("Unable to fetch server status. Please verify the IP address.");
       }
       const data = await res.json();
-      
+
       setStatus({
         online: data.online,
         ip: data.ip || queryIp,
@@ -93,7 +93,7 @@ export default function MinecraftStatus() {
       {/* MAIN CONTAINER */}
       <div className="max-w-4xl mx-auto pt-28 sm:pt-44 pb-20 px-4 sm:px-6 relative z-10 space-y-12">
         <BackToToolsLink />
-        
+
         {/* HEADER SECTION */}
         <div className="text-center space-y-4 max-w-2xl mx-auto reveal-up delay-75">
           <h1 className="font-norwester text-2xl sm:text-4xl md:text-7xl tracking-wide md:tracking-widest text-white uppercase leading-none reveal-up delay-100">

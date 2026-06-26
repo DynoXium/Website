@@ -93,7 +93,7 @@ export default function TermsOfService() {
       icon: UserCheck,
       content: (
         <ol className="list-decimal pl-5 space-y-2 text-[#A0AEC0]">
-          <li>You must be at least 14 years old or the legal age in your jurisdiction.</li>
+          <li>To use DynoXium's Services, you must be at least 13 years of age. If you are under the age of 18, you may only use the Services with the permission and supervision of your parent or legal guardian, who agrees to be bound by these Terms on your behalf.</li>
           <li>If acting on behalf of a business, you confirm you have authority to bind that entity.</li>
           <li>We may request identity verification at any time.</li>
           <li>Services may not be used in restricted jurisdictions.</li>
@@ -122,11 +122,11 @@ export default function TermsOfService() {
         <div className="bg-[#161C2C]/50 border border-primary-cyan/20 rounded-xl p-5 space-y-3">
           <p className="font-bold text-white mb-2">DynoXium provides:</p>
           <ul className="list-disc pl-5 space-y-1.5 text-[#A0AEC0]">
-            <li>Free hosting</li>
+            <li>Web hosting</li>
             <li>Shared hosting</li>
             <li>Game hosting</li>
             <li>VPS hosting</li>
-            <li>Dedicated IP services</li>
+            <li>Bot Hosting</li>
             <li>Add-ons and related infrastructure</li>
           </ul>
           <p className="text-xs font-semibold text-primary-cyan mt-3 uppercase tracking-wider">All services are provided on an &ldquo;as-is&rdquo; and &ldquo;as-available&rdquo; basis.</p>
@@ -246,7 +246,7 @@ export default function TermsOfService() {
           <li>
             <span className="font-semibold text-white">No refunds for:</span>
             <ul className="list-disc pl-5 mt-1.5 space-y-1 text-[#A0AEC0]">
-              <li>Dedicated IPs</li>
+              <li>VPS</li>
               <li>Domains</li>
               <li>Setup fees</li>
               <li>Add-ons</li>
@@ -512,7 +512,7 @@ export default function TermsOfService() {
                             : theme === "green" ? "text-success-teal/40"
                               : theme === "amber" ? "text-amber-500/40"
                                 : "text-primary-cyan/40"
-                        }`} />
+                          }`} />
                         <span>{sec.title}</span>
                       </button>
                     );

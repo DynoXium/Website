@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Chelsea_Market, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -10,20 +9,130 @@ import PageOpenTransition from "@/components/PageOpenTransition";
 import { CurrencyProvider } from "@/context/CurrencyContext";
 import ScrollToTop from "@/components/ScrollToTop";
 
-const chelseaMarket = Chelsea_Market({
+const chelseaMarket = localFont({
+  src: "../../public/fonts/chelsea-market-regular.woff2",
   variable: "--font-chelsea-market",
   weight: "400",
-  subsets: ["latin"],
+  display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const spaceGrotesk = localFont({
+  src: [
+    {
+      path: "../../public/fonts/space-grotesk-300.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/space-grotesk-regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/space-grotesk-500.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/space-grotesk-600.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/space-grotesk-700.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
   variable: "--font-space-grotesk",
-  subsets: ["latin"],
+  display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const jetbrainsMono = localFont({
+  src: [
+    {
+      path: "../../public/fonts/jetbrains-mono-100.woff2",
+      weight: "100",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/jetbrains-mono-100italic.woff2",
+      weight: "100",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/jetbrains-mono-200.woff2",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/jetbrains-mono-200italic.woff2",
+      weight: "200",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/jetbrains-mono-300.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/jetbrains-mono-300italic.woff2",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/jetbrains-mono-regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/jetbrains-mono-italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/jetbrains-mono-500.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/jetbrains-mono-500italic.woff2",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/jetbrains-mono-600.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/jetbrains-mono-600italic.woff2",
+      weight: "600",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/jetbrains-mono-700.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/jetbrains-mono-700italic.woff2",
+      weight: "700",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/jetbrains-mono-800.woff2",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/jetbrains-mono-800italic.woff2",
+      weight: "800",
+      style: "italic",
+    },
+  ],
   variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 const norwester = localFont({

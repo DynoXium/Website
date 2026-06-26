@@ -250,26 +250,8 @@ export default function AcceptableUsePolicy() {
       ),
     },
     {
-      id: "colocation",
-      title: "9. Colocation Policy",
-      icon: Layers,
-      content: (
-        <div className="bg-[#161C2C]/50 border border-primary-cyan/20 rounded-xl p-5 space-y-3">
-          <p className="font-bold text-white mb-2">For colocation customers, you must NOT:</p>
-          <ul className="list-disc pl-5 space-y-1.5 text-[#A0AEC0]">
-            <li>Install illegal hardware</li>
-            <li>Connect unauthorized networking equipment</li>
-            <li>Tamper with shared infrastructure</li>
-            <li>Bypass data center security procedures</li>
-            <li>Interfere with cooling or power systems</li>
-          </ul>
-          <p className="text-xs font-bold text-amber-400 mt-2 uppercase tracking-wide">Physical access is strictly controlled. All colocated equipment must comply with data center regulations.</p>
-        </div>
-      ),
-    },
-    {
       id: "resource-abuse",
-      title: "10. Resource Abuse & Fair Usage",
+      title: "9. Resource Abuse & Fair Usage",
       icon: Cpu,
       content: (
         <div className="space-y-4">
@@ -295,7 +277,7 @@ export default function AcceptableUsePolicy() {
     },
     {
       id: "abuse-complaints",
-      title: "11. Abuse Complaints",
+      title: "10. Abuse Complaints",
       icon: Shield,
       content: (
         <ol className="list-decimal pl-5 space-y-2 text-[#A0AEC0]">
@@ -308,7 +290,7 @@ export default function AcceptableUsePolicy() {
     },
     {
       id: "email-spam",
-      title: "12. Email & Spam Policy",
+      title: "11. Email & Spam Policy",
       icon: Mail,
       content: (
         <div className="bg-red-950/20 border border-red-500/30 rounded-xl p-5 space-y-3">
@@ -327,7 +309,7 @@ export default function AcceptableUsePolicy() {
     },
     {
       id: "security-violations",
-      title: "13. Security Violations",
+      title: "12. Security Violations",
       icon: Lock,
       content: (
         <div className="space-y-4">
@@ -346,7 +328,7 @@ export default function AcceptableUsePolicy() {
     },
     {
       id: "zero-tolerance",
-      title: "14. Zero Tolerance Violations",
+      title: "13. Zero Tolerance Violations",
       icon: ShieldAlert,
       content: (
         <div className="bg-red-950/20 border border-red-500/30 rounded-xl p-5 space-y-3">
@@ -363,7 +345,7 @@ export default function AcceptableUsePolicy() {
     },
     {
       id: "enforcement",
-      title: "15. Enforcement Rights",
+      title: "14. Enforcement Rights",
       icon: Scale,
       content: (
         <div className="bg-[#161C2C]/50 border border-primary-cyan/20 rounded-xl p-5 space-y-3">
@@ -382,7 +364,7 @@ export default function AcceptableUsePolicy() {
     },
     {
       id: "customer-responsibility",
-      title: "16. Customer Responsibility",
+      title: "15. Customer Responsibility",
       icon: ClipboardList,
       content: (
         <div className="bg-amber-950/20 border border-amber-500/30 rounded-xl p-5 space-y-3">
@@ -402,7 +384,7 @@ export default function AcceptableUsePolicy() {
     },
     {
       id: "policy-updates",
-      title: "17. Policy Updates",
+      title: "16. Policy Updates",
       icon: RotateCcw,
       content: (
         <div className="bg-[#161C2C]/50 border border-primary-cyan/20 rounded-xl p-5">

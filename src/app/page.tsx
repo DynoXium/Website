@@ -1433,7 +1433,7 @@ CMD ["node", "main.js"]`;
       `}</style>
 
       {/* HERO SECTION */}
-      <section className="relative lg:h-screen lg:min-h-[720px] min-h-screen flex items-center pt-24 pb-16 lg:py-0 overflow-hidden">
+      <section className="relative lg:h-screen lg:min-h-[720px] min-h-screen flex items-start lg:items-center pt-32 sm:pt-36 pb-16 lg:py-0 overflow-hidden">
         {/* Minecraft Game Wallpaper Background with deep dark overlay */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -1464,7 +1464,8 @@ CMD ["node", "main.js"]`;
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
 
             {/* Left Content (Col span 7) */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left">
+            <div className="lg:col-span-7 flex flex-col justify-start min-h-[calc(100vh-5rem)] lg:min-h-0 items-start text-left w-full pt-8 lg:pt-0">
+              
               {/* Rating Banner */}
               <div className="flex flex-wrap items-center gap-3 mb-6 bg-[#161C2C]/70 border border-[#2A3650]/40 px-4 py-2 rounded-lg backdrop-blur-md hero-reveal">
                 {/* 5 Green Stars */}
@@ -1484,14 +1485,14 @@ CMD ["node", "main.js"]`;
               </div>
 
               {/* Headline */}
-              <h1 className="font-display text-4xl sm:text-6xl font-bold tracking-tight text-white mb-6 uppercase leading-[1.05] hero-stagger-1">
-                CLOUD CODE SERVERS <br />
-                & GAME HOSTING <br />
+              <h1 className="font-display text-5xl sm:text-6xl font-bold tracking-tight text-white uppercase leading-[1.05] hero-stagger-1">
+                MINECRAFT SERVERS <br className="hidden lg:inline" />
+                & CLOUD HOSTING <br className="hidden lg:inline" />
                 ON DEMAND
               </h1>
 
               {/* Subheading Description */}
-              <p className="text-base sm:text-lg text-text-muted max-w-xl mb-10 leading-relaxed hero-stagger-2">
+              <p className="text-base sm:text-lg text-text-muted max-w-xl mt-6 mb-10 leading-relaxed hero-stagger-2">
                 Deploy personal VS Code-Servers, Next.js runtimes, database nodes, or high-performance game servers instantly on high-frequency dedicated CPU cores.
               </p>
 
@@ -1515,15 +1516,15 @@ CMD ["node", "main.js"]`;
               <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-8 text-xs text-text-muted font-medium select-none hero-stagger-4">
                 <span className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary-cyan animate-pulse" />
-                  Free 512MB Core Tier
+                  Affordable Pricings
                 </span>
                 <span className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary-cyan animate-pulse" />
-                  12Tbps DDoS Protection
+                  DDoS Protection
                 </span>
                 <span className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary-cyan animate-pulse" />
-                  Enterprise NVMe Storage
+                  NVMe Storage
                 </span>
               </div>
             </div>
@@ -1587,8 +1588,8 @@ CMD ["node", "main.js"]`;
                       <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F] opacity-80" />
                       {/* Pulse Live Badge */}
                       {isDeployed && (
-                        <span className="ml-3 px-2 py-0.5 text-[8px] font-bold text-success-teal bg-success-teal/10 border border-success-teal/30 rounded flex items-center gap-1 uppercase tracking-wider animate-pulse">
-                          <span className="w-1.5 h-1.5 rounded-full bg-success-teal" /> Live Node
+                        <span className="ml-3 px-2 py-0.5 text-[8px] font-bold text-[#00E5A3] bg-[#00E5A3]/10 border border-[#00E5A3]/30 rounded flex items-center gap-1 uppercase tracking-wider animate-pulse">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#00E5A3]" /> Live Node
                         </span>
                       )}
                     </div>
@@ -1674,6 +1675,7 @@ CMD ["node", "main.js"]`;
                                 setIsDeployed(true);
                               }}
                               className="hover:text-white"
+                              aria-label="Refresh Preview"
                             >
                               <RefreshCw className="w-2.5 h-2.5" />
                             </button>
@@ -1699,7 +1701,7 @@ CMD ["node", "main.js"]`;
                                     title="Click to rename application"
                                   />
                                 ) : (
-                                  <h4 className="text-[10px] font-bold text-white uppercase tracking-wider">{appName}</h4>
+                                  <div className="text-[10px] font-bold text-white uppercase tracking-wider">{appName}</div>
                                 )}
                                 <span className="text-[7px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider bg-success-teal/10 text-success-teal border border-success-teal/20">
                                   ACTIVE
@@ -1765,7 +1767,7 @@ CMD ["node", "main.js"]`;
                             </div>
 
                             {/* Mini footer */}
-                            <div className="text-[7px] text-text-muted/60 text-center border-t border-white/5 pt-1 mt-1 font-mono">
+                            <div className="text-[7px] text-[#A0AEC0] text-center border-t border-white/5 pt-1 mt-1 font-mono">
                               Memory: 114MB / 512MB
                             </div>
 

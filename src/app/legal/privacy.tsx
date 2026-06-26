@@ -405,7 +405,7 @@ export default function PrivacyPolicy() {
       content: (
         <div className="bg-red-950/20 border border-red-500/30 rounded-xl p-5 space-y-2">
           <p className="text-[#A0AEC0]">
-            Our services are not intended for individuals under 14 years of age. We do not knowingly collect personal data from minors.
+            Our services are not intended for individuals under 13 years of age. We do not knowingly collect personal data from minors.
           </p>
           <p className="font-bold text-red-400 uppercase text-xs tracking-wider pt-2">
             If we become aware of such collection, we will take appropriate steps to delete the data.
@@ -515,25 +515,25 @@ export default function PrivacyPolicy() {
                           }
                         }}
                         className={`flex items-center gap-3 p-3 rounded-xl text-left transition-all duration-300 font-display text-xs sm:text-sm font-bold border ${isActive
-                            ? theme === "red"
-                              ? "bg-red-500/10 border-red-500/40 text-red-400 shadow-[0_0_15px_rgba(239,68,68,0.25)]"
-                              : theme === "green"
-                                ? "bg-success-teal/10 border-success-teal/40 text-success-teal shadow-[0_0_15px_rgba(0,229,163,0.25)]"
-                                : theme === "amber"
-                                  ? "bg-amber-500/10 border-amber-500/40 text-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.25)]"
-                                  : "bg-primary-cyan/10 border-primary-cyan/40 text-primary-cyan shadow-[0_0_15px_var(--color-primary-theme-glow)]"
-                            : "border-transparent text-text-muted hover:bg-[#161C2C]/50 hover:text-white"
+                          ? theme === "red"
+                            ? "bg-red-500/10 border-red-500/40 text-red-400 shadow-[0_0_15px_rgba(239,68,68,0.25)]"
+                            : theme === "green"
+                              ? "bg-success-teal/10 border-success-teal/40 text-success-teal shadow-[0_0_15px_rgba(0,229,163,0.25)]"
+                              : theme === "amber"
+                                ? "bg-amber-500/10 border-amber-500/40 text-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.25)]"
+                                : "bg-primary-cyan/10 border-primary-cyan/40 text-primary-cyan shadow-[0_0_15px_var(--color-primary-theme-glow)]"
+                          : "border-transparent text-text-muted hover:bg-[#161C2C]/50 hover:text-white"
                           }`}
                       >
                         <Icon className={`h-4.5 w-4.5 flex-shrink-0 transition-colors duration-300 ${isActive
-                            ? theme === "red" ? "text-red-400 fill-red-500/25"
-                              : theme === "green" ? "text-success-teal fill-success-teal/25"
-                                : theme === "amber" ? "text-amber-400 fill-amber-500/25"
-                                  : "text-primary-cyan fill-primary-cyan/25"
-                            : theme === "red" ? "text-red-500/40"
-                              : theme === "green" ? "text-success-teal/40"
-                                : theme === "amber" ? "text-amber-500/40"
-                                  : "text-primary-cyan/40"
+                          ? theme === "red" ? "text-red-400 fill-red-500/25"
+                            : theme === "green" ? "text-success-teal fill-success-teal/25"
+                              : theme === "amber" ? "text-amber-400 fill-amber-500/25"
+                                : "text-primary-cyan fill-primary-cyan/25"
+                          : theme === "red" ? "text-red-500/40"
+                            : theme === "green" ? "text-success-teal/40"
+                              : theme === "amber" ? "text-amber-500/40"
+                                : "text-primary-cyan/40"
                           }`} />
                         <span>{sec.title}</span>
                       </button>
