@@ -15,11 +15,13 @@ import {
 } from "lucide-react";
 
 import { submitPartnership } from "../actions/partnership";
+import Turnstile from "@/components/Turnstile";
 
 export default function PartnershipPage() {
   const [mounted, setMounted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -35,9 +37,13 @@ export default function PartnershipPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!turnstileToken) {
+      alert("Please complete the security verification.");
+      return;
+    }
     setSubmitting(true);
     try {
-      const res = await submitPartnership(formData);
+      const res = await submitPartnership(formData, turnstileToken);
       if (res.success) {
         setSubmitted(true);
       } else {
@@ -291,6 +297,18 @@ export default function PartnershipPage() {
                   />
                 </div>
 
+                {/* Turnstile Widget */}
+                {mounted && process.env.TURNSTILE_SITE_KEY && (
+                  <div className="flex justify-start my-2">
+                    <Turnstile
+                      siteKey={process.env.TURNSTILE_SITE_KEY}
+                      onVerify={(token) => setTurnstileToken(token)}
+                      onExpire={() => setTurnstileToken(null)}
+                      onError={() => setTurnstileToken(null)}
+                    />
+                  </div>
+                )}
+
                 <button
                   type="submit"
                   disabled={submitting}
@@ -315,7 +333,10 @@ export default function PartnershipPage() {
                 Thank you for applying, <span className="font-bold text-white">{formData.name}</span>! Our partnership coordinators will review your statistics and contact you via email at <span className="font-bold text-white">{formData.email}</span> shortly.
               </p>
               <button
-                onClick={() => setSubmitted(false)}
+                onClick={() => {
+                  setSubmitted(false);
+                  setTurnstileToken(null);
+                }}
                 className="mt-4 px-6 py-2 rounded-lg bg-[#1C2640] border border-[#2A3650]/60 text-white font-bold text-xs uppercase tracking-wider hover:border-primary-cyan/40 transition-all"
               >
                 Submit Another Application
