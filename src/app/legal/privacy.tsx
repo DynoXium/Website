@@ -464,7 +464,7 @@ export default function PrivacyPolicy() {
       content: (
         <div className="bg-[#161C2C]/50 border border-primary-cyan/20 rounded-xl p-5">
           <p className="text-[#A0AEC0] leading-relaxed">
-            If you have any questions regarding this Privacy Policy or our data practices, please contact us at <a href="mailto:support@dynoxium.com" className="text-primary-cyan hover:underline">support@dynoxium.com</a> or submit a ticket via our client portal.
+            If you have any questions regarding this Privacy Policy or our data practices, please contact us at <a href="mailto:support@dynoxium.tech" className="text-primary-cyan hover:underline">support@dynoxium.tech</a> or submit a ticket via our client portal.
           </p>
         </div>
       ),

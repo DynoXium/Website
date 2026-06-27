@@ -22,6 +22,7 @@ import {
   Handshake,
   ArrowRight,
   Sparkles,
+  ArrowUpRight,
 } from "lucide-react";
 
 export default function AboutUs() {
@@ -192,7 +193,7 @@ export default function AboutUs() {
                 Game Server Hosting
               </h3>
               <p className="text-xs sm:text-sm text-text-muted leading-relaxed font-medium">
-                Specializing in game server hosting, we support over 100+ games, including Minecraft, Rust, Palworld, and FiveM. Our automated modpack installation and 24/7 support ensure a seamless gaming experience for users of all experience levels.
+                We support over 10+ games, including Minecraft, Hytale, Terraria, ARK and FiveM. Our automated modpack installation and 24/7 support ensure a seamless gaming experience for users of all experience levels.
               </p>
             </div>
             <Link href="/game" className="inline-flex items-center gap-1.5 text-xs font-bold text-primary-cyan hover:underline pt-2">
@@ -211,7 +212,7 @@ export default function AboutUs() {
                 VPS Hosting
               </h3>
               <p className="text-xs sm:text-sm text-text-muted leading-relaxed font-medium">
-                Our Virtual Private Server (VPS) hosting provides full control over your server environment, allowing you to host websites, manage databases, run scripts, or scale application containers with ease. With multiple flexible plans, our VPS servers are both affordable and scalable.
+                Take full control with high-performance VPS hosting built for developers, businesses, and power users. Enjoy dedicated resources, fast NVMe storage, flexible upgrades, and the freedom to run your projects exactly the way you want.
               </p>
             </div>
             <Link href="/vps" className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:underline pt-2">
@@ -227,7 +228,7 @@ export default function AboutUs() {
                 <Server className="h-6 w-6" />
               </div>
               <h3 className="font-display text-lg font-bold text-white uppercase tracking-tight">
-                Dedicated Server Hosting
+                Virtual Desktop Servers (VDS)
               </h3>
               <p className="text-xs sm:text-sm text-text-muted leading-relaxed font-medium">
                 For those seeking robust, raw performance, our dedicated servers offer exclusive use of high-powered hardware, ensuring optimal performance for demanding enterprise applications and massive game instances.
@@ -256,7 +257,7 @@ export default function AboutUs() {
               </h3>
             </div>
             <p className="text-xs sm:text-sm text-text-muted leading-relaxed font-medium">
-              We pride ourselves on offering <span className="font-bold text-white">24/7/365 support</span> and an average response time of under 15 minutes. That means there's always someone knowledgeable and ready to talk to! Our experienced staff is equipped to assist with a variety of technical issues, ensuring that you receive the help you need without unnecessary delays.
+              We believe great support is built on clear communication and reliable assistance.  Our team is available 24/7 to help with everything from quick questions to technical issues. With fast response times and real people ready to assist, you’ll never be left waiting when it matters most.
             </p>
           </div>
 
@@ -272,7 +273,7 @@ export default function AboutUs() {
               </h3>
             </div>
             <p className="text-xs sm:text-sm text-text-muted leading-relaxed font-medium">
-              We believe in the power of community. We are dedicated to fostering a thriving ecosystem where both gamers and developers can flourish. By promoting player-owned servers, we enhance game visibility, attract active players, and build robust developer communities globally.
+              From small friend groups to large gaming communities, we're here to help every server succeed. With reliable hosting, powerful tools, and dedicated support, we make it easy to create, manage, and grow your community with confidence.
             </p>
           </div>
         </div>
@@ -288,10 +289,10 @@ export default function AboutUs() {
               <span>Studio Partnerships</span>
             </div>
             <h2 className="font-norwester text-2xl sm:text-4xl text-white uppercase tracking-wider">
-              High-Performance Studio Collaboration
+              Helping Games Scale with Confidence
             </h2>
             <p className="text-sm sm:text-base text-text-muted leading-relaxed font-sans font-medium">
-              Our experience and technical expertise make us an ideal partner for game studios looking to deliver seamless, high-performance multiplayer experiences. We collaborate closely with developers to tailor hosting solutions to their needs, ensuring games run smoothly on our platform, all while facilitating community building at all levels.
+              We're committed to supporting game developers with reliable hosting and responsive technical support. By providing scalable infrastructure and dependable performance, we help studios focus on building great games while we handle the hosting.
             </p>
           </div>
         </div>
@@ -312,7 +313,7 @@ export default function AboutUs() {
                   <Sparkles className="h-8 w-8 text-primary-cyan animate-pulse" />
                   <span className="font-norwester text-lg text-white tracking-widest uppercase">Start Your Journey</span>
                   <p className="text-[10px] text-text-muted leading-normal max-w-[200px]">
-                    Join thousands of gamers and developers building on DynoXium nodes.
+                    Join gamers and developers building on DynoXium nodes.
                   </p>
                 </div>
               </div>
@@ -324,20 +325,22 @@ export default function AboutUs() {
                 Get Started Today
               </h2>
               <p className="text-xs sm:text-sm text-text-muted leading-relaxed font-medium">
-                Whether you're a gamer seeking a hassle-free hosting experience or a game studio looking for a strategic partner, DynoXium is here to support you. Our 24/7 support team, custom-built tools, and robust infrastructure are designed to provide peace of mind and exceptional performance.
+                Every great project starts with the right foundation. At DynoXium, we combine powerful infrastructure, reliable performance, and dedicated support to help you launch with confidence. Start today and experience hosting built for gamers, developers, and growing communities.
               </p>
               <div className="pt-2 flex flex-wrap gap-4">
                 <Link
                   href="/game"
-                  className="px-6 py-2.5 rounded-lg bg-primary-cyan border border-primary-cyan text-black font-bold text-xs sm:text-sm hover:bg-transparent hover:text-primary-cyan transition-all shadow-[0_0_15px_rgba(108,244,255,0.25)] uppercase tracking-wider"
+                  className="inline-flex items-center justify-center gap-1.5 px-6 py-2.5 rounded-lg bg-primary-cyan border border-primary-cyan text-black font-bold text-xs sm:text-sm hover:bg-transparent hover:text-white transition-all shadow-[0_0_15px_rgba(108,244,255,0.25)] uppercase tracking-wider group"
                 >
-                  Configure Server
+                  Get Started
+                  <ArrowUpRight className="h-3.5 w-3.5 text-black group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
                 </Link>
                 <Link
                   href="#"
-                  className="px-6 py-2.5 rounded-lg bg-[#1C2640] border border-[#2A3650]/60 text-white font-bold text-xs sm:text-sm hover:border-primary-cyan/40 transition-all uppercase tracking-wider"
+                  className="inline-flex items-center justify-center gap-1.5 px-6 py-2.5 rounded-lg bg-[#1C2640] border border-[#2A3650]/60 text-white font-bold text-xs sm:text-sm hover:border-primary-cyan/40 transition-all uppercase tracking-wider group"
                 >
-                  Get Pro Support
+                  Community
+                  <ArrowRight className="h-3.5 w-3.5 text-white group-hover:translate-x-0.5 transition-all duration-300" />
                 </Link>
               </div>
             </div>
@@ -351,11 +354,11 @@ export default function AboutUs() {
           Contact Us
         </h2>
         <p className="text-xs sm:text-sm text-text-muted max-w-2xl mx-auto font-sans font-medium leading-relaxed">
-          For partnership inquiries, customized enterprise server configurations, or to learn more about our hardware, please contact us at{" "}
-          <a href="mailto:business@dynoxium.com" className="text-primary-cyan hover:underline">
-            business@dynoxium.com
+          Have a question or need a custom hosting solution? Whether you're looking for a partnership, business hosting, or expert advice, our team is here to help. Reach out at{" "}
+          <a href="mailto:business@dynoxium.tech" className="text-primary-cyan hover:underline">
+            business@dynoxium.tech
           </a>{" "}
-          or submit a ticket via our client portal.
+          or open a ticket through our Ticket System.
         </p>
       </section>
     </div>

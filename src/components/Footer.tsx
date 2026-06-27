@@ -74,7 +74,7 @@ export default function Footer() {
       {/* DISCORD COMMUNITY SECTION FLOATING HALF-UP */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl px-4 sm:px-6 lg:px-8 z-40">
         <div className="relative p-8 sm:p-10 md:p-12 rounded-3xl border border-[#5865F2]/25 bg-gradient-to-r from-[#161c2c] to-[#0F1424] shadow-[0_0_40px_rgba(88,101,242,0.12)] overflow-hidden group hover:border-[#5865F2]/50 hover:shadow-[0_0_50px_rgba(88,101,242,0.22)] transition-all duration-500">
-          
+
           {/* Watermark Discord Logos */}
           <div className="absolute inset-0 pointer-events-none select-none overflow-hidden opacity-[0.03] transition-opacity duration-500 group-hover:opacity-[0.06]">
             <svg className="absolute -left-6 -top-6 w-24 h-24 text-white rotate-12" fill="currentColor" viewBox="0 0 127.14 96.36">
@@ -159,7 +159,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-text-muted leading-relaxed">
-              DynoXium, founded in India by Kr Arjan, strives to provide reliable and performance-driven cloud hosting solutions all in one place with professionalism and trust. Our mission is to empower businesses and developers with seamless infrastructure and dependable support for their online growth.
+              Founded in <span className="font-bold text-white">India</span> by <span className="font-bold text-white">Kr Arjan</span>, with <span className="font-bold text-white">Randeep Royal</span> serving as <span className="font-bold text-white">Co-Founder</span>, <span className="font-bold text-white">Dynoxium</span> was built with a simple goal—to make high-quality hosting reliable, accessible, and easy to manage. From game servers to cloud infrastructure, we focus on delivering dependable performance, modern technology, and support you can count on.
             </p>
 
             {/* Social Icons Rounded Squares */}
@@ -186,20 +186,20 @@ export default function Footer() {
             <div className="flex flex-col gap-1.5 text-sm text-text-muted font-mono mt-2">
               <div>
                 <span className="text-text-muted/85">Support:</span>{" "}
-                <a href="mailto:support@dynoxium.com" className="hover:text-primary-cyan transition-colors">
-                  support@dynoxium.com
+                <a href="mailto:support@dynoxium.tech" className="hover:text-primary-cyan transition-colors">
+                  support@dynoxium.tech
                 </a>
               </div>
               <div>
                 <span className="text-text-muted/85">Business:</span>{" "}
-                <a href="mailto:business@dynoxium.com" className="hover:text-primary-cyan transition-colors">
-                  business@dynoxium.com
+                <a href="mailto:business@dynoxium.tech" className="hover:text-primary-cyan transition-colors">
+                  business@dynoxium.tech
                 </a>
               </div>
               <div>
-                <span className="text-text-muted/85">Abuse:</span>{" "}
-                <a href="mailto:abuse@dynoxium.com" className="hover:text-primary-cyan transition-colors">
-                  abuse@dynoxium.com
+                <span className="text-text-muted/85">Contact:</span>{" "}
+                <a href="mailto:contact@dynoxium.tech" className="hover:text-primary-cyan transition-colors">
+                  contact@dynoxium.tech
                 </a>
               </div>
             </div>
