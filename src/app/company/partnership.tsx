@@ -298,10 +298,10 @@ export default function PartnershipPage() {
                 </div>
 
                 {/* Turnstile Widget */}
-                {mounted && process.env.TURNSTILE_SITE_KEY && (
+                {mounted && process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && (
                   <div className="flex justify-start my-2">
                     <Turnstile
-                      siteKey={process.env.TURNSTILE_SITE_KEY}
+                      siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
                       onVerify={(token) => setTurnstileToken(token)}
                       onExpire={() => setTurnstileToken(null)}
                       onError={() => setTurnstileToken(null)}
