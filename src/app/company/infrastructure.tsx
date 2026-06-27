@@ -162,17 +162,17 @@ export default function InfrastructurePage() {
           Global Node Network
         </div>
         <h1 className="font-norwester text-2xl sm:text-4xl md:text-7xl lg:text-8xl tracking-wide md:tracking-widest text-white mb-6 uppercase leading-none break-words reveal-up delay-100">
-          Global Presence, <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Local Performance</span>
+          Global <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Server Locations</span>
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium reveal-up delay-150">
-          Our rapidly expanding datacenter network spans across the globe, delivering ultra-low latency and lightning-fast connections wherever you are.
+          Powered by trusted infrastructure partners, DynoXium provides hosting across multiple locations with dependable performance and low-latency connections.
         </p>
       </section>
 
       {/* MAP & REGIONS INTERACTIVE CONTAINER */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 reveal-up">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:items-stretch items-start">
-          
+
           {/* MAP COLUMN (Stretches vertically to cover all 4 stacked location cards on desktop) */}
           <div className="lg:col-span-8 bg-[#0E1321]/45 border border-[#2A3650]/60 rounded-2xl p-6 relative shadow-[0_0_40px_rgba(0,0,0,0.4)] overflow-hidden lg:h-full min-h-[500px] flex flex-col justify-between reveal-up delay-75">
             {/* Tech bracket accents */}
@@ -239,32 +239,27 @@ export default function InfrastructurePage() {
                   >
                     {/* Ring Pulse for active or hovered nodes */}
                     {(isIndia || isHovered) && (
-                      <span className={`absolute -inset-2.5 rounded-full animate-ping opacity-35 ${
-                        isIndia ? "bg-primary-cyan" : "bg-[#3388FF]"
-                      }`} />
+                      <span className={`absolute -inset-2.5 rounded-full animate-ping opacity-35 ${isIndia ? "bg-primary-cyan" : "bg-[#3388FF]"
+                        }`} />
                     )}
 
                     {/* Pin Core */}
-                    <div className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center transition-all ${
-                      isIndia
-                        ? "bg-primary-cyan border-primary-cyan shadow-[0_0_10px_rgba(108,244,255,0.6)]"
-                        : isHovered
+                    <div className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center transition-all ${isIndia
+                      ? "bg-primary-cyan border-primary-cyan shadow-[0_0_10px_rgba(108,244,255,0.6)]"
+                      : isHovered
                         ? "bg-[#3388FF] border-[#6CF4FF] shadow-[0_0_10px_rgba(51,136,255,0.6)]"
                         : "bg-[#1E2638] border-[#2A3650]/80"
-                    }`}>
-                      <div className={`w-1.5 h-1.5 rounded-full ${
-                        isIndia ? "bg-black" : isHovered ? "bg-white" : "bg-[#A0AEC0]/40"
-                      }`} />
+                      }`}>
+                      <div className={`w-1.5 h-1.5 rounded-full ${isIndia ? "bg-black" : isHovered ? "bg-white" : "bg-[#A0AEC0]/40"
+                        }`} />
                     </div>
 
                     {/* Tooltip */}
-                    <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1 rounded bg-[#0E1321] border border-[#2A3650] shadow-xl text-[9px] font-mono font-bold whitespace-nowrap uppercase tracking-wider transition-all duration-300 pointer-events-none ${
-                      isHovered ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-1"
-                    }`}>
-                      <span className="text-white">{region.name}</span>
-                      <span className={`ml-1.5 ${
-                        isIndia ? "text-primary-cyan" : "text-amber-400"
+                    <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1 rounded bg-[#0E1321] border border-[#2A3650] shadow-xl text-[9px] font-mono font-bold whitespace-nowrap uppercase tracking-wider transition-all duration-300 pointer-events-none ${isHovered ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-1"
                       }`}>
+                      <span className="text-white">{region.name}</span>
+                      <span className={`ml-1.5 ${isIndia ? "text-primary-cyan" : "text-amber-400"
+                        }`}>
                         ({region.status})
                       </span>
                     </div>
@@ -290,9 +285,8 @@ export default function InfrastructurePage() {
               return (
                 <div
                   key={region.id}
-                  className={`group relative rounded-xl border bg-[#0E1321]/60 p-5 flex flex-col gap-4 transition-all duration-300 cursor-pointer ${borderGlow} ${
-                    isHovered ? "scale-[1.01]" : ""
-                  }`}
+                  className={`group relative rounded-xl border bg-[#0E1321]/60 p-5 flex flex-col gap-4 transition-all duration-300 cursor-pointer ${borderGlow} ${isHovered ? "scale-[1.01]" : ""
+                    }`}
                   onMouseEnter={() => setActiveRegion(region.id)}
                   onMouseLeave={() => setActiveRegion(null)}
                 >
@@ -317,11 +311,10 @@ export default function InfrastructurePage() {
                     </div>
 
                     {/* Status Badge */}
-                    <div className={`flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[9px] font-mono font-bold border ${
-                      isIndia
-                        ? "bg-primary-cyan/10 border-primary-cyan/20 text-primary-cyan shadow-[0_0_10px_rgba(108,244,255,0.05)]"
-                        : "bg-amber-500/10 border-amber-500/20 text-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.05)]"
-                    }`}>
+                    <div className={`flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[9px] font-mono font-bold border ${isIndia
+                      ? "bg-primary-cyan/10 border-primary-cyan/20 text-primary-cyan shadow-[0_0_10px_rgba(108,244,255,0.05)]"
+                      : "bg-amber-500/10 border-amber-500/20 text-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.05)]"
+                      }`}>
                       {isIndia ? (
                         <>
                           <Activity className="h-3 w-3 text-primary-cyan animate-pulse" />
@@ -352,9 +345,8 @@ export default function InfrastructurePage() {
                             <span className={isLocLive ? "text-white font-semibold" : "text-text-muted/80"}>
                               • {loc.name}
                             </span>
-                            <span className={`text-[9px] font-bold ${
-                              isLocLive ? "text-primary-cyan" : "text-amber-400/80"
-                            }`}>
+                            <span className={`text-[9px] font-bold ${isLocLive ? "text-primary-cyan" : "text-amber-400/80"
+                              }`}>
                               {loc.status}
                             </span>
                           </div>
