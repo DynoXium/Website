@@ -7,11 +7,36 @@ function parseUserAgent(ua: string) {
   let os = "Unknown";
 
   // OS detection
-  if (/windows/i.test(ua)) os = "Windows";
-  else if (/android/i.test(ua)) os = "Android";
-  else if (/ipad|iphone|ipod/i.test(ua)) os = "iOS";
-  else if (/macintosh/i.test(ua)) os = "macOS";
-  else if (/linux/i.test(ua)) os = "Linux";
+  if (/windows/i.test(ua)) {
+    const winMatch = ua.match(/Windows NT ([\d.]+)/i);
+    if (winMatch) {
+      const version = winMatch[1];
+      if (version === "10.0") {
+        os = "Windows 10/11";
+      } else if (version === "6.3") {
+        os = "Windows 8.1";
+      } else if (version === "6.2") {
+        os = "Windows 8";
+      } else if (version === "6.1") {
+        os = "Windows 7";
+      } else {
+        os = `Windows NT ${version}`;
+      }
+    } else {
+      os = "Windows";
+    }
+  } else if (/android/i.test(ua)) {
+    const androidMatch = ua.match(/Android ([\d.]+)/i);
+    os = androidMatch ? `Android ${androidMatch[1]}` : "Android";
+  } else if (/ipad|iphone|ipod/i.test(ua)) {
+    const iosMatch = ua.match(/OS ([\d_]+) like/i);
+    os = iosMatch ? `iOS ${iosMatch[1].replace(/_/g, ".")}` : "iOS";
+  } else if (/macintosh/i.test(ua)) {
+    const macMatch = ua.match(/Mac OS X ([\d_.]+)/i);
+    os = macMatch ? `macOS ${macMatch[1].replace(/_/g, ".")}` : "macOS";
+  } else if (/linux/i.test(ua)) {
+    os = "Linux";
+  }
 
   // Browser detection
   if (/opr\/|opera/i.test(ua)) browser = "Opera";
