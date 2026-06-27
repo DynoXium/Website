@@ -111,7 +111,7 @@ export default function MinecraftStatus() {
             <Search className="h-5 w-5 text-text-muted ml-3.5 flex-shrink-0" />
             <input
               type="text"
-              placeholder="play.Ateex.cloud"
+              placeholder="play.dynoxium.tech"
               value={ipAddress}
               onChange={(e) => setIpAddress(e.target.value)}
               className="w-full bg-transparent border-none text-white pl-3.5 pr-4 py-2 font-mono font-bold text-sm focus:outline-none placeholder-text-muted"

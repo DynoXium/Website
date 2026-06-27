@@ -80,6 +80,7 @@ export default function MotdEditor() {
   const [copiedCode, setCopiedCode] = useState(false);
   const [copiedProps, setCopiedProps] = useState(false);
   const [showTemplates, setShowTemplates] = useState(false);
+  const [activeSoftware, setActiveSoftware] = useState<"vanilla" | "spigot" | "velocity">("vanilla");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   // Parse lines and compute lengths (ignoring formatting codes)
@@ -113,29 +114,52 @@ export default function MotdEditor() {
     }, 10);
   };
 
-  // Convert § to server.properties escape unicode format \u00A7
-  const getPropertiesCode = () => {
-    return `motd=${motdText.replace(/\n/g, "\\n").replace(/§/g, "\\u00A7")}`;
+  const getFormattedOutput = () => {
+    switch (activeSoftware) {
+      case "vanilla":
+        return `motd=${motdText.replace(/\n/g, "\\n").replace(/§/g, "\\u00A7")}`;
+      case "spigot":
+        const spigotMotd = motdText.replace(/§/g, "&").replace(/\n/g, "\\n");
+        return `motd: '${spigotMotd}'`;
+      case "velocity":
+        const velocityMotd = motdText.replace(/§/g, "&").replace(/\n/g, "\\n");
+        return `motd = "${velocityMotd}"`;
+      default:
+        return motdText;
+    }
+  };
+
+  const getFileName = () => {
+    switch (activeSoftware) {
+      case "vanilla":
+        return "server.properties";
+      case "spigot":
+        return "spigot.yml";
+      case "velocity":
+        return "velocity.toml";
+      default:
+        return "motd.txt";
+    }
   };
 
   // Copy to clipboard helpers
+  const handleCopyProps = () => {
+    navigator.clipboard.writeText(getFormattedOutput());
+    setCopiedProps(true);
+    setTimeout(() => setCopiedProps(false), 2000);
+  };
+
   const handleCopyCode = () => {
     navigator.clipboard.writeText(motdText);
     setCopiedCode(true);
     setTimeout(() => setCopiedCode(false), 2000);
   };
 
-  const handleCopyProps = () => {
-    navigator.clipboard.writeText(getPropertiesCode());
-    setCopiedProps(true);
-    setTimeout(() => setCopiedProps(false), 2000);
-  };
-
   const downloadPropertiesFile = () => {
     const element = document.createElement("a");
-    const file = new Blob([getPropertiesCode()], { type: "text/plain" });
+    const file = new Blob([getFormattedOutput()], { type: "text/plain" });
     element.href = URL.createObjectURL(file);
-    element.download = "server.properties";
+    element.download = getFileName();
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
@@ -434,10 +458,45 @@ export default function MotdEditor() {
               </div>
             </div>
 
-            {/* server.properties Config */}
+            {/* Config Output Box */}
             <div className="rounded-3xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 space-y-4 backdrop-blur-md">
-              <div className="flex justify-between items-center text-[10px] font-mono font-bold text-text-muted uppercase tracking-wider">
-                <span>server.properties</span>
+              
+              {/* Tab Selector */}
+              <div className="flex gap-1.5 pb-2 overflow-x-auto scrollbar-none border-b border-[#2A3650]/20">
+                <button
+                  onClick={() => setActiveSoftware("vanilla")}
+                  className={`px-3 py-1.5 rounded-lg text-[9px] font-mono font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
+                    activeSoftware === "vanilla"
+                      ? "bg-primary-cyan/15 border border-primary-cyan/30 text-primary-cyan"
+                      : "bg-[#070A14] border border-[#2A3650]/40 text-text-muted hover:text-white"
+                  }`}
+                >
+                  server.properties
+                </button>
+                <button
+                  onClick={() => setActiveSoftware("spigot")}
+                  className={`px-3 py-1.5 rounded-lg text-[9px] font-mono font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
+                    activeSoftware === "spigot"
+                      ? "bg-primary-cyan/15 border border-primary-cyan/30 text-primary-cyan"
+                      : "bg-[#070A14] border border-[#2A3650]/40 text-text-muted hover:text-white"
+                  }`}
+                >
+                  spigot.yml / Bungee
+                </button>
+                <button
+                  onClick={() => setActiveSoftware("velocity")}
+                  className={`px-3 py-1.5 rounded-lg text-[9px] font-mono font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
+                    activeSoftware === "velocity"
+                      ? "bg-primary-cyan/15 border border-primary-cyan/30 text-primary-cyan"
+                      : "bg-[#070A14] border border-[#2A3650]/40 text-text-muted hover:text-white"
+                  }`}
+                >
+                  velocity.toml
+                </button>
+              </div>
+
+              <div className="flex justify-between items-center text-[10px] font-mono font-bold text-text-muted uppercase tracking-wider pt-1">
+                <span>{getFileName()}</span>
                 <button
                   onClick={handleCopyProps}
                   className="flex items-center gap-1.5 text-primary-cyan hover:text-primary-cyan/85 transition-colors cursor-pointer font-semibold"
@@ -457,8 +516,8 @@ export default function MotdEditor() {
               </div>
 
               {/* Output Box */}
-              <div className="rounded-xl border border-[#2A3650]/40 bg-[#070A14] p-4 font-mono text-[10px] sm:text-xs text-text-muted break-all leading-normal select-all">
-                {getPropertiesCode()}
+              <div className="rounded-xl border border-[#2A3650]/40 bg-[#070A14] p-4 font-mono text-[10px] sm:text-xs text-text-muted break-all leading-normal select-all min-h-[70px]">
+                {getFormattedOutput()}
               </div>
 
               {/* Download Buttons */}

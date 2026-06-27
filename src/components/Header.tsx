@@ -102,7 +102,7 @@ export default function Header() {
         { name: "MC Status", path: "/tools/mc-status", desc: "Check server status" },
         { name: "MOTD Maker", path: "/tools/motd", desc: "Create custom server MOTDs" },
         { name: "MC Skin", path: "/tools/skin", desc: "View and download skins" },
-        { name: "Subdomain", path: "#", desc: "Manage your subdomains" },
+        { name: "Subdomain", path: "#", desc: "Currently Unavailable" },
         { name: "UUID", path: "/tools/uuid", desc: "Find player UUIDs" },
         { name: "Tick Calculator", path: "/tools/tick-calculator", desc: "Convert game ticks to real time" },
         { name: "Coordinate Calculator", path: "/tools/coordinate-calculator", desc: "Nether portal coordinate math" },
@@ -177,13 +177,11 @@ export default function Header() {
                 width={56}
                 height={56}
                 priority
-                className={`object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 animate-logo-zoom ${
-                  scrolled ? "w-8 h-8 sm:w-10 sm:h-10" : "w-10 h-10 sm:w-14 sm:h-14"
-                }`}
+                className={`object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 animate-logo-zoom ${scrolled ? "w-8 h-8 sm:w-10 sm:h-10" : "w-10 h-10 sm:w-14 sm:h-14"
+                  }`}
               />
-              <span className={`font-norwester tracking-wide text-white whitespace-nowrap transition-all duration-300 ${
-                scrolled ? "text-base sm:text-2xl" : "text-lg sm:text-[1.8rem]"
-              }`}>
+              <span className={`font-norwester tracking-wide text-white whitespace-nowrap transition-all duration-300 ${scrolled ? "text-base sm:text-2xl" : "text-lg sm:text-[1.8rem]"
+                }`}>
                 Dyno<span className="text-primary-cyan">X</span>ium
               </span>
             </Link>
@@ -209,9 +207,8 @@ export default function Header() {
                       </Link>
 
                       {/* Dropdown Menu */}
-                      <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-[#0E1321]/95 border border-[#2A3650]/80 rounded-xl p-3 shadow-2xl backdrop-blur-md transition-all duration-200 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 z-50 ${
-                        isTools ? "w-[480px]" : "w-72"
-                      }`}>
+                      <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-[#0E1321]/95 border border-[#2A3650]/80 rounded-xl p-3 shadow-2xl backdrop-blur-md transition-all duration-200 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 z-50 ${isTools ? "w-[480px]" : "w-72"
+                        }`}>
                         <div className={isTools ? "grid grid-cols-2 gap-1.5" : "flex flex-col gap-1.5"}>
                           {item.items.map((subItem) => (
                             <Link
@@ -262,9 +259,8 @@ export default function Header() {
               <Link
                 href="#"
                 title="Command Center"
-                className={`flex items-center gap-1 bg-[#3388FF] hover:bg-[#6CF4FF] text-white hover:text-[#0B0F19] font-black rounded-lg transform-gpu transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.98] cursor-pointer shadow-md hover:shadow-[0_0_15px_rgba(108,244,255,0.3)] uppercase tracking-widest group/btn btn-hover-lift ${
-                  scrolled ? "py-2 px-4 text-xs" : "py-2.5 px-6 text-sm"
-                }`}
+                className={`flex items-center gap-1 bg-[#3388FF] hover:bg-[#6CF4FF] text-white hover:text-[#0B0F19] font-black rounded-lg transform-gpu transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.98] cursor-pointer shadow-md hover:shadow-[0_0_15px_rgba(108,244,255,0.3)] uppercase tracking-widest group/btn btn-hover-lift ${scrolled ? "py-2 px-4 text-xs" : "py-2.5 px-6 text-sm"
+                  }`}
               >
                 <span>go</span>
                 <ArrowUpRight className="h-3.5 w-3.5 text-white group-hover/btn:text-[#0B0F19] group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-all duration-300" />
@@ -286,8 +282,8 @@ export default function Header() {
 
         {/* Mobile Drawer */}
         <div
-          className={`xl:hidden absolute left-0 w-full bg-[#0B0F19]/98 backdrop-blur-2xl transition-all duration-300 overflow-y-auto max-h-[85vh] ${scrolled 
-            ? "top-full sm:top-[calc(100%+12px)] sm:rounded-2xl sm:border border-primary-cyan/30 shadow-2xl" 
+          className={`xl:hidden absolute left-0 w-full bg-[#0B0F19]/98 backdrop-blur-2xl transition-all duration-300 overflow-y-auto max-h-[85vh] ${scrolled
+            ? "top-full sm:top-[calc(100%+12px)] sm:rounded-2xl sm:border border-primary-cyan/30 shadow-2xl"
             : "top-full border-b border-[#2A3650]/55"
             } ${isOpen ? "opacity-100 py-6 visible" : "opacity-0 invisible h-0"}`}
         >

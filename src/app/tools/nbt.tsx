@@ -14,12 +14,14 @@ import {
 
 interface NbtTemplate {
   name: string;
+  description: string;
   data: string;
 }
 
 const templatesList: NbtTemplate[] = [
   {
-    name: "Player Inventory (.dat)",
+    name: "Player Data",
+    description: "Basic player NBT structure",
     data: `{
   "UUID": [I; 12345, 67890, 24680, 13579],
   "ping": 42,
@@ -46,7 +48,8 @@ const templatesList: NbtTemplate[] = [
 }`,
   },
   {
-    name: "World Info (level.dat)",
+    name: "Level Data",
+    description: "World level.dat structure",
     data: `{
   "Data": {
     "LevelName": "DynoXium Survival",
@@ -65,17 +68,36 @@ const templatesList: NbtTemplate[] = [
 }`,
   },
   {
-    name: "Spawner Structure (.nbt)",
+    name: "Structure Block",
+    description: "Structure file template",
     data: `{
-  "id": "minecraft:mob_spawner",
-  "Delay": 20s,
-  "SpawnData": {
-    "entity": {
-      "id": "minecraft:zombie"
-    }
+  "size": [3, 3, 3],
+  "entities": [],
+  "blocks": [
+    { "pos": [0, 0, 0], "state": 0 },
+    { "pos": [1, 0, 1], "state": 1 }
+  ],
+  "palette": [
+    { "Name": "minecraft:stone" },
+    { "Name": "minecraft:chest" }
+  ]
+}`,
   },
-  "RequiredPlayerRange": 16s,
-  "MaxNearbyEntities": 6s
+  {
+    name: "Item Stack",
+    description: "Item NBT data",
+    data: `{
+  "id": "minecraft:diamond_sword",
+  "Count": 1b,
+  "tag": {
+    "Damage": 0,
+    "Enchantments": [
+      { "id": "minecraft:sharpness", "lvl": 5s }
+    ],
+    "display": {
+      "Name": "{\\"text\\":\\"Excalibur\\",\\"color\\":\\"gold\\"}"
+    }
+  }
 }`,
   },
 ];
@@ -85,6 +107,7 @@ export default function NbtEditor() {
   const [selectedTemplate, setSelectedTemplate] = useState("");
   const [copiedCode, setCopiedCode] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleTemplateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const val = e.target.value;
@@ -183,7 +206,7 @@ export default function NbtEditor() {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Templates Box */}
-            <div className="rounded-3xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 space-y-4 relative overflow-hidden backdrop-blur-md">
+            <div className={`rounded-3xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 space-y-4 relative backdrop-blur-md ${dropdownOpen ? "z-30" : "z-10"}`}>
               <div className="absolute top-2 left-2 w-3.5 h-3.5 border-t border-l border-primary-cyan/20" />
               <div className="absolute top-2 right-2 w-3.5 h-3.5 border-t border-r border-primary-cyan/20" />
               
@@ -192,18 +215,60 @@ export default function NbtEditor() {
                 Templates
               </h3>
 
-              <select
-                value={selectedTemplate}
-                onChange={handleTemplateChange}
-                className="w-full p-3 rounded-xl bg-[#070A14] border border-[#2A3650]/60 text-white font-sans text-xs focus:border-primary-cyan/60 focus:outline-none transition-colors"
-              >
-                <option value="">Select a template...</option>
-                {templatesList.map((tpl) => (
-                  <option key={tpl.name} value={tpl.name}>
-                    {tpl.name}
-                  </option>
-                ))}
-              </select>
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                  className="w-full flex items-center justify-between p-3 rounded-xl bg-[#070A14] border border-[#2A3650]/60 text-white font-sans text-xs focus:border-primary-cyan/60 focus:outline-none transition-colors cursor-pointer text-left"
+                >
+                  <div>
+                    {selectedTemplate ? (
+                      <div>
+                        <div className="font-bold text-white">
+                          {templatesList.find(t => t.name === selectedTemplate)?.name}
+                        </div>
+                        <div className="text-[10px] text-text-muted mt-0.5">
+                          {templatesList.find(t => t.name === selectedTemplate)?.description}
+                        </div>
+                      </div>
+                    ) : (
+                      <span className="text-text-muted">Select a template...</span>
+                    )}
+                  </div>
+                  <span className="text-text-muted ml-2 text-[10px]">▼</span>
+                </button>
+
+                {dropdownOpen && (
+                  <>
+                    <div 
+                      className="fixed inset-0 z-40" 
+                      onClick={() => setDropdownOpen(false)} 
+                    />
+                    <div className="absolute z-50 mt-2 w-full rounded-xl border border-[#2A3650]/80 bg-[#0E1321] shadow-2xl max-h-60 overflow-y-auto divide-y divide-[#2A3650]/30 scrollbar-thin">
+                      {templatesList.map((tpl) => (
+                        <button
+                          key={tpl.name}
+                          type="button"
+                          onClick={() => {
+                            setSelectedTemplate(tpl.name);
+                            setEditorText(tpl.data);
+                            setStatusMessage(`Loaded template: ${tpl.name}`);
+                            setDropdownOpen(false);
+                          }}
+                          className="w-full text-left p-3.5 hover:bg-[#161D30] transition-colors focus:outline-none block cursor-pointer"
+                        >
+                          <div className="font-bold text-xs text-white">
+                            {tpl.name}
+                          </div>
+                          <div className="text-[10px] text-text-muted mt-1">
+                            {tpl.description}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
             </div>
 
             {/* Upload File Box */}

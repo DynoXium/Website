@@ -22,6 +22,23 @@ export default function SkinDownloader() {
   const [error, setError] = useState("");
   const [profile, setProfile] = useState<SkinProfile | null>(null);
 
+  const downloadImage = async (url: string, filename: string) => {
+    try {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = blobUrl;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(blobUrl);
+    } catch (e) {
+      window.open(url, "_blank");
+    }
+  };
+
   const fetchPlayer = async (searchQuery: string) => {
     const term = searchQuery.trim();
     if (!term) return;
@@ -161,12 +178,12 @@ export default function SkinDownloader() {
                 <span className="text-[10px] font-mono font-bold text-text-muted uppercase tracking-wider block">Visualizations</span>
                 
                 {/* Visualizations Grid */}
-                <div className="grid grid-cols-3 gap-4 py-4 flex-grow items-center justify-items-center">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4 flex-grow items-center justify-items-center">
                   
                   {/* Front Body Render */}
                   <div className="flex flex-col items-center space-y-3">
                     <span className="text-[9px] font-mono font-bold text-text-muted uppercase">Front</span>
-                    <div className="w-32 h-44 rounded-xl border border-[#2A3650]/40 bg-[#070A14] flex items-center justify-center p-2">
+                    <div className="w-28 sm:w-32 h-40 sm:h-44 rounded-xl border border-[#2A3650]/40 bg-[#070A14] flex items-center justify-center p-2">
                       <img
                         src={`https://mc-heads.net/body/${profile.uuid}/100`}
                         alt="Front skin render"
@@ -178,7 +195,7 @@ export default function SkinDownloader() {
                   {/* Back Body Render */}
                   <div className="flex flex-col items-center space-y-3">
                     <span className="text-[9px] font-mono font-bold text-text-muted uppercase">Back</span>
-                    <div className="w-32 h-44 rounded-xl border border-[#2A3650]/40 bg-[#070A14] flex items-center justify-center p-2">
+                    <div className="w-28 sm:w-32 h-40 sm:h-44 rounded-xl border border-[#2A3650]/40 bg-[#070A14] flex items-center justify-center p-2">
                       <img
                         src={`https://mc-heads.net/player/${profile.uuid}/100`}
                         alt="Back skin render"
@@ -189,11 +206,23 @@ export default function SkinDownloader() {
 
                   {/* Avatar Head Render */}
                   <div className="flex flex-col items-center space-y-3">
-                    <span className="text-[9px] font-mono font-bold text-text-muted uppercase">Avatar</span>
-                    <div className="w-32 h-44 rounded-xl border border-[#2A3650]/40 bg-[#070A14] flex items-center justify-center p-4">
+                    <span className="text-[9px] font-mono font-bold text-text-muted uppercase">2D Head</span>
+                    <div className="w-28 sm:w-32 h-40 sm:h-44 rounded-xl border border-[#2A3650]/40 bg-[#070A14] flex items-center justify-center p-4">
                       <img
                         src={`https://mc-heads.net/avatar/${profile.uuid}/80`}
                         alt="Head avatar render"
+                        className="w-16 h-16 object-contain rounded-xl select-none"
+                      />
+                    </div>
+                  </div>
+
+                  {/* 3D Head Render */}
+                  <div className="flex flex-col items-center space-y-3">
+                    <span className="text-[9px] font-mono font-bold text-text-muted uppercase">3D Head</span>
+                    <div className="w-28 sm:w-32 h-40 sm:h-44 rounded-xl border border-[#2A3650]/40 bg-[#070A14] flex items-center justify-center p-4">
+                      <img
+                        src={`https://mc-heads.net/head/${profile.uuid}/80`}
+                        alt="Head 3D render"
                         className="w-16 h-16 object-contain rounded-xl select-none"
                       />
                     </div>
@@ -219,45 +248,52 @@ export default function SkinDownloader() {
 
                 <div className="space-y-3 py-4">
                   {/* Raw Texture Download */}
-                  <a
-                    href={`https://mc-heads.net/download/${profile.uuid}`}
-                    download={`${profile.username}_skin.png`}
-                    className="flex items-center justify-between gap-3 px-4 py-3 rounded-xl border border-primary-cyan/30 bg-primary-cyan/5 text-primary-cyan text-xs font-bold uppercase tracking-wider transition-all hover:bg-primary-cyan/10 cursor-pointer"
+                  <button
+                    onClick={() => downloadImage(`https://mc-heads.net/download/${profile.uuid}`, `${profile.username}_skin.png`)}
+                    className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl border border-primary-cyan/30 bg-primary-cyan/5 text-primary-cyan text-xs font-bold uppercase tracking-wider transition-all hover:bg-primary-cyan/10 cursor-pointer text-left"
                   >
                     <div className="flex items-center gap-2.5">
                       <Layers className="h-4 w-4" />
                       <span>Download Raw Skin (.png)</span>
                     </div>
                     <Download className="h-4 w-4" />
-                  </a>
+                  </button>
 
-                  {/* Avatar PNG Download */}
-                  <a
-                    href={`https://mc-heads.net/avatar/${profile.uuid}/128`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center justify-between gap-3 px-4 py-3 rounded-xl border border-[#2A3650] bg-[#070A14]/50 text-text-muted hover:text-white transition-all hover:border-[#2A3650]/80 cursor-pointer"
+                  {/* 2D Head Download */}
+                  <button
+                    onClick={() => downloadImage(`https://mc-heads.net/avatar/${profile.uuid}/256`, `${profile.username}_head_2d.png`)}
+                    className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl border border-[#2A3650] bg-[#070A14]/50 text-text-muted hover:text-white transition-all hover:border-[#2A3650]/80 cursor-pointer text-left"
                   >
                     <div className="flex items-center gap-2.5">
-                      <Eye className="h-4 w-4" />
-                      <span>View Head Avatar</span>
+                      <Download className="h-4 w-4" />
+                      <span>Download 2D Head (.png)</span>
                     </div>
                     <ArrowUpRight className="h-4 w-4" />
-                  </a>
+                  </button>
+
+                  {/* 3D Head Download */}
+                  <button
+                    onClick={() => downloadImage(`https://mc-heads.net/head/${profile.uuid}/256`, `${profile.username}_head_3d.png`)}
+                    className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl border border-[#2A3650] bg-[#070A14]/50 text-text-muted hover:text-white transition-all hover:border-[#2A3650]/80 cursor-pointer text-left"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <Download className="h-4 w-4" />
+                      <span>Download 3D Head (.png)</span>
+                    </div>
+                    <ArrowUpRight className="h-4 w-4" />
+                  </button>
 
                   {/* Body Render Download */}
-                  <a
-                    href={`https://mc-heads.net/body/${profile.uuid}/400`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center justify-between gap-3 px-4 py-3 rounded-xl border border-[#2A3650] bg-[#070A14]/50 text-text-muted hover:text-white transition-all hover:border-[#2A3650]/80 cursor-pointer"
+                  <button
+                    onClick={() => downloadImage(`https://mc-heads.net/body/${profile.uuid}/400`, `${profile.username}_body.png`)}
+                    className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl border border-[#2A3650] bg-[#070A14]/50 text-text-muted hover:text-white transition-all hover:border-[#2A3650]/80 cursor-pointer text-left"
                   >
                     <div className="flex items-center gap-2.5">
                       <User className="h-4 w-4" />
-                      <span>View Full Body Render</span>
+                      <span>Download Full Body (.png)</span>
                     </div>
                     <ArrowUpRight className="h-4 w-4" />
-                  </a>
+                  </button>
                 </div>
 
                 <div className="text-[9px] font-mono text-text-muted text-center uppercase tracking-wider select-none leading-relaxed">

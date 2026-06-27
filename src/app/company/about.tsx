@@ -91,18 +91,18 @@ export default function AboutUs() {
             </p>
             <div className="pt-4 flex flex-wrap gap-6 items-center reveal-up delay-300">
               <div className="flex flex-col">
-                <span className="text-3xl sm:text-4xl font-extrabold text-white font-display">10,000+</span>
-                <span className="text-xs text-primary-cyan font-mono uppercase tracking-wider">Servers Configured</span>
+                <span className="text-3xl sm:text-4xl font-extrabold text-white font-display">24/7</span>
+                <span className="text-xs text-primary-cyan font-mono uppercase tracking-wider">Support Available</span>
               </div>
               <div className="h-10 w-[1px] bg-[#2A3650]/60 hidden sm:block" />
               <div className="flex flex-col">
-                <span className="text-3xl sm:text-4xl font-extrabold text-white font-display">99.99%</span>
-                <span className="text-xs text-success-teal font-mono uppercase tracking-wider">Uptime Average</span>
+                <span className="text-3xl sm:text-4xl font-extrabold text-white font-display">NVMe</span>
+                <span className="text-xs text-success-teal font-mono uppercase tracking-wider">SSD Storage</span>
               </div>
               <div className="h-10 w-[1px] bg-[#2A3650]/60 hidden sm:block" />
               <div className="flex flex-col">
-                <span className="text-3xl sm:text-4xl font-extrabold text-white font-display">15 Min</span>
-                <span className="text-xs text-amber-400 font-mono uppercase tracking-wider">Response Guarantee</span>
+                <span className="text-3xl sm:text-4xl font-extrabold text-white font-display">DDoS</span>
+                <span className="text-xs text-amber-400 font-mono uppercase tracking-wider">Protection</span>
               </div>
             </div>
           </div>

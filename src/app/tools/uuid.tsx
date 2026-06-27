@@ -9,7 +9,11 @@ import {
   Copy,
   CheckCircle,
   HelpCircle,
-  ExternalLink,
+  Eye,
+  Layers,
+  Download,
+  Shield,
+  Calendar,
   Activity,
 } from "lucide-react";
 
@@ -33,6 +37,35 @@ export default function UuidLookup() {
   const [player, setPlayer] = useState<PlayerProfile | null>(null);
   const [copiedUuid, setCopiedUuid] = useState(false);
   const [copiedRawUuid, setCopiedRawUuid] = useState(false);
+  const [copiedUsername, setCopiedUsername] = useState(false);
+  const [activeTab, setActiveTab] = useState<"head" | "body" | "skin">("head");
+
+  const downloadImage = async (url: string, filename: string) => {
+    try {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = blobUrl;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(blobUrl);
+    } catch (e) {
+      window.open(url, "_blank");
+    }
+  };
+
+  const exportJson = (data: any) => {
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data, null, 2));
+    const downloadAnchor = document.createElement("a");
+    downloadAnchor.setAttribute("href", dataStr);
+    downloadAnchor.setAttribute("download", `${data.username || "player"}_profile.json`);
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    downloadAnchor.removeChild(downloadAnchor);
+  };
 
   const fetchPlayer = async (searchQuery: string) => {
     const term = searchQuery.trim();
@@ -70,7 +103,7 @@ export default function UuidLookup() {
         username: p.username,
         uuid: rawUuid,
         uuidFormatted: formattedUuid,
-        skinUrl: `https://crafatar.com/skins/${formattedUuid}`,
+        skinUrl: `https://mc-heads.net/skin/${rawUuid}`,
         nameHistory: nameHistory.length > 0 ? nameHistory : [{ name: p.username }],
       });
     } catch (err: any) {
@@ -90,14 +123,17 @@ export default function UuidLookup() {
     fetchPlayer(name);
   };
 
-  const handleCopyText = (text: string, type: "formatted" | "raw") => {
+  const handleCopyText = (text: string, type: "formatted" | "raw" | "username") => {
     navigator.clipboard.writeText(text);
     if (type === "formatted") {
       setCopiedUuid(true);
       setTimeout(() => setCopiedUuid(false), 2000);
-    } else {
+    } else if (type === "raw") {
       setCopiedRawUuid(true);
       setTimeout(() => setCopiedRawUuid(false), 2000);
+    } else {
+      setCopiedUsername(true);
+      setTimeout(() => setCopiedUsername(false), 2000);
     }
   };
 
@@ -125,26 +161,41 @@ export default function UuidLookup() {
 
         {/* WORKSPACE LAYOUT */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-6xl mx-auto reveal-up delay-200">
-          {/* LEFT SEARCH PANEL */}
+          
+          {/* LEFT COLUMN: SEARCH & USER DETAILS */}
           <div className="lg:col-span-7 space-y-6">
+            
+            {/* SEARCH CARD */}
             <div className="rounded-3xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 space-y-6 relative overflow-hidden backdrop-blur-md">
               <div className="absolute top-2 left-2 w-3.5 h-3.5 border-t border-l border-primary-cyan/20" />
               <div className="absolute top-2 right-2 w-3.5 h-3.5 border-t border-r border-primary-cyan/20" />
               
-              <div className="space-y-1">
-                <span className="text-[10px] font-mono font-bold text-text-muted uppercase tracking-wider block">Player Lookup</span>
-                <h3 className="font-display text-lg font-extrabold text-white uppercase tracking-wider">
-                  Username <span className="text-primary-cyan">⇄</span> UUID
-                </h3>
-                <p className="text-xs text-text-muted font-sans font-medium">
-                  Clean, reliable search with built-in fallbacks.
-                </p>
+              <div className="flex justify-between items-start">
+                <div className="space-y-1">
+                  <span className="text-[10px] font-mono font-bold text-text-muted uppercase tracking-wider block">Player Lookup</span>
+                  <h3 className="font-display text-lg font-extrabold text-white uppercase tracking-wider">
+                    Username <span className="text-primary-cyan">⇄</span> UUID
+                  </h3>
+                  <p className="text-xs text-text-muted font-sans font-medium">
+                    Clean, reliable search with built-in fallbacks.
+                  </p>
+                </div>
+                
+                {/* Meta pills to match mockup */}
+                <div className="flex items-center gap-2">
+                  <span className="px-2 py-0.5 rounded bg-[#1C243B] text-[8px] font-mono font-bold text-text-muted uppercase tracking-wider">
+                    Live APIs
+                  </span>
+                  <span className="px-2 py-0.5 rounded bg-[#1C243B] text-[8px] font-mono font-bold text-text-muted uppercase tracking-wider">
+                    Name history
+                  </span>
+                </div>
               </div>
 
               {/* Form */}
               <form onSubmit={handleSubmit} className="relative group">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-cyan/30 to-success-teal/30 rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-500" />
-                <div className="relative flex items-center bg-[#070A14] border border-[#2A3650]/60 rounded-xl p-1.5 focus-within:border-primary-cyan/60">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/30 to-primary-cyan/30 rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-500" />
+                <div className="relative flex items-center bg-[#070A14] border border-[#2A3650]/60 rounded-xl p-1.5 focus-within:border-purple-500/60">
                   <span className="text-text-muted font-mono font-bold text-sm pl-3.5 select-none">#</span>
                   <input
                     type="text"
@@ -156,7 +207,7 @@ export default function UuidLookup() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="bg-primary-cyan hover:bg-transparent border border-primary-cyan text-[#0B0F19] hover:text-primary-cyan font-bold text-xs uppercase tracking-widest px-5 py-2.5 rounded-lg transition-all shadow-[0_0_12px_rgba(108,244,255,0.15)] flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="bg-purple-600 hover:bg-transparent border border-purple-600 text-white hover:text-purple-400 font-bold text-xs uppercase tracking-widest px-5 py-2.5 rounded-lg transition-all shadow-[0_0_12px_rgba(147,51,234,0.3)] flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Search className="h-3.5 w-3.5" />
                     <span>Find Player</span>
@@ -172,7 +223,7 @@ export default function UuidLookup() {
                     key={name}
                     type="button"
                     onClick={() => handleQuickTest(name)}
-                    className="px-2.5 py-1 rounded bg-[#070A14] hover:bg-primary-cyan/15 border border-[#2A3650]/60 hover:border-primary-cyan/30 text-white hover:text-primary-cyan font-mono text-[10px] font-bold transition-all cursor-pointer"
+                    className="px-2.5 py-1 rounded bg-[#070A14] hover:bg-purple-500/15 border border-[#2A3650]/60 hover:border-purple-500/30 text-white hover:text-purple-400 font-mono text-[10px] font-bold transition-all cursor-pointer"
                   >
                     {name}
                   </button>
@@ -180,23 +231,96 @@ export default function UuidLookup() {
               </div>
             </div>
 
+            {/* PLAYER PROFILE DETAILS (Left Bottom) */}
+            {player && !loading && (
+              <div className="rounded-3xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 space-y-6 relative overflow-hidden backdrop-blur-md">
+                <div className="absolute top-2 left-2 w-3.5 h-3.5 border-t border-l border-primary-cyan/20" />
+                <div className="absolute top-2 right-2 w-3.5 h-3.5 border-t border-r border-primary-cyan/20" />
+                
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 rounded-2xl border border-[#2A3650]/60 bg-[#070A14] p-1.5 flex items-center justify-center flex-shrink-0">
+                    <img
+                      src={`https://mc-heads.net/avatar/${player.uuid}/64`}
+                      alt={player.username}
+                      className="w-full h-full rounded-xl object-contain select-none"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-xl font-extrabold text-white uppercase tracking-wider">
+                      {player.username}
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-3.5 rounded-xl bg-[#070A14] border border-[#2A3650]/60">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] font-mono font-bold text-text-muted uppercase"># UUID</span>
+                      <span className="font-mono text-xs text-white break-all">{player.uuidFormatted}</span>
+                    </div>
+                    <button
+                      onClick={() => handleCopyText(player.uuidFormatted, "formatted")}
+                      className="text-text-muted hover:text-white transition-colors cursor-pointer"
+                      title="Copy Formatted UUID"
+                    >
+                      {copiedUuid ? <CheckCircle className="h-4 w-4 text-purple-400" /> : <Copy className="h-4 w-4" />}
+                    </button>
+                  </div>
+
+                  <div className="flex items-center justify-between p-3.5 rounded-xl bg-[#070A14] border border-[#2A3650]/60">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] font-mono font-bold text-text-muted uppercase"># Compact</span>
+                      <span className="font-mono text-xs text-white break-all">{player.uuid}</span>
+                    </div>
+                    <button
+                      onClick={() => handleCopyText(player.uuid, "raw")}
+                      className="text-text-muted hover:text-white transition-colors cursor-pointer"
+                      title="Copy Compact UUID"
+                    >
+                      {copiedRawUuid ? <CheckCircle className="h-4 w-4 text-purple-400" /> : <Copy className="h-4 w-4" />}
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <button
+                    onClick={() => handleCopyText(player.username, "username")}
+                    className="flex items-center gap-2 px-4 py-2 rounded-xl border border-[#2A3650] bg-[#070A14]/50 text-text-muted hover:text-white transition-all text-xs font-bold uppercase tracking-wider cursor-pointer"
+                  >
+                    <Copy className="h-4 w-4" />
+                    <span>{copiedUsername ? "Copied!" : "Copy Username"}</span>
+                  </button>
+
+                  <button
+                    onClick={() => exportJson(player)}
+                    className="flex items-center gap-2 px-4 py-2 rounded-xl border border-[#2A3650] bg-[#070A14]/50 text-text-muted hover:text-white transition-all text-xs font-bold uppercase tracking-wider cursor-pointer"
+                  >
+                    <Download className="h-4 w-4" />
+                    <span>Export JSON</span>
+                  </button>
+                </div>
+              </div>
+            )}
+
             {/* SEARCH TIPS */}
             <div className="rounded-3xl border border-primary-cyan/10 bg-primary-cyan/3 p-6 space-y-3 relative overflow-hidden backdrop-blur-md">
               <h4 className="flex items-center gap-2 text-xs font-bold text-white uppercase tracking-wider font-display">
                 <HelpCircle className="h-4 w-4 text-primary-cyan" />
                 <span>Search Tips</span>
               </h4>
-              <ul className="text-xs text-[#8E8E93] space-y-1.5 list-disc list-inside font-medium leading-relaxed">
+              <ul className="text-xs text-[#8E8E93] space-y-1.5 list-disc list-inside font-medium leading-relaxed font-sans">
                 <li>Enter any Minecraft username or UUID</li>
                 <li>UUIDs can be with or without dashes</li>
                 <li>Case doesn't matter for usernames</li>
                 <li>Works with both Java and Bedrock accounts</li>
               </ul>
             </div>
+
           </div>
 
-          {/* RIGHT PROFILE VIEW */}
+          {/* RIGHT COLUMN: PREVIEWS & STATISTICS */}
           <div className="lg:col-span-5 space-y-6">
+            
             {loading ? (
               <div className="rounded-3xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-12 text-center flex flex-col items-center justify-center space-y-4 backdrop-blur-md">
                 <div className="w-10 h-10 border-4 border-primary-cyan/20 border-t-primary-cyan rounded-full animate-spin" />
@@ -207,102 +331,194 @@ export default function UuidLookup() {
                 <p>{error}</p>
               </div>
             ) : player ? (
-              <div className="rounded-3xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 sm:p-8 space-y-6 backdrop-blur-md relative overflow-hidden">
-                <div className="absolute top-2 left-2 w-3.5 h-3.5 border-t border-l border-primary-cyan/20" />
-                <div className="absolute top-2 right-2 w-3.5 h-3.5 border-t border-r border-primary-cyan/20" />
+              <div className="space-y-6">
                 
-                {/* Header Profile */}
-                <div className="flex items-center gap-4 pb-6 border-b border-[#2A3650]/40">
-                  <div className="w-16 h-16 rounded-2xl border border-primary-cyan/20 bg-primary-cyan/10 p-1.5 flex items-center justify-center flex-shrink-0">
-                    <img
-                      src={`https://crafatar.com/avatars/${player.uuidFormatted}?size=64&overlay`}
-                      alt={player.username}
-                      className="w-full h-full rounded-xl object-contain"
-                    />
+                {/* 1. PLAYER AVATAR PREVIEW CARD */}
+                <div className="rounded-3xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 space-y-6 backdrop-blur-md relative overflow-hidden">
+                  <div className="absolute top-2 left-2 w-3.5 h-3.5 border-t border-l border-primary-cyan/20" />
+                  <div className="absolute top-2 right-2 w-3.5 h-3.5 border-t border-r border-primary-cyan/20" />
+                  
+                  <h4 className="font-display text-sm font-extrabold text-white uppercase tracking-wider">
+                    Player Avatar
+                  </h4>
+
+                  {/* Tabs */}
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => setActiveTab("head")}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                        activeTab === "head"
+                          ? "bg-purple-600 text-white shadow-[0_0_10px_rgba(147,51,234,0.4)]"
+                          : "bg-[#141B2D] text-text-muted hover:text-white"
+                      }`}
+                    >
+                      <User className="h-3.5 w-3.5" />
+                      <span>Head</span>
+                    </button>
+                    
+                    <button
+                      onClick={() => setActiveTab("body")}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                        activeTab === "body"
+                          ? "bg-purple-600 text-white shadow-[0_0_10px_rgba(147,51,234,0.4)]"
+                          : "bg-[#141B2D] text-text-muted hover:text-white"
+                      }`}
+                    >
+                      <Eye className="h-3.5 w-3.5" />
+                      <span>Body</span>
+                    </button>
+
+                    <button
+                      onClick={() => setActiveTab("skin")}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                        activeTab === "skin"
+                          ? "bg-purple-600 text-white shadow-[0_0_10px_rgba(147,51,234,0.4)]"
+                          : "bg-[#141B2D] text-text-muted hover:text-white"
+                      }`}
+                    >
+                      <Layers className="h-3.5 w-3.5" />
+                      <span>Skin</span>
+                    </button>
                   </div>
-                  <div>
-                    <h3 className="font-display text-lg font-extrabold text-white uppercase tracking-wider leading-none">
-                      {player.username}
-                    </h3>
-                    <span className="inline-flex items-center gap-1 mt-2 text-[10px] text-success-teal font-bold uppercase">
-                      <Activity className="h-3 w-3" />
-                      Account Active
-                    </span>
+
+                  {/* Active Preview Rendering Container */}
+                  <div className="w-full h-56 rounded-2xl bg-[#070A14] border border-[#2A3650]/40 flex items-center justify-center p-4 relative">
+                    {activeTab === "head" && (
+                      <img
+                        src={`https://mc-heads.net/head/${player.uuid}/160`}
+                        alt="3D Minecraft Head Render"
+                        className="h-full object-contain select-none transition-all duration-300"
+                      />
+                    )}
+                    {activeTab === "body" && (
+                      <img
+                        src={`https://mc-heads.net/player/${player.uuid}/200`}
+                        alt="3D Minecraft Full Body Render"
+                        className="h-full object-contain select-none transition-all duration-300"
+                      />
+                    )}
+                    {activeTab === "skin" && (
+                      <div className="w-full h-full flex flex-col items-center justify-center gap-2">
+                        <img
+                          src={`https://mc-heads.net/skin/${player.uuid}`}
+                          alt="Raw Skin Sheet"
+                          className="max-h-[75%] object-contain select-none transition-all duration-300 [image-rendering:pixelated]"
+                        />
+                        <span className="text-[9px] font-mono text-text-muted uppercase">Raw Texture Mapping</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Download Skin / Head Buttons */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <button
+                      onClick={() => downloadImage(`https://mc-heads.net/download/${player.uuid}`, `${player.username}_skin.png`)}
+                      className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl border border-[#2A3650] bg-[#070A14]/50 hover:bg-[#141B2D] text-white text-xs font-bold uppercase tracking-wider transition-all cursor-pointer"
+                    >
+                      <Download className="h-4 w-4 text-purple-400" />
+                      <span>Download Skin</span>
+                    </button>
+
+                    <button
+                      onClick={() => {
+                        const url = activeTab === "head"
+                          ? `https://mc-heads.net/head/${player.uuid}/256`
+                          : activeTab === "body"
+                          ? `https://mc-heads.net/player/${player.uuid}/400`
+                          : `https://mc-heads.net/skin/${player.uuid}`;
+                        const filename = `${player.username}_${activeTab}.png`;
+                        downloadImage(url, filename);
+                      }}
+                      className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl border border-[#2A3650] bg-[#070A14]/50 hover:bg-[#141B2D] text-white text-xs font-bold uppercase tracking-wider transition-all cursor-pointer"
+                    >
+                      <Download className="h-4 w-4 text-purple-400" />
+                      <span>Download {activeTab === "head" ? "Head" : activeTab === "body" ? "Body" : "Texture"}</span>
+                    </button>
                   </div>
                 </div>
 
-                {/* UUID Information */}
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-center text-[10px] font-mono font-bold text-text-muted uppercase tracking-wider">
-                      <span>Formatted UUID</span>
-                      <button
-                        onClick={() => handleCopyText(player.uuidFormatted, "formatted")}
-                        className="flex items-center gap-1 text-primary-cyan hover:text-primary-cyan/80 transition-colors"
-                      >
-                        {copiedUuid ? <CheckCircle className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-                        <span>{copiedUuid ? "Copied" : "Copy"}</span>
-                      </button>
-                    </div>
-                    <div className="rounded-xl bg-[#070A14] border border-[#2A3650]/60 p-3.5 font-mono text-[10px] sm:text-xs text-white break-all">
-                      {player.uuidFormatted}
-                    </div>
-                  </div>
+                {/* 2. ACCOUNT INFO CARD */}
+                <div className="rounded-3xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 space-y-4 backdrop-blur-md relative overflow-hidden">
+                  <div className="absolute top-2 left-2 w-3.5 h-3.5 border-t border-l border-primary-cyan/20" />
+                  <div className="absolute top-2 right-2 w-3.5 h-3.5 border-t border-r border-primary-cyan/20" />
 
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-center text-[10px] font-mono font-bold text-text-muted uppercase tracking-wider">
-                      <span>Raw UUID</span>
-                      <button
-                        onClick={() => handleCopyText(player.uuid, "raw")}
-                        className="flex items-center gap-1 text-primary-cyan hover:text-primary-cyan/80 transition-colors"
-                      >
-                        {copiedRawUuid ? <CheckCircle className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-                        <span>{copiedRawUuid ? "Copied" : "Copy"}</span>
-                      </button>
+                  <h4 className="font-display text-sm font-extrabold text-white uppercase tracking-wider">
+                    Account Info
+                  </h4>
+
+                  <div className="space-y-3 font-sans">
+                    <div className="flex items-center justify-between text-xs py-1">
+                      <div className="flex items-center gap-2 text-text-muted font-medium">
+                        <Shield className="h-4 w-4 text-purple-400" />
+                        <span>Account Type</span>
+                      </div>
+                      <span className="px-2.5 py-0.5 rounded-full bg-[#0E201B] text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/10">
+                        Premium
+                      </span>
                     </div>
-                    <div className="rounded-xl bg-[#070A14] border border-[#2A3650]/60 p-3.5 font-mono text-[10px] sm:text-xs text-white break-all">
-                      {player.uuid}
+
+                    <div className="flex items-center justify-between text-xs py-1 border-t border-[#2A3650]/20">
+                      <div className="flex items-center gap-2 text-text-muted font-medium">
+                        <Clock className="h-4 w-4 text-purple-400" />
+                        <span>Name Changes</span>
+                      </div>
+                      <span className="text-white font-bold font-mono">
+                        {player.nameHistory ? player.nameHistory.length - 1 : 0} times
+                      </span>
+                    </div>
+
+                    <div className="flex items-center justify-between text-xs py-1 border-t border-[#2A3650]/20">
+                      <div className="flex items-center gap-2 text-text-muted font-medium">
+                        <Calendar className="h-4 w-4 text-purple-400" />
+                        <span>Account Age</span>
+                      </div>
+                      <span className="text-text-muted font-medium">
+                        Original name
+                      </span>
                     </div>
                   </div>
                 </div>
 
-                {/* Name History */}
-                <div className="space-y-3 pt-2">
-                  <span className="text-[10px] font-mono font-bold text-text-muted uppercase tracking-wider flex items-center gap-1.5">
-                    <Clock className="h-3.5 w-3.5 text-primary-cyan" />
+                {/* 3. NAME HISTORY CARD */}
+                <div className="rounded-3xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 space-y-4 backdrop-blur-md relative overflow-hidden">
+                  <div className="absolute top-2 left-2 w-3.5 h-3.5 border-t border-l border-primary-cyan/20" />
+                  <div className="absolute top-2 right-2 w-3.5 h-3.5 border-t border-r border-primary-cyan/20" />
+
+                  <h4 className="font-display text-sm font-extrabold text-white uppercase tracking-wider">
                     Name History
-                  </span>
-                  <div className="rounded-xl bg-[#070A14] border border-[#2A3650]/60 divide-y divide-[#2A3650]/40 overflow-hidden">
+                  </h4>
+
+                  <div className="space-y-2">
                     {player.nameHistory && player.nameHistory.length > 0 ? (
-                      player.nameHistory.map((history, idx) => (
-                        <div key={idx} className="flex justify-between items-center p-3.5 text-xs font-mono">
-                          <span className="font-bold text-white">{history.name}</span>
-                          <span className="text-[10px] text-text-muted font-medium">
-                            {history.changedToAt 
-                              ? new Date(history.changedToAt).toLocaleDateString()
-                              : "Original Name"}
-                          </span>
-                        </div>
-                      ))
+                      player.nameHistory.map((history, idx) => {
+                        const isCurrent = idx === 0;
+                        const isOriginal = idx === player.nameHistory!.length - 1;
+                        return (
+                          <div
+                            key={idx}
+                            className="flex items-center justify-between p-3 rounded-xl bg-[#070A14]/60 border border-[#2A3650]/30 hover:border-[#2A3650]/60 transition-all"
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                              <span className="text-xs font-bold text-white font-mono">{history.name}</span>
+                              {isCurrent && (
+                                <span className="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[8px] font-bold uppercase tracking-wider">
+                                  Current
+                                </span>
+                              )}
+                            </div>
+                            <span className="text-[9px] text-text-muted font-mono uppercase font-bold">
+                              {isOriginal ? "Original" : history.changedToAt ? new Date(history.changedToAt).toLocaleDateString() : ""}
+                            </span>
+                          </div>
+                        );
+                      })
                     ) : (
-                      <div className="p-3.5 text-center text-xs text-text-muted font-medium">
+                      <div className="p-3 text-center text-xs text-text-muted font-medium">
                         No name changes found.
                       </div>
                     )}
                   </div>
-                </div>
-
-                {/* Skin Render Links */}
-                <div className="pt-2">
-                  <a
-                    href={`https://crafatar.com/renders/body/${player.uuidFormatted}?overlay`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center justify-center gap-2 py-3 rounded-xl border border-primary-cyan/30 bg-primary-cyan/5 text-primary-cyan text-xs font-bold uppercase tracking-wider transition-all hover:bg-primary-cyan/10 cursor-pointer"
-                  >
-                    <span>View 3D Body Render</span>
-                    <ExternalLink className="h-4 w-4" />
-                  </a>
                 </div>
 
               </div>
