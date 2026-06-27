@@ -11,6 +11,9 @@ import {
   Activity,
   UserCheck,
   Star,
+  Server,
+  Crown,
+  TrendingUp,
 } from "lucide-react";
 
 interface TeamMember {
@@ -39,58 +42,22 @@ export default function TeamPage() {
 
   const team: TeamMember[] = [
     {
-      name: "Ashish Roy",
-      role: "FOUNDER",
+      name: "Kr Arjan",
+      role: "FOUNDER & CTO",
       badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
-      description: "Visionary founder leading innovation, business growth, and strategic direction with passion and long-term commitment.",
-      image: "/team/ashish.png",
+      description: "Kr Arjan is responsible for shaping the company's vision, engineering, and infrastructure. With a strong passion for cloud technologies, virtualization, and scalable hosting solutions, he is committed to building a platform that combines performance, reliability, security, and outstanding customer support. His goal is to ensure DynoXium continues to provide trusted hosting services that empower individuals, developers, and businesses alike.",
+      image: "/team/arjan.webp",
       theme: "amber",
-      icon: Shield,
+      icon: Crown,
     },
     {
-      name: "Shubam Tiwari",
-      role: "CEO",
+      name: "Randeep Royal",
+      role: "Co-Founder & CEO",
       badgeColor: "bg-primary-cyan/10 text-primary-cyan border-primary-cyan/20",
-      description: "Dynamic CEO overseeing operations, aligning goals, and ensuring smooth business execution with leadership and insight.",
-      image: "/team/shubam.png",
+      description: "Randeep Royal plays a key role in leading DynoXium's growth and daily operations. With a strong focus on customer experience, innovation, and service quality, he is committed to building a hosting platform that businesses, developers, and gamers can rely on.",
+      image: "/team/randeep.webp",
       theme: "cyan",
-      icon: Terminal,
-    },
-    {
-      name: "Nir Gambhava",
-      role: "CTO",
-      badgeColor: "bg-success-teal/10 text-success-teal border-success-teal/20",
-      description: "Expert system administrator maintaining infrastructure, optimizing performance, and ensuring maximum uptime and reliability.",
-      image: "/team/nir.png",
-      theme: "green",
-      icon: Cpu,
-    },
-    {
-      name: "Yuvraj",
-      role: "COO",
-      badgeColor: "bg-primary-cyan/10 text-primary-cyan border-primary-cyan/20",
-      description: "Results-driven COO streamlining operations, accelerating organizational growth, and managing daily execution with precision.",
-      image: "/team/yuvraj.png",
-      theme: "cyan",
-      icon: Layers,
-    },
-    {
-      name: "Aman Sen",
-      role: "LEAD DEV",
-      badgeColor: "bg-success-teal/10 text-success-teal border-success-teal/20",
-      description: "Creative full stack developer responsible for building and optimizing the main web console interface and user-facing dashboards.",
-      image: "/team/aman.png",
-      theme: "green",
-      icon: Activity,
-    },
-    {
-      name: "Vikram Singh",
-      role: "COMMUNITY HEAD",
-      badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
-      description: "Friendly community advocate hosting Discord operations, supporting users, and building community events globally.",
-      image: "/team/vikram.png",
-      theme: "amber",
-      icon: UserCheck,
+      icon: TrendingUp,
     },
   ];
 
@@ -229,33 +196,38 @@ export default function TeamPage() {
           The People Behind DynoXium
         </div>
         <h1 className="font-norwester text-2xl sm:text-4xl md:text-7xl lg:text-8xl tracking-wide md:tracking-widest text-white mb-6 uppercase leading-none break-words reveal-up delay-100">
-          Meet Our <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Team</span>
+          THE <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Team</span>
         </h1>
         <p className="text-base sm:text-lg text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium reveal-up delay-150">
-          Dedicated professionals working together to deliver exceptional hosting services and support.
+          Meet the Team Behind DynoXium
         </p>
       </section>
 
       {/* DRAGGABLE CAROUSEL VIEWPORT */}
       <section className="relative w-full py-8 px-4 sm:px-8 lg:px-16 z-20 flex-grow flex flex-col justify-center max-w-7xl mx-auto overflow-hidden reveal-scale delay-200">
-        
+
         {/* Drag Container */}
         <div
-          onMouseDown={handleMouseDown}
-          onMouseLeave={handleMouseLeave}
-          onMouseUp={handleMouseUp}
-          onMouseMove={handleMouseMove}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-          onTouchMove={handleTouchMove}
-          className="relative overflow-hidden w-full py-4 cursor-ew-resize select-none active:cursor-grabbing"
+          onMouseDown={team.length > visibleSlides ? handleMouseDown : undefined}
+          onMouseLeave={team.length > visibleSlides ? handleMouseLeave : undefined}
+          onMouseUp={team.length > visibleSlides ? handleMouseUp : undefined}
+          onMouseMove={team.length > visibleSlides ? handleMouseMove : undefined}
+          onTouchStart={team.length > visibleSlides ? handleTouchStart : undefined}
+          onTouchEnd={team.length > visibleSlides ? handleTouchEnd : undefined}
+          onTouchMove={team.length > visibleSlides ? handleTouchMove : undefined}
+          className={`relative overflow-hidden w-full py-4 ${team.length > visibleSlides ? "cursor-ew-resize select-none active:cursor-grabbing" : ""
+            }`}
         >
           <div
-            className="flex w-full"
-            style={{
-              transform: `translateX(calc(${-currentSlide * (100 / visibleSlides)}% + ${dragDisplacement}px))`,
-              transition: isMouseDown ? "none" : "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
-            }}
+            className={`flex w-full ${team.length <= visibleSlides ? "justify-center" : ""}`}
+            style={
+              team.length <= visibleSlides
+                ? {}
+                : {
+                  transform: `translateX(calc(${-currentSlide * (100 / visibleSlides)}% + ${dragDisplacement}px))`,
+                  transition: isMouseDown ? "none" : "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                }
+            }
           >
             {team.map((member) => {
               const Icon = member.icon;
@@ -345,22 +317,24 @@ export default function TeamPage() {
         </div>
 
         {/* Slide dots pagination */}
-        <div className="flex justify-center items-center gap-2 mt-8">
-          {Array.from({ length: Math.max(1, team.length - visibleSlides + 1) }).map((_, i) => {
-            const isActive = currentSlide === i;
-            return (
-              <button
-                key={i}
-                onClick={() => setCurrentSlide(i)}
-                className={`transition-all duration-300 ${isActive
+        {team.length > visibleSlides && (
+          <div className="flex justify-center items-center gap-2 mt-8">
+            {Array.from({ length: team.length - visibleSlides + 1 }).map((_, i) => {
+              const isActive = currentSlide === i;
+              return (
+                <button
+                  key={i}
+                  onClick={() => setCurrentSlide(i)}
+                  className={`transition-all duration-300 ${isActive
                     ? "w-3 h-3 rounded-sm rotate-45 bg-primary-cyan shadow-[0_0_10px_var(--color-primary-theme-glow)]"
                     : "w-2 h-2 rounded-sm bg-[#2A3650]/80 hover:bg-text-muted"
-                  }`}
-                aria-label={`Go to page ${i + 1}`}
-              />
-            );
-          })}
-        </div>
+                    }`}
+                  aria-label={`Go to page ${i + 1}`}
+                />
+              );
+            })}
+          </div>
+        )}
       </section>
 
       {/* Footer spacer */}
