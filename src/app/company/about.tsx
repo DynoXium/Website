@@ -178,7 +178,7 @@ export default function AboutUs() {
             Comprehensive Hosting Solutions
           </h2>
           <p className="text-xs sm:text-sm text-text-muted font-sans font-medium">
-            DynoXium offers a wide array of hosting services to meet various requirements.
+            DynoXium offers a wide range of hosting services to meet various requirements.
           </p>
         </div>
 
