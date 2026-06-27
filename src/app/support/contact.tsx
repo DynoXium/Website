@@ -9,6 +9,7 @@ import {
   Ticket,
   Loader2,
   Check,
+  ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -215,6 +216,25 @@ export default function ContactPage() {
                 >
                   Send another message
                 </button>
+              </div>
+            ) : activeProfile === "partner" ? (
+              <div className="py-16 text-center space-y-6 reveal-up">
+                <div className="w-16 h-16 rounded-full bg-primary-cyan/10 border-2 border-primary-cyan flex items-center justify-center mx-auto shadow-[0_0_20px_rgba(108,244,255,0.15)]">
+                  <Users className="h-8 w-8 text-primary-cyan" />
+                </div>
+                <h3 className="font-norwester text-2xl text-white uppercase tracking-wider">Partnership Program</h3>
+                <p className="text-xs sm:text-sm text-text-muted max-w-md mx-auto leading-relaxed font-sans font-medium">
+                  We have a dedicated partnership application process for creators, communities, and developers. Please apply through our formal application portal.
+                </p>
+                <div className="pt-2 flex justify-center">
+                  <Link
+                    href="/company/partnership"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary-cyan text-black font-norwester text-xs sm:text-sm uppercase tracking-widest hover:bg-transparent hover:text-primary-cyan border-2 border-primary-cyan transition-all duration-300 shadow-[0_0_20px_rgba(108,244,255,0.2)] cursor-pointer"
+                  >
+                    <span>Go to Application Portal</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">

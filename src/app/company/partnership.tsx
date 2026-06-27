@@ -11,11 +11,15 @@ import {
   ArrowRight,
   CheckCircle,
   HelpCircle,
+  Loader2,
 } from "lucide-react";
+
+import { submitPartnership } from "../actions/partnership";
 
 export default function PartnershipPage() {
   const [mounted, setMounted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,46 +33,56 @@ export default function PartnershipPage() {
     setMounted(true);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate API request
-    setTimeout(() => {
-      setSubmitted(true);
-    }, 800);
+    setSubmitting(true);
+    try {
+      const res = await submitPartnership(formData);
+      if (res.success) {
+        setSubmitted(true);
+      } else {
+        alert(res.error || "Failed to submit application. Please try again.");
+      }
+    } catch (err) {
+      console.error("Submission error:", err);
+      alert("An unexpected error occurred. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const benefits = [
     {
       title: "Competitive Commission",
-      desc: "Earn up to 20% commission on all sales made through your unique referral link or custom discount code.",
+      desc: "Receive up to 15% commission on every eligible sale made through your referral link or discount code. It's a simple and rewarding way to grow with DynoXium.",
       icon: Coins,
       theme: "amber",
       badge: "High Payouts",
     },
     {
-      title: "Dedicated Manager",
-      desc: "Work with a dedicated partnership manager who will help you maximize your conversions and optimize earnings.",
+      title: "Fast & Reliable Payouts",
+      desc: "Receive your commissions through a transparent and reliable payout process, with no hidden conditions.",
       icon: UserCheck,
       theme: "cyan",
-      badge: "1-on-1 Support",
+      badge: "Quick Payouts",
     },
     {
-      title: "Free Minecraft Server",
-      desc: "Get a free high-performance Minecraft server node to use for your community, content creation, or plugin testing.",
+      title: "Partner Rewards",
+      desc: "Unlock exclusive partner benefits and special rewards as you grow with DynoXium and reach new milestones.",
       icon: Gamepad2,
       theme: "green",
-      badge: "Free Node Access",
+      badge: "Premium Rewards",
     },
     {
-      title: "Community Support",
-      desc: "Join our exclusive partner Discord community and collaborate with other creators, developers, and designers.",
+      title: "Partner Discord",
+      desc: "Get access to our partner Discord, where you can chat with the team, receive updates, and connect with other members of the program.",
       icon: Users,
       theme: "cyan",
       badge: "Private Guild",
     },
     {
-      title: "Performance Analytics",
-      desc: "Access a detailed partner analytics dashboard to track your referrals, conversions, and monthly earnings in real-time.",
+      title: "Referral Tracking",
+      desc: "Keep track of your referrals and commissions through your partner dashboard, making it easy to monitor your progress and earnings.",
       icon: TrendingUp,
       theme: "amber",
       badge: "Live Metrics",
@@ -100,7 +114,7 @@ export default function PartnershipPage() {
           Partnership <span className="text-primary-cyan drop-shadow-[0_0_30px_rgba(108,244,255,0.3)]">Program</span>
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-text-muted/90 max-w-3xl mx-auto font-sans leading-relaxed font-medium reveal-up delay-150">
-          Join our partnership program and earn rewards while promoting high-quality cloud and Minecraft hosting services to your audience.
+          Partner with DynoXium and receive rewards for every successful referral. It's a simple way to support your community while earning from every recommendation.
         </p>
         <div className="mt-8 flex justify-center reveal-up delay-200">
           <button
@@ -206,7 +220,7 @@ export default function PartnershipPage() {
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Ashish Roy"
+                      placeholder="e.g. Kr Arjan"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="bg-[#0B0F19] border border-[#2A3650]/60 rounded-lg p-3 text-white placeholder-text-muted focus:outline-none focus:border-primary-cyan/40 transition-all"
@@ -235,7 +249,7 @@ export default function PartnershipPage() {
                     >
                       <option value="YouTube">YouTube</option>
                       <option value="Twitch">Twitch</option>
-                      <option value="TikTok">TikTok</option>
+                      <option value="Discord">Discord</option>
                       <option value="Blog/Website">Blog/Website</option>
                       <option value="Other">Other</option>
                     </select>
@@ -279,9 +293,17 @@ export default function PartnershipPage() {
 
                 <button
                   type="submit"
-                  className="w-full mt-2 py-3 rounded-lg bg-primary-cyan border border-primary-cyan text-black font-bold uppercase tracking-wider hover:bg-transparent hover:text-primary-cyan transition-all shadow-[0_0_15px_rgba(108,244,255,0.2)]"
+                  disabled={submitting}
+                  className="w-full mt-2 py-3 rounded-lg bg-primary-cyan border border-primary-cyan text-black font-bold uppercase tracking-wider hover:bg-transparent hover:text-primary-cyan transition-all shadow-[0_0_15px_rgba(108,244,255,0.2)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  Submit Application
+                  {submitting ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      <span>Submitting...</span>
+                    </>
+                  ) : (
+                    <span>Submit Application</span>
+                  )}
                 </button>
               </form>
             </div>

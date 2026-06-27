@@ -37,6 +37,14 @@ export default function Header() {
     setMounted(true);
   }, []);
 
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    if (pathname === path) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    setIsOpen(false);
+  };
+
   // Lock body and html scroll when mobile nav menu is open
   useEffect(() => {
     if (isOpen) {
@@ -166,9 +174,7 @@ export default function Header() {
             {/* Logo / Brand */}
             <Link
               href="/"
-              onClick={() => {
-                setIsOpen(false);
-              }}
+              onClick={(e) => handleLinkClick(e, "/")}
               className="flex items-center gap-1.5 sm:gap-2 group flex-shrink-0 transition-all duration-300"
             >
               <Image
@@ -199,6 +205,9 @@ export default function Header() {
                     >
                       <Link
                         href={isTools ? "/tools" : "#"}
+                        onClick={(e) => {
+                          if (isTools) handleLinkClick(e, "/tools");
+                        }}
                         className="flex items-center gap-1.5 transition-all duration-300 text-[15.5px] font-extrabold select-none cursor-pointer [font-variant:small-caps] tracking-widest text-text-muted hover:text-text-light hover:scale-[1.02]"
                       >
                         <Icon className="h-4 w-4 text-primary-cyan/40 group-hover:text-primary-cyan transition-colors" />
@@ -214,6 +223,7 @@ export default function Header() {
                             <Link
                               key={subItem.name}
                               href={subItem.path}
+                              onClick={(e) => handleLinkClick(e, subItem.path)}
                               className="group/item relative flex flex-col py-2 px-3 rounded-lg bg-transparent hover:bg-primary-cyan/10 border border-transparent hover:border-primary-cyan/15 transition-all duration-200 text-left"
                             >
                               <div className="flex justify-between items-center">
@@ -297,7 +307,7 @@ export default function Header() {
                   {isTools ? (
                     <Link
                       href="/tools"
-                      onClick={() => setIsOpen(false)}
+                      onClick={(e) => handleLinkClick(e, "/tools")}
                       className="flex items-center justify-between w-full py-2.5 text-base font-semibold text-text-light text-left"
                     >
                       <div className="flex items-center gap-3">
@@ -324,7 +334,7 @@ export default function Header() {
                           <Link
                             key={subItem.name}
                             href={subItem.path}
-                            onClick={() => setIsOpen(false)}
+                            onClick={(e) => handleLinkClick(e, subItem.path)}
                             className="block py-2 text-sm text-[#E2E8F0] hover:text-primary-cyan transition-colors"
                           >
                             <div className="flex items-center gap-2">
