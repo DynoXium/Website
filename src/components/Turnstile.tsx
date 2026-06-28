@@ -12,6 +12,13 @@ interface TurnstileProps {
 export default function Turnstile({ siteKey, onVerify, onExpire, onError }: TurnstileProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Keep references to current callbacks so they can change without triggering useEffect
+  const callbacksRef = useRef({ onVerify, onExpire, onError });
+
+  useEffect(() => {
+    callbacksRef.current = { onVerify, onExpire, onError };
+  });
+
   useEffect(() => {
     // Load script if not already loaded
     if (!document.querySelector('script[src*="turnstile/v0/api.js"]')) {
@@ -28,9 +35,9 @@ export default function Turnstile({ siteKey, onVerify, onExpire, onError }: Turn
       if (window.turnstile && containerRef.current) {
         widgetId = window.turnstile.render(containerRef.current, {
           sitekey: siteKey,
-          callback: onVerify,
-          "expired-callback": onExpire,
-          "error-callback": onError,
+          callback: (token: string) => callbacksRef.current.onVerify(token),
+          "expired-callback": () => callbacksRef.current.onExpire?.(),
+          "error-callback": () => callbacksRef.current.onError?.(),
           theme: "dark",
         });
       }
@@ -55,9 +62,13 @@ export default function Turnstile({ siteKey, onVerify, onExpire, onError }: Turn
         window.turnstile.remove(widgetId);
       }
     };
-  }, [siteKey, onVerify, onExpire, onError]);
+  }, [siteKey]);
 
-  return <div ref={containerRef} />;
+  return (
+    <div className="flex justify-center items-center w-full min-h-[65px] my-2">
+      <div ref={containerRef} className="w-[300px] min-h-[65px] flex items-center justify-center" />
+    </div>
+  );
 }
 
 // Add turnstile type declaration for window object

@@ -95,6 +95,7 @@ export default function Header() {
       name: "Services",
       icon: Cpu,
       items: [
+        { name: "All Services", path: "/services", desc: "Browse our entire hosting ecosystem" },
         { name: "VPS Hosting", path: "/vps", desc: "Dedicated root VPS with KVM cores" },
         { name: "RDP Hosting", path: "/rdp", desc: "High-performance remote desktops" },
         { name: "Web Hosting", path: "/web", desc: "Next-gen static & dynamic web edge" },
@@ -204,9 +205,10 @@ export default function Header() {
                       className="relative group py-4 cursor-pointer flex-shrink-0"
                     >
                       <Link
-                        href={isTools ? "/tools" : "#"}
+                        href={isTools ? "/tools" : item.name === "Services" ? "/services" : "#"}
                         onClick={(e) => {
                           if (isTools) handleLinkClick(e, "/tools");
+                          else if (item.name === "Services") handleLinkClick(e, "/services");
                         }}
                         className="flex items-center gap-1.5 transition-all duration-300 text-[15.5px] font-extrabold select-none cursor-pointer [font-variant:small-caps] tracking-widest text-text-muted hover:text-text-light hover:scale-[1.02]"
                       >

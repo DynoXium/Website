@@ -12,6 +12,7 @@ import {
   Terminal,
   Database,
   ArrowRight,
+  ArrowUpRight,
   Check,
   X,
   Users,
@@ -1465,7 +1466,7 @@ CMD ["node", "main.js"]`;
 
             {/* Left Content (Col span 7) */}
             <div className="lg:col-span-7 flex flex-col justify-start min-h-[calc(100vh-5rem)] lg:min-h-0 items-start text-left w-full pt-8 lg:pt-0">
-              
+
               {/* Rating Banner */}
               <div className="flex flex-wrap items-center gap-3 mb-6 bg-[#161C2C]/70 border border-[#2A3650]/40 px-4 py-2 rounded-lg backdrop-blur-md hero-reveal">
                 {/* 5 Green Stars */}
@@ -1493,22 +1494,23 @@ CMD ["node", "main.js"]`;
 
               {/* Subheading Description */}
               <p className="text-base sm:text-lg text-text-muted max-w-xl mt-6 mb-10 leading-relaxed hero-stagger-2">
-                Deploy personal VS Code-Servers, Next.js runtimes, database nodes, or high-performance game servers instantly on high-frequency dedicated CPU cores.
+                From Minecraft servers to VPS instances, deploy powerful infrastructure instantly with performance, NVMe storage, Reliability, and global connectivity.
               </p>
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto hero-stagger-3">
                 <Link
-                  href="/web"
-                  className="w-full sm:w-auto bg-[#2563EB] text-white hover:bg-[#6CF4FF] hover:text-[#0B0F19] px-8 py-3.5 rounded font-bold hover:glow-cyan transition-all duration-300 text-center btn-hover-lift"
+                  href="/services"
+                  className="w-full sm:w-auto group flex items-center justify-center gap-1.5 bg-[#2563EB] text-white hover:bg-[#6CF4FF] hover:text-[#0B0F19] px-8 py-3.5 rounded font-bold hover:glow-cyan transition-all duration-300 text-center btn-hover-lift"
                 >
-                  Deploy Code Server
+                  <span>Explore Services</span>
                 </Link>
                 <Link
                   href="/game"
-                  className="w-full sm:w-auto border border-[#2A3650] bg-[#161C2C]/50 backdrop-blur-sm text-text-light hover:bg-[#2A3650]/50 px-8 py-3.5 rounded font-bold transition-all text-center btn-hover-lift"
+                  className="w-full sm:w-auto group flex items-center justify-center gap-1.5 border border-[#2A3650] bg-[#161C2C]/50 backdrop-blur-sm text-text-light hover:bg-[#2A3650]/50 px-8 py-3.5 rounded font-bold transition-all text-center btn-hover-lift"
                 >
-                  Explore Game Plans
+                  <span>Game Plans</span>
+                  <ArrowUpRight className="h-4.5 w-4.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200 opacity-60 group-hover:opacity-100" />
                 </Link>
               </div>
 
@@ -2061,7 +2063,7 @@ CMD ["node", "main.js"]`;
               </div>
             </div>
             <p className="text-text-muted max-w-2xl mx-auto text-sm sm:text-base font-sans mt-3">
-              Discover unparalleled server performance and security.
+              Everything you need to deploy, manage, and scale with confidence.
             </p>
           </div>
 
@@ -2074,10 +2076,10 @@ CMD ["node", "main.js"]`;
                 <Zap className="h-5 w-5 text-[#3388FF]" />
               </div>
               <h3 className="font-display text-base lg:text-lg font-bold text-text-light mb-2 features-card-title">
-                Instant Setup
+                Quick Deployment
               </h3>
               <p className="text-xs lg:text-sm text-text-muted leading-relaxed features-card-desc">
-                Deployment in under 60 seconds. Our automated systems provision your resources the moment your payment is confirmed.
+                Our automated provisioning system deploys your server shortly after payment confirmation, getting you online as quickly as possible.
               </p>
             </div>
 
@@ -2113,7 +2115,7 @@ CMD ["node", "main.js"]`;
                 DDoS Protection
               </h3>
               <p className="text-xs lg:text-sm text-text-muted leading-relaxed features-card-desc">
-                Enterprise-grade mitigation capable of filtering up to 17Tbps+. Stay online during the most intense volumetric attacks.
+                Powered by trusted infrastructure with advanced DDoS mitigation to help protect your services from network attacks and unexpected traffic spikes.
               </p>
             </div>
 
@@ -2123,10 +2125,10 @@ CMD ["node", "main.js"]`;
                 <Activity className="h-5 w-5 text-[#FF9E64]" />
               </div>
               <h3 className="font-display text-base lg:text-lg font-bold text-text-light mb-2">
-                99.9% Uptime
+                Reliable Uptime
               </h3>
               <p className="text-xs lg:text-sm text-text-muted leading-relaxed features-card-desc">
-                Tier 3+ certified data centers with redundant power, cooling, and network links to ensure your services never go offline.
+                Built on trusted infrastructure designed for stability and dependable performance, helping keep your services available whenever you need them.
               </p>
             </div>
 
@@ -2136,10 +2138,10 @@ CMD ["node", "main.js"]`;
                 <Headphones className="h-5 w-5 text-[#A855F7]" />
               </div>
               <h3 className="font-display text-base lg:text-lg font-bold text-text-light mb-2 features-card-title">
-                24/7 Support
+                Responsive Support
               </h3>
               <p className="text-xs lg:text-sm text-text-muted leading-relaxed features-card-desc">
-                Real-world experts at your service. Our average response time is under 15 minutes, day or night.
+                Our support team is here to help whenever you need assistance, providing friendly and reliable support for your hosting services.
               </p>
             </div>
 
@@ -2152,7 +2154,7 @@ CMD ["node", "main.js"]`;
                 Powerful Hardware
               </h3>
               <p className="text-xs lg:text-sm text-text-muted leading-relaxed features-card-desc">
-                Utilizing latest-gen AMD EPYC™ processors and enterprise NVMe Gen4 storage for maximum I/O performance.
+                Powered by modern AMD EPYC™ processors and high-speed NVMe SSD storage, delivering fast performance for games, websites, and applications.
               </p>
             </div>
 
@@ -2165,7 +2167,7 @@ CMD ["node", "main.js"]`;
                 Global Locations
               </h3>
               <p className="text-xs lg:text-sm text-text-muted leading-relaxed features-card-desc">
-                A globally distributed network with premium peerage to ensure ultra-low latency specifically optimized for gaming traffic.
+                Launch your infrastructure from premium locations worldwide. Experience low latency, reliable connectivity, and enterprise-grade performance wherever your users are.
               </p>
             </div>
 
@@ -2686,6 +2688,16 @@ CMD ["node", "main.js"]`;
                 </div>
               );
             })}
+          </div>
+
+          <div className="mt-8 text-center">
+            <Link
+              href="/faq"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-[#2A3650] bg-[#161C2C]/50 backdrop-blur-sm text-text-light hover:bg-[#2A3650]/50 hover:text-white font-bold font-sans text-xs uppercase tracking-wider transition-all duration-300 btn-hover-lift"
+            >
+              <span>View More FAQs</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
