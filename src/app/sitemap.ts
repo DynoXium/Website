@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://dynoxium.tech";
+  const baseUrl = "https://dynoxium.com";
 
   // Base and hub pages
   const staticPages = [

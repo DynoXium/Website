@@ -355,8 +355,8 @@ export default function AboutUs() {
         </h2>
         <p className="text-xs sm:text-sm text-text-muted max-w-2xl mx-auto font-sans font-medium leading-relaxed">
           Have a question or need a custom hosting solution? Whether you're looking for a partnership, business hosting, or expert advice, our team is here to help. Reach out at{" "}
-          <a href="mailto:business@dynoxium.tech" className="text-primary-cyan hover:underline">
-            business@dynoxium.tech
+          <a href="mailto:business@dynoxium.com" className="text-primary-cyan hover:underline">
+            business@dynoxium.com
           </a>{" "}
           or open a ticket through our Ticket System.
         </p>

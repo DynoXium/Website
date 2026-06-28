@@ -127,10 +127,10 @@ export default function Header() {
       items: [
         { name: "Knowledgebase", path: "/knowledgebase", desc: "Articles and guides" },
         { name: "FAQs", path: "/faq", desc: "Frequently asked questions" },
-        { name: "Status", path: "#", desc: "Global node ping & status checks" },
+        { name: "Status", path: "https://uptime.dynoxium.com", desc: "Global node ping & status checks" },
         { name: "Create Ticket", path: "#", desc: "Reach our support architects" },
         { name: "Contact Us", path: "/contact", desc: "Get in touch with us" },
-        { name: "Discord", path: "#", desc: "Join our community server" },
+        { name: "Discord", path: "https://discord.dynoxium.com/verify/DynoXium%20Community", desc: "Join our community server" },
       ],
     },
     {
@@ -226,6 +226,8 @@ export default function Header() {
                               key={subItem.name}
                               href={subItem.path}
                               onClick={(e) => handleLinkClick(e, subItem.path)}
+                              target={subItem.path.startsWith("http") ? "_blank" : undefined}
+                              rel={subItem.path.startsWith("http") ? "noopener noreferrer" : undefined}
                               className="group/item relative flex flex-col py-2 px-3 rounded-lg bg-transparent hover:bg-primary-cyan/10 border border-transparent hover:border-primary-cyan/15 transition-all duration-200 text-left"
                             >
                               <div className="flex justify-between items-center">
@@ -337,6 +339,8 @@ export default function Header() {
                             key={subItem.name}
                             href={subItem.path}
                             onClick={(e) => handleLinkClick(e, subItem.path)}
+                            target={subItem.path.startsWith("http") ? "_blank" : undefined}
+                            rel={subItem.path.startsWith("http") ? "noopener noreferrer" : undefined}
                             className="block py-2 text-sm text-[#E2E8F0] hover:text-primary-cyan transition-colors"
                           >
                             <div className="flex items-center gap-2">

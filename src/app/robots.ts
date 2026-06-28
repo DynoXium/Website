@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/_next/"],
     },
-    sitemap: "https://dynoxium.tech/sitemap.xml",
+    sitemap: "https://dynoxium.com/sitemap.xml",
   };
 }

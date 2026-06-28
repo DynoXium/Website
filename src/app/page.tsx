@@ -1254,7 +1254,7 @@ CMD ["node", "main.js"]`;
   const categories = [
     {
       title: "Minecraft Server",
-      desc: "Low-latency Java & Bedrock hosting with automated modpack installers and instant setup.",
+      desc: "Launch your Minecraft server with one-click modpacks, plugin support, version switching, free subdomains, DDoS protection, and everything you need to start playing in minutes.",
       icon: Server,
       path: "/game/minecraft",
     },
@@ -1266,25 +1266,25 @@ CMD ["node", "main.js"]`;
     },
     {
       title: "Web Hosting",
-      desc: "Next-gen edge-optimized static and dynamic web app hosting (Next.js, React, HTML).",
+      desc: "Fast and reliable web hosting with free SSL, SSD storage, and an easy-to-use control panel—perfect for personal websites, portfolios, blogs, and business sites.",
       icon: Code,
       path: "/web",
     },
     {
-      title: "Database Cluster",
-      desc: "Managed PostgreSQL, MySQL, MongoDB, and Redis with automatic backups and scaling.",
+      title: "Game Servers Hosting",
+      desc: "Host your favorite multiplayer games with reliable performance, low latency, and an easy-to-use platform designed for smooth gameplay and hassle-free management.",
       icon: Database,
       path: "/vps",
     },
     {
       title: "VPS Servers",
-      desc: "Root-access virtual private servers with dedicated resources and NVMe storage.",
+      desc: "Deploy high-performance VPS servers with dedicated resources, full root access, and fast NVMe storage for your applications, websites, and projects.",
       icon: Cpu,
       path: "/vps",
     },
     {
       title: "Code Server",
-      desc: "Your personal cloud IDE. Code from any browser on any device with persistent storage.",
+      desc: "Code from anywhere with your own browser-based development environment, backed by reliable performance and persistent storage.",
       icon: Layers,
       path: "/web",
     },
@@ -1487,9 +1487,9 @@ CMD ["node", "main.js"]`;
 
               {/* Headline */}
               <h1 className="font-display text-5xl sm:text-6xl font-bold tracking-tight text-white uppercase leading-[1.05] hero-stagger-1">
-                MINECRAFT SERVERS <br className="hidden lg:inline" />
-                & CLOUD HOSTING <br className="hidden lg:inline" />
-                ON DEMAND
+                DEPLOY MINECRAFT <br className="hidden lg:inline" />
+                & CLOUD SERVERS   <br className="hidden lg:inline" />
+                IN Seconds
               </h1>
 
               {/* Subheading Description */}
@@ -1965,27 +1965,25 @@ CMD ["node", "main.js"]`;
         <div className="flex animate-marquee">
           {/* Repeated twice for seamless loop */}
           {[
-            { icon: "🔥", label: "AMD Ryzen 9 7950X", sub: "High-Frequency Cores" },
-            { icon: "🛡️", label: "17Tbps+ DDoS Shield", sub: "Always-On Protection" },
-            { icon: "⚡", label: "NVMe Gen4 Storage", sub: "Zero I/O Bottlenecks" },
-            { icon: "🌐", label: "99.9% Uptime SLA", sub: "Guaranteed Reliability" },
-            { icon: "🖥️", label: "AMD EPYC™ 9554", sub: "Enterprise Server Grade" },
-            { icon: "📡", label: "5 Global Regions", sub: "SG · NY · FRA · TYO · SYD" },
+            { icon: "🔥", label: "High Performance", sub: "High-Frequency Cores" },
+            { icon: "🛡️", label: "DDoS Shield", sub: "Always-On Protection" },
+            { icon: "⚡", label: "NVMe Storage", sub: "Zero I/O Bottlenecks" },
+            { icon: "🌐", label: "Reliable Uptime", sub: "Guaranteed Reliability" },
+            { icon: "🖥️", label: "AMD EPYC™", sub: "Enterprise Server Grade" },
+            { icon: "📡", label: "Global Regions", sub: "Worldwide Connectivity" },
             { icon: "🔒", label: "Free SSL Certs", sub: "Let's Encrypt Wildcard" },
-            { icon: "💸", label: "Free Tier Forever", sub: "512MB RAM · No Credit Card" },
-            { icon: "🚀", label: "60-Second Deploy", sub: "Instant Provisioning" },
-            { icon: "🤝", label: "24/7 Expert Support", sub: "< 15 Min Response Time" },
+            { icon: "🚀", label: "Quick Deployment", sub: "Instant Provisioning" },
+            { icon: "🤝", label: "24/7 Customer Support", sub: "Quick Response" },
           ].concat([
-            { icon: "🔥", label: "AMD Ryzen 9 7950X", sub: "High-Frequency Cores" },
-            { icon: "🛡️", label: "17Tbps+ DDoS Shield", sub: "Always-On Protection" },
-            { icon: "⚡", label: "NVMe Gen4 Storage", sub: "Zero I/O Bottlenecks" },
-            { icon: "🌐", label: "99.9% Uptime SLA", sub: "Guaranteed Reliability" },
-            { icon: "🖥️", label: "AMD EPYC™ 9554", sub: "Enterprise Server Grade" },
-            { icon: "📡", label: "5 Global Regions", sub: "SG · NY · FRA · TYO · SYD" },
+            { icon: "🔥", label: "High Performance", sub: "High-Frequency Cores" },
+            { icon: "🛡️", label: "DDoS Shield", sub: "Always-On Protection" },
+            { icon: "⚡", label: "NVMe Storage", sub: "Zero I/O Bottlenecks" },
+            { icon: "🌐", label: "Reliable Uptime", sub: "Guaranteed Reliability" },
+            { icon: "🖥️", label: "AMD EPYC™", sub: "Enterprise Server Grade" },
+            { icon: "📡", label: "Global Regions", sub: "Worldwide Connectivity" },
             { icon: "🔒", label: "Free SSL Certs", sub: "Let's Encrypt Wildcard" },
-            { icon: "💸", label: "Free Tier Forever", sub: "512MB RAM · No Credit Card" },
-            { icon: "🚀", label: "60-Second Deploy", sub: "Instant Provisioning" },
-            { icon: "🤝", label: "24/7 Expert Support", sub: "< 15 Min Response Time" },
+            { icon: "🚀", label: "Quick Deployment", sub: "Instant Provisioning" },
+            { icon: "🤝", label: "24/7 Customer Support", sub: "Quick Response" },
           ]).map((item, i) => (
             <div key={i} className="flex items-center gap-3 px-8 flex-shrink-0">
               <span className="text-2xl">{item.icon}</span>
@@ -2424,7 +2422,7 @@ CMD ["node", "main.js"]`;
               </div>
             </div>
             <p className="text-text-muted max-w-2xl mx-auto text-base mt-4">
-              High-performance hosting environments optimized for ultra-low latency, maximum stability, and easy management.
+              Whether you're launching a Minecraft server, hosting a website, running a Discord bot, or deploying a VPS, DynoXium provides reliable hosting that's easy to manage, affordable, and built for performance.
             </p>
           </div>
 

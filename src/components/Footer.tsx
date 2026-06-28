@@ -186,20 +186,20 @@ export default function Footer() {
             <div className="flex flex-col gap-1.5 text-sm text-text-muted font-mono mt-2">
               <div>
                 <span className="text-text-muted/85">Support:</span>{" "}
-                <a href="mailto:support@dynoxium.tech" className="hover:text-primary-cyan transition-colors">
-                  support@dynoxium.tech
+                <a href="mailto:support@dynoxium.com" className="hover:text-primary-cyan transition-colors">
+                  support@dynoxium.com
                 </a>
               </div>
               <div>
                 <span className="text-text-muted/85">Business:</span>{" "}
-                <a href="mailto:business@dynoxium.tech" className="hover:text-primary-cyan transition-colors">
-                  business@dynoxium.tech
+                <a href="mailto:business@dynoxium.com" className="hover:text-primary-cyan transition-colors">
+                  business@dynoxium.com
                 </a>
               </div>
               <div>
                 <span className="text-text-muted/85">Contact:</span>{" "}
-                <a href="mailto:contact@dynoxium.tech" className="hover:text-primary-cyan transition-colors">
-                  contact@dynoxium.tech
+                <a href="mailto:contact@dynoxium.com" className="hover:text-primary-cyan transition-colors">
+                  contact@dynoxium.com
                 </a>
               </div>
             </div>
