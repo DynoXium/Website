@@ -22,8 +22,10 @@ import {
   Settings,
   Users,
   Search,
+  Headphones,
 } from "lucide-react";
 import { useCurrency } from "@/context/CurrencyContext";
+import GlobalPresence from "@/components/GlobalPresence";
 
 type GameCategory = "all" | "pc" | "mobile" | "console";
 type PanelTab = "console" | "mods" | "plugins" | "players" | "config" | "version" | "egg";
@@ -64,7 +66,7 @@ export default function GameCatalog() {
   }, []);
 
   const games: GameInfo[] = [
-    { slug: "minecraft", name: "Minecraft", priceMonthly: 190.58, category: ["all", "pc", "mobile", "console"], image: "https://images.unsplash.com/photo-1607988795691-3d0147b43231?auto=format&fit=crop&w=400&q=80", popular: true },
+    { slug: "minecraft", name: "Minecraft", priceMonthly: 1.69, category: ["all", "pc", "mobile", "console"], image: "https://images.unsplash.com/photo-1607988795691-3d0147b43231?auto=format&fit=crop&w=400&q=80", popular: true },
     { slug: "rust", name: "Rust", priceMonthly: 381.16, category: ["all", "pc"], image: "https://images.unsplash.com/photo-1612287230202-1bf1d85d1bdf?auto=format&fit=crop&w=400&q=80", popular: true },
     { slug: "fivem", name: "FiveM", priceMonthly: 476.45, category: ["all", "pc"], image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80" },
     { slug: "ark", name: "ARK: Survival Evolved", priceMonthly: 571.74, category: ["all", "pc", "console"], image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&w=400&q=80" },
@@ -201,12 +203,12 @@ export default function GameCatalog() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
-            { title: "Instant Setup", desc: "Deployment in under 60 seconds. Our automated systems provision your resources the moment your payment is confirmed.", icon: Zap, color: "blue" },
-            { title: "DDoS Protection", desc: "Enterprise-grade mitigation capable of filtering up to 1Tbps+. Stay online during the most volumetric attacks.", icon: Shield, color: "green" },
-            { title: "99.9% Uptime", desc: "Tier 3+ certified data centers with redundant power, cooling, and network links to ensure your services never go offline.", icon: Server, color: "cyan" },
-            { title: "24/7 Support", desc: "Real-world experts at your service. Our average response time is under 15 minutes, day or night.", icon: LifeBuoy, color: "purple" },
-            { title: "Powerful Hardware", desc: "Utilizing latest-gen Intel/AMD Ryzen CPUs, and enterprise NVMe Gen4 storage for maximum performance.", icon: Cpu, color: "amber" },
-            { title: "Global Locations", desc: "A globally distributed network with premium peerings to ensure ultra-low latency specifically optimized for hosting.", icon: Globe, color: "teal" },
+            { title: "Quick Deployment", desc: "Our automated provisioning system deploys your server shortly after payment confirmation, getting you online as quickly as possible.", icon: Zap, color: "blue" },
+            { title: "DDoS Protection", desc: "Powered by trusted infrastructure with advanced DDoS mitigation to help protect your services from network attacks and unexpected traffic spikes.", icon: Shield, color: "green" },
+            { title: "Reliable Uptime", desc: "Built on trusted infrastructure designed for stability and dependable performance, helping keep your services available whenever you need them.", icon: Activity, color: "amber" },
+            { title: "Responsive Support", desc: "Our support team is here to help whenever you need assistance, providing friendly and reliable support for your hosting services.", icon: Headphones, color: "purple" },
+            { title: "Powerful Hardware", desc: "Powered by modern AMD EPYC™ processors and high-speed NVMe SSD storage, delivering fast performance for games, websites, and applications.", icon: Cpu, color: "red" },
+            { title: "Global Locations", desc: "Launch your infrastructure from premium locations worldwide. Experience low latency, reliable connectivity, and enterprise-grade performance wherever your users are.", icon: Globe, color: "teal" },
           ].map((feat, idx) => {
             const Icon = feat.icon;
             const col = feat.color;
@@ -222,6 +224,9 @@ export default function GameCatalog() {
             } else if (col === "amber") {
               borderStyle = "hover:border-amber-500/40 hover:shadow-[0_0_20px_rgba(245,158,11,0.05)]";
               iconStyle = "bg-amber-500/10 border-amber-500/20 text-amber-400";
+            } else if (col === "red") {
+              borderStyle = "hover:border-[#EF4444]/40 hover:shadow-[0_0_20px_rgba(239,68,68,0.05)]";
+              iconStyle = "bg-[#EF4444]/10 border-[#EF4444]/20 text-[#EF4444]";
             } else if (col === "teal") {
               borderStyle = "hover:border-teal-500/40 hover:shadow-[0_0_20px_rgba(20,184,166,0.05)]";
               iconStyle = "bg-teal-500/10 border-teal-500/20 text-teal-400";
@@ -339,117 +344,7 @@ export default function GameCatalog() {
         </div>
       </section>
 
-      {/* GLOBAL PRESENCE LATENCY MAP */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12 reveal-up">
-        <div className="text-center max-w-3xl mx-auto space-y-3 reveal-up delay-75">
-          <h2 className="font-norwester text-2xl sm:text-5xl text-white uppercase tracking-wider">
-            Global Presence, <span className="text-primary-cyan drop-shadow-[0_0_20px_rgba(108,244,255,0.2)]">Local Performance</span>
-          </h2>
-          <p className="text-xs sm:text-sm text-text-muted max-w-md mx-auto">
-            Our rapidly expanding datacenter network spans across the globe, delivering ultra-low latency and lightning-fast connections wherever you are.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center reveal-up delay-150">
-          {/* Map Display (7 cols) */}
-          <div className="lg:col-span-7 bg-[#0E1321]/50 border border-[#2A3650]/60 rounded-3xl p-6 sm:p-8 relative overflow-hidden backdrop-blur-md">
-            {/* World Map vector mockup */}
-            <div className="relative min-h-[280px] w-full bg-[url('/world-map.svg')] bg-center bg-no-repeat bg-contain opacity-80 flex items-center justify-center">
-              {/* Location Pins */}
-              <div className="absolute top-[35%] left-[25%] group">
-                <div className="w-3.5 h-3.5 bg-[#3388FF] rounded-full flex items-center justify-center relative shadow-[0_0_15px_#3388FF]">
-                  <div className="absolute inset-0 bg-[#3388FF] rounded-full animate-ping opacity-60" />
-                </div>
-              </div>
-              <div className="absolute top-[68%] left-[64%] group">
-                <div className="w-3.5 h-3.5 bg-primary-cyan rounded-full flex items-center justify-center relative shadow-[0_0_15px_#6cf4ff]">
-                  <div className="absolute inset-0 bg-primary-cyan rounded-full animate-ping opacity-60" />
-                </div>
-              </div>
-              <div className="absolute top-[30%] left-[45%] group">
-                <div className="w-3.5 h-3.5 bg-[#a855f7] rounded-full flex items-center justify-center relative shadow-[0_0_15px_#a855f7]">
-                  <div className="absolute inset-0 bg-[#a855f7] rounded-full animate-ping opacity-60" />
-                </div>
-              </div>
-              <div className="absolute top-[52%] left-[72%] group">
-                <div className="w-3.5 h-3.5 bg-success-teal rounded-full flex items-center justify-center relative shadow-[0_0_15px_#00e5a3]">
-                  <div className="absolute inset-0 bg-success-teal rounded-full animate-ping opacity-60" />
-                </div>
-              </div>
-
-              <span className="text-[10px] font-mono text-text-muted uppercase tracking-widest absolute bottom-2 left-2 select-none">
-                Dynamic Nodes Latency Routing Enabled
-              </span>
-            </div>
-          </div>
-
-          {/* Locations Status Cards Grid (5 cols) */}
-          <div className="lg:col-span-5 flex flex-col gap-4">
-            {[
-              { id: "in", label: "India", desc: "Mumbai Datacenter Cluster", pin: "14ms", status: "Optimal", color: "green" },
-              { id: "sg", label: "Singapore", desc: "Equinix SG2 Edge Cluster", pin: "32ms", status: "Optimal", color: "green" },
-              { id: "us", label: "USA", desc: "Oregon High-Memory Cluster", pin: "112ms", status: "Normal", color: "blue" },
-              { id: "de", label: "Germany", desc: "Frankfurt FR5 Cloud Cluster", pin: "88ms", status: "Normal", color: "blue" },
-            ].map((node) => {
-              let tagColor = "text-success-teal border-success-teal/20 bg-success-teal/10";
-              let statusText = "bg-success-teal";
-              if (node.color === "blue") {
-                tagColor = "text-primary-cyan border-primary-cyan/20 bg-primary-cyan/10";
-                statusText = "bg-primary-cyan";
-              }
-
-              return (
-                <div
-                  key={node.id}
-                  className="group relative rounded-xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-4 flex justify-between items-center transition-all duration-300 hover:border-primary-cyan/45 hover:scale-[1.01]"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-4 h-4 rounded-sm flex-shrink-0 overflow-hidden">
-                      {node.id === "in" && (
-                        <svg viewBox="0 0 640 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill="#FF9933" d="M0 0h640v160H0z" /><path fill="#fff" d="M0 160h640v160H0z" /><path fill="#138808" d="M0 320h640v160H0z" /><circle cx="320" cy="240" r="40" fill="#000080" />
-                        </svg>
-                      )}
-                      {node.id === "sg" && (
-                        <svg viewBox="0 0 640 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill="#fff" d="M0 240h640v240H0z" /><path fill="#DF151A" d="M0 0h640v240H0z" /><circle cx="100" cy="100" r="40" fill="#fff" /><circle cx="120" cy="100" r="40" fill="#DF151A" />
-                        </svg>
-                      )}
-                      {node.id === "us" && (
-                        <svg viewBox="0 0 640 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill="#fff" d="M0 240h640v240H0z" /><path fill="#DF151A" d="M0 0h640v240H0z" /><circle cx="100" cy="100" r="40" fill="#fff" /><circle cx="120" cy="100" r="40" fill="#DF151A" />
-                        </svg>
-                      )}
-                      {node.id === "de" && (
-                        <svg viewBox="0 0 640 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill="#FFCE00" d="M0 320h640v160H0z" /><path fill="#D00" d="M0 160h640v160H0z" /><path fill="#000" d="M0 0h640v160H0z" />
-                        </svg>
-                      )}
-                    </div>
-                    <div className="space-y-0.5">
-                      <h4 className="text-xs font-bold text-white uppercase tracking-wide font-display">
-                        {node.label}
-                      </h4>
-                      <p className="text-[10px] text-text-muted font-sans font-medium">
-                        {node.desc}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-[10px] font-mono font-bold text-white bg-white/5 border border-white/10 px-2 py-0.5 rounded">
-                      {node.pin}
-                    </span>
-                    <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border text-[9px] font-bold uppercase tracking-wider ${tagColor}`}>
-                      <span className={`w-1.5 h-1.5 rounded-full ${statusText}`} />
-                      {node.status}
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <GlobalPresence />
 
       {/* FAQs SECTION WITH NEED HELP SIDECARD */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-20 space-y-12 border-t border-[#2A3650]/30 mt-12 reveal-up">

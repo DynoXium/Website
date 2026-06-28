@@ -7,6 +7,7 @@ import {
   Hourglass,
 } from "lucide-react";
 import WorldMap from "@/components/WorldMap";
+import { regionsData } from "@/data/regions";
 
 interface Region {
   id: string;
@@ -97,47 +98,7 @@ export default function InfrastructurePage() {
     setMounted(true);
   }, []);
 
-  const regions: Region[] = [
-    {
-      id: "india",
-      name: "India",
-      code: "ASIA SOUTH",
-      subRegion: "South Asia Core",
-      status: "Live",
-      locations: [
-        { name: "Mumbai", status: "Live" },
-        { name: "Noida", status: "Coming Soon" },
-      ],
-      coordinates: { x: 71.9, y: 58.3 },
-    },
-    {
-      id: "singapore",
-      name: "Singapore",
-      code: "ASIA SOUTHEAST",
-      subRegion: "Downtown Core",
-      status: "Coming Soon",
-      locations: [{ name: "Downtown Store", status: "Coming Soon" }],
-      coordinates: { x: 78.7, y: 59.0 },
-    },
-    {
-      id: "usa",
-      name: "USA",
-      code: "US WEST / EAST",
-      subRegion: "US Network Edge",
-      status: "Coming Soon",
-      locations: [{ name: "California", status: "Coming Soon" }],
-      coordinates: { x: 15.2, y: 25.8 },
-    },
-    {
-      id: "germany",
-      name: "Germany",
-      code: "EU WEST",
-      subRegion: "Europe Core",
-      status: "Coming Soon",
-      locations: [{ name: "Frankfurt", status: "Coming Soon" }],
-      coordinates: { x: 49.9, y: 31.0 },
-    },
-  ];
+  const regions: Region[] = regionsData;
 
   return (
     <div className="relative w-full min-h-screen bg-[#0B0F19] overflow-x-clip" style={{ isolation: 'isolate' }}>

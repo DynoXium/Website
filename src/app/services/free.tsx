@@ -43,7 +43,7 @@ export default function FreeHosting() {
       <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-20 space-y-12 reveal-up">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Card 1: Free Minecraft Server */}
-          <div className="group relative rounded-2xl border border-purple-500/20 bg-[#0E1321]/60 p-8 flex flex-col justify-between space-y-8 transition-all duration-300 hover:border-purple-500/45 hover:shadow-[0_0_30px_rgba(168,85,247,0.08)] reveal-up delay-75">
+          <div className="group relative rounded-2xl border border-[#2A3650]/40 bg-[#0E1321]/30 p-8 flex flex-col justify-between space-y-8 opacity-75 reveal-up delay-75">
             {/* Tech corner accent brackets */}
             <div className="absolute top-2.5 left-2.5 w-4 h-4 border-t border-l border-[#2A3650]/80 group-hover:border-purple-500/40 transition-colors" />
             <div className="absolute top-2.5 right-2.5 w-4 h-4 border-t border-r border-[#2A3650]/80 group-hover:border-purple-500/40 transition-colors" />
@@ -55,7 +55,7 @@ export default function FreeHosting() {
               <div className="flex justify-between items-start gap-2">
                 <div className="space-y-1">
                   <span className="bg-purple-500/10 border border-purple-500/20 text-purple-400 px-2 py-0.5 rounded text-[8px] font-extrabold uppercase tracking-widest font-mono">
-                    Free Tier
+                    Currently Unavailable
                   </span>
                   <h3 className="font-display text-xl font-extrabold text-white uppercase tracking-tight pt-1">
                     Free Minecraft Server
@@ -81,55 +81,55 @@ export default function FreeHosting() {
               <ul className="space-y-3 text-xs sm:text-sm text-text-light font-sans font-medium">
                 <li className="flex items-center gap-2.5">
                   <Check className="h-4.5 w-4.5 text-success-teal flex-shrink-0" />
-                  <span>CPU Allocation: <span className="text-white font-bold">150% (Intel Xeon CPU)</span></span>
+                  <span>CPU: <span className="text-white font-bold">100%</span></span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Check className="h-4.5 w-4.5 text-success-teal flex-shrink-0" />
-                  <span>RAM Capacity: <span className="text-white font-bold">4 GB DDR4 ECC Memory</span></span>
+                  <span>Memory: <span className="text-white font-bold">4 GB DDR4 ECC RAM</span></span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Check className="h-4.5 w-4.5 text-success-teal flex-shrink-0" />
-                  <span>Disk Storage: <span className="text-white font-bold">5 GB SSD Storage</span></span>
+                  <span>Storage: <span className="text-white font-bold">5 GB SSD Storage</span></span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Check className="h-4.5 w-4.5 text-success-teal flex-shrink-0" />
-                  <span>Database Limit: <span className="text-white font-bold">1 Database Space</span></span>
+                  <span>Database: <span className="text-white font-bold">Not Included</span></span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Check className="h-4.5 w-4.5 text-success-teal flex-shrink-0" />
-                  <span>Backup Limit: <span className="text-white font-bold">0 Backup Slots</span></span>
+                  <span>Backups: <span className="text-white font-bold">1 Included</span></span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Check className="h-4.5 w-4.5 text-success-teal flex-shrink-0" />
-                  <span>Network Ports: <span className="text-white font-bold">0 Additional Ports</span></span>
+                  <span>Extra Ports: <span className="text-white font-bold">Not Included</span></span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Check className="h-4.5 w-4.5 text-success-teal flex-shrink-0" />
-                  <span>Management Panel: <span className="text-white font-bold">Free Game Panel</span></span>
+                  <span>Control Panel: <span className="text-white font-bold">Free Game Panel</span></span>
                 </li>
               </ul>
             </div>
 
             {/* Action button */}
-            <button className="w-full py-3 rounded-xl border-2 font-bold text-xs uppercase tracking-widest bg-purple-600 text-white border-purple-600 hover:bg-transparent hover:text-purple-400 shadow-[0_0_15px_rgba(168,85,247,0.15)] transition-all active:scale-[0.98] cursor-pointer">
-              Create Free Server
+            <button disabled className="w-full py-3 rounded-xl border border-[#2A3650]/60 bg-[#0B0F19]/45 text-text-muted font-bold text-xs uppercase tracking-widest select-none cursor-not-allowed">
+              Currently Unavailable
             </button>
           </div>
 
-          {/* Card 2: Free Webhosting */}
+          {/* Card 2: Free Web Hosting */}
           <div className="group relative rounded-2xl border border-[#2A3650]/40 bg-[#0E1321]/30 p-8 flex flex-col justify-between space-y-8 opacity-75 reveal-up delay-150">
             <div className="space-y-6">
               {/* Header */}
               <div className="flex justify-between items-start gap-2">
                 <div className="space-y-1">
                   <span className="bg-[#2A3650]/30 border border-[#2A3650]/50 text-text-muted px-2 py-0.5 rounded text-[8px] font-extrabold uppercase tracking-widest font-mono">
-                    Out of Stock
+                    Not Available
                   </span>
                   <h3 className="font-display text-xl font-extrabold text-white uppercase tracking-tight pt-1">
-                    Free Webhosting
+                    Free Web Hosting
                   </h3>
-                  <span className="text-[10px] text-text-muted uppercase tracking-wider font-mono">
-                    Website & Mail Space
+                  <span className="text-[10px] text-text-muted block mt-1 leading-normal font-sans">
+                    Everything you need to launch a personal website, portfolio, or small project — completely free.
                   </span>
                 </div>
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 border border-[#2A3650]/40 bg-[#070A14] text-text-muted">
@@ -149,38 +149,38 @@ export default function FreeHosting() {
               <ul className="space-y-3 text-xs sm:text-sm text-text-muted font-sans font-medium">
                 <li className="flex items-center gap-2.5">
                   <Check className="h-4.5 w-4.5 text-text-muted/50 flex-shrink-0" />
-                  <span>Custom Domains: <span className="text-white font-bold">Single Domain</span></span>
+                  <span>Domain: <span className="text-white font-bold">1 Custom Domain</span></span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Check className="h-4.5 w-4.5 text-text-muted/50 flex-shrink-0" />
-                  <span>SSD Storage: <span className="text-white font-bold">5 GB SSD Storage</span></span>
+                  <span>Storage: <span className="text-white font-bold">1 GB SSD Storage</span></span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Check className="h-4.5 w-4.5 text-text-muted/50 flex-shrink-0" />
-                  <span>Control Console: <span className="text-white font-bold">Supports Plesk Panel</span></span>
+                  <span>Control Panel: <span className="text-white font-bold">Direct Admin</span></span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Check className="h-4.5 w-4.5 text-text-muted/50 flex-shrink-0" />
-                  <span>Website Tools: <span className="text-white font-bold">Free Website Builder</span></span>
+                  <span>Email Account: <span className="text-white font-bold">1</span></span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Check className="h-4.5 w-4.5 text-text-muted/50 flex-shrink-0" />
-                  <span>Databases: <span className="text-white font-bold">Unlimited Databases</span></span>
+                  <span>Databases: <span className="text-white font-bold">1</span></span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Check className="h-4.5 w-4.5 text-text-muted/50 flex-shrink-0" />
-                  <span>Subdomains: <span className="text-white font-bold">Unlimited Subdomains</span></span>
+                  <span>Subdomains: <span className="text-white font-bold">1</span></span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Check className="h-4.5 w-4.5 text-text-muted/50 flex-shrink-0" />
-                  <span>SSL Security: <span className="text-white font-bold">Free Let's Encrypt SSL</span></span>
+                  <span>SSL: <span className="text-white font-bold">Free Let's Encrypt SSL</span></span>
                 </li>
               </ul>
             </div>
 
             {/* Action button */}
             <button disabled className="w-full py-3 rounded-xl border border-[#2A3650]/60 bg-[#0B0F19]/45 text-text-muted font-bold text-xs uppercase tracking-widest select-none cursor-not-allowed">
-              Out of Stock
+              Not Available
             </button>
           </div>
         </div>
@@ -193,18 +193,18 @@ export default function FreeHosting() {
             WHY CHOOSE US
           </span>
           <h2 className="font-norwester text-2xl sm:text-5xl text-white uppercase tracking-wider">
-            Why Choose Our Free Hosting?
+            Why Choose DynoXium Free Hosting?
           </h2>
           <p className="text-xs sm:text-sm text-text-muted max-w-md mx-auto">
-            Experience premium features without spending a dime.
+            Free hosting built for learning, testing, and growing your community.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {[
-            { title: "Community Support", desc: "Join thousands of players in our Discord community for help and friends.", icon: Users, color: "purple" },
-            { title: "Basic DDoS Protection", desc: "Your free server comes with basic protection against network attacks.", icon: Shield, color: "blue" },
-            { title: "No Hidden Costs", desc: "Completely free with no credit card required or surprise charges.", icon: DollarSign, color: "green" },
+            { title: "Community Support", desc: "Join our Discord community to get help, ask questions, and connect with other users.", icon: Users, color: "purple" },
+            { title: "Basic DDoS Protection", desc: "Every free server includes basic network protection for added stability.", icon: Shield, color: "blue" },
+            { title: "No Hidden Costs", desc: "No credit card required. No hidden fees. Start for free and use it for as long as it's available.", icon: DollarSign, color: "green" },
           ].map((feat, idx) => {
             const Icon = feat.icon;
             const col = feat.color;
@@ -254,15 +254,15 @@ export default function FreeHosting() {
           GET STARTED
         </span>
         <h2 className="font-norwester text-3xl sm:text-6xl text-white uppercase tracking-wider max-w-3xl mx-auto leading-none reveal-up delay-100">
-          Ready to Start Your Minecraft Adventure?
+          Ready to Launch Your Server?
         </h2>
         <p className="text-xs sm:text-sm text-text-muted max-w-md mx-auto reveal-up delay-150">
-          Join thousands of players who already launched their free server!
+          Create your free Minecraft server in just a few clicks and start playing with your friends.
         </p>
         <div className="flex justify-center reveal-up delay-200">
           <button className="flex items-center gap-2.5 px-8 py-3.5 rounded-xl border-2 font-bold text-xs uppercase tracking-widest bg-purple-600 text-white border-purple-600 hover:bg-transparent hover:text-purple-400 shadow-[0_0_20px_rgba(168,85,247,0.2)] transition-all active:scale-[0.98] cursor-pointer">
             <Zap className="h-4 w-4" />
-            <span>Launch Your Free Server</span>
+            <span>Launch Free Server</span>
             <ArrowRight className="h-4 w-4" />
           </button>
         </div>
