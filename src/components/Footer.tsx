@@ -159,7 +159,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-text-muted leading-relaxed">
-              Founded in <span className="font-bold text-white">India</span> by <span className="font-bold text-white">Kr Arjan</span>, with <span className="font-bold text-white">Randeep Royal</span> serving as <span className="font-bold text-white">Co-Founder</span>, <span className="font-bold text-white">Dynoxium</span> was built with a simple goal—to make high-quality hosting reliable, accessible, and easy to manage. From game servers to cloud infrastructure, we focus on delivering dependable performance, modern technology, and support you can count on.
+              Founded in <span className="font-bold text-white">India</span> by <span className="font-bold text-white">Kr Arjan</span>, with <span className="font-bold text-white">Randeep Royal</span> serving as <span className="font-bold text-white">Co-Founder</span>, <span className="font-bold text-white">Dynoxium</span> was built with a simple goal—to make high-quality hosting reliable, accessible, and easy to manage. From game servers to cloud hosting services, we focus on delivering dependable performance, modern technology, and support you can count on.
             </p>
 
             {/* Social Icons Rounded Squares */}

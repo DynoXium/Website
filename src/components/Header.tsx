@@ -333,7 +333,7 @@ export default function Header() {
                       </button>
 
                       {/* Collapsible content */}
-                      <div className={`transition-all duration-300 overflow-hidden space-y-2 mt-1 ${isMenuExpanded ? "max-h-96 opacity-100 py-2 pl-8" : "max-h-0 opacity-0"}`}>
+                      <div className={`transition-all duration-300 overflow-hidden space-y-2 mt-1 ${isMenuExpanded ? "max-h-[500px] opacity-100 py-2 pl-8" : "max-h-0 opacity-0"}`}>
                         {item.items.map((subItem) => (
                           <Link
                             key={subItem.name}
