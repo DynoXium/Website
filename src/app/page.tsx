@@ -1499,7 +1499,7 @@ CMD ["node", "main.js"]`;
 
               {/* Subheading Description */}
               <p className="text-base sm:text-lg text-text-muted max-w-xl mt-6 mb-10 leading-relaxed hero-stagger-2">
-                From Minecraft servers to VPS instances, deploy powerful infrastructure instantly with performance, NVMe storage, Reliability, and global connectivity.
+                DynoXium provides Cloud Services, from Minecraft servers to VPS instances, deploy powerful infrastructure instantly with performance, NVMe storage, Reliability, and global connectivity.
               </p>
 
               {/* Action Buttons */}

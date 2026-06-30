@@ -31,15 +31,13 @@ import { useCurrency } from "@/context/CurrencyContext";
 import GlobalPresence from "@/components/GlobalPresence";
 
 type LocationType = "in" | "sg" | "de";
-type CpuType = "intel" | "epyc" | "ryzen";
+type CpuType = "intel" | "epyc" | "ryzen" | "genoa";
 type PanelTab = "overview" | "os" | "ssh" | "monitoring" | "firewall" | "rescue" | "tasks";
 
 interface Plan {
   id: string;
   name: string;
-  priceIntel: number;
-  priceEpyc: number;
-  priceRyzen: number;
+  price: number;
   cores: number;
   ram: number;
   storage: number;
@@ -51,13 +49,24 @@ export default function VpsDbHosting() {
 
   // States
   const [location, setLocation] = useState<LocationType>("in");
-  const [cpu, setCpu] = useState<CpuType>("intel");
+  const [cpu, setCpu] = useState<CpuType>("epyc");
   const [activePanelTab, setActivePanelTab] = useState<PanelTab>("overview");
   const [expandedFaqs, setExpandedFaqs] = useState<Record<string, boolean>>({});
 
   const toggleFaq = (id: string) => {
     setExpandedFaqs((prev) => ({ ...prev, [id]: !prev[id] }));
   };
+
+  // Synchronize CPU options when location changes
+  React.useEffect(() => {
+    if (location === "in") {
+      setCpu("epyc");
+    } else if (location === "sg") {
+      setCpu("epyc");
+    } else if (location === "de") {
+      setCpu("intel");
+    }
+  }, [location]);
 
   // Autoplay loop slideshow for control panel showcase
   React.useEffect(() => {
@@ -71,18 +80,6 @@ export default function VpsDbHosting() {
 
     return () => clearInterval(interval);
   }, []);
-
-  // 8 Plans definition
-  const plans: Plan[] = [
-    { id: "xs", name: "Xeon Standard XS", priceIntel: 285.87, priceEpyc: 320.50, priceRyzen: 360.75, cores: 2, ram: 4, storage: 60, bandwidth: "Unmetered (1 Gbps)" },
-    { id: "s", name: "Xeon Standard S", priceIntel: 381.16, priceEpyc: 430.00, priceRyzen: 480.20, cores: 2, ram: 8, storage: 80, bandwidth: "Unmetered (1 Gbps)" },
-    { id: "m", name: "Xeon Standard M", priceIntel: 571.74, priceEpyc: 640.25, priceRyzen: 710.60, cores: 4, ram: 12, storage: 100, bandwidth: "Unmetered (1 Gbps)" },
-    { id: "l", name: "Xeon Standard L", priceIntel: 762.32, priceEpyc: 850.50, priceRyzen: 940.80, cores: 6, ram: 16, storage: 160, bandwidth: "Unmetered (1 Gbps)" },
-    { id: "xl", name: "Xeon Standard XL", priceIntel: 1143.48, priceEpyc: 1280.00, priceRyzen: 1420.40, cores: 6, ram: 20, storage: 200, bandwidth: "Unmetered (1 Gbps)" },
-    { id: "xxl", name: "Xeon Standard XXL", priceIntel: 1524.64, priceEpyc: 1710.10, priceRyzen: 1900.50, cores: 8, ram: 32, storage: 300, bandwidth: "Unmetered (1 Gbps)" },
-    { id: "2xl", name: "Xeon Standard 2XL", priceIntel: 1905.80, priceEpyc: 2140.40, priceRyzen: 2380.90, cores: 10, ram: 48, storage: 380, bandwidth: "Unmetered (1 Gbps)" },
-    { id: "3xl", name: "Xeon Standard 3XL", priceIntel: 2477.54, priceEpyc: 2780.00, priceRyzen: 3090.50, cores: 12, ram: 64, storage: 450, bandwidth: "Unmetered (1 Gbps)" },
-  ];
 
   // Helper to format flag SVGs
   const renderFlag = (loc: LocationType) => {
@@ -119,29 +116,101 @@ export default function VpsDbHosting() {
     return null;
   };
 
-  const getPlanPrice = (plan: Plan) => {
-    let basePrice = plan.priceIntel;
-    if (cpu === "epyc") basePrice = plan.priceEpyc;
-    if (cpu === "ryzen") basePrice = plan.priceRyzen;
+  const getPlans = (): Plan[] => {
+    if (location === "in" && cpu === "epyc") {
+      return [
+        { id: "xs", name: "EPYC Standard XS", price: 11, cores: 4, ram: 8, storage: 64, bandwidth: "Unmetered (1 Gbps)" },
+        { id: "s", name: "EPYC Standard S", price: 21, cores: 8, ram: 16, storage: 128, bandwidth: "Unmetered (1 Gbps)" },
+        { id: "m", name: "EPYC Standard M", price: 41, cores: 12, ram: 32, storage: 256, bandwidth: "Unmetered (1 Gbps)" },
+        { id: "l", name: "EPYC Standard L", price: 56, cores: 16, ram: 64, storage: 512, bandwidth: "Unmetered (1 Gbps)" },
+        { id: "xl", name: "EPYC Standard XL", price: 106, cores: 24, ram: 128, storage: 1024, bandwidth: "Unmetered (1 Gbps)" },
+      ];
+    }
+    if (location === "in" && cpu === "genoa") {
+      return [
+        { id: "xs", name: "EPYC Genoa XS", price: 16, cores: 4, ram: 8, storage: 64, bandwidth: "Unmetered (1 Gbps)" },
+        { id: "s", name: "EPYC Genoa S", price: 31, cores: 8, ram: 16, storage: 128, bandwidth: "Unmetered (1 Gbps)" },
+        { id: "m", name: "EPYC Genoa M", price: 61, cores: 12, ram: 32, storage: 256, bandwidth: "Unmetered (1 Gbps)" },
+        { id: "l", name: "EPYC Genoa L", price: 81, cores: 16, ram: 64, storage: 512, bandwidth: "Unmetered (1 Gbps)" },
+        { id: "xl", name: "EPYC Genoa XL", price: 151, cores: 24, ram: 128, storage: 1024, bandwidth: "Unmetered (1 Gbps)" },
+      ];
+    }
+    if (location === "sg") {
+      return [
+        { id: "xs", name: "EPYC Standard XS", price: 11, cores: 4, ram: 8, storage: 64, bandwidth: "Unmetered (1 Gbps)" },
+        { id: "s", name: "EPYC Standard S", price: 21, cores: 8, ram: 16, storage: 128, bandwidth: "Unmetered (1 Gbps)" },
+        { id: "m", name: "EPYC Standard M", price: 41, cores: 12, ram: 32, storage: 256, bandwidth: "Unmetered (1 Gbps)" },
+        { id: "l", name: "EPYC Standard L", price: 56, cores: 16, ram: 64, storage: 512, bandwidth: "Unmetered (1 Gbps)" },
+        { id: "xl", name: "EPYC Standard XL", price: 106, cores: 24, ram: 128, storage: 1024, bandwidth: "Unmetered (1 Gbps)" },
+      ];
+    }
+    if (location === "de" && cpu === "ryzen") {
+      return [
+        { id: "xs", name: "Ryzen XS", price: 9, cores: 2, ram: 6, storage: 50, bandwidth: "Unmetered (1 Gbps)" },
+        { id: "s", name: "Ryzen S", price: 11, cores: 2, ram: 8, storage: 50, bandwidth: "Unmetered (1 Gbps)" },
+        { id: "m", name: "Ryzen M", price: 16, cores: 3, ram: 12, storage: 75, bandwidth: "Unmetered (1 Gbps)" },
+        { id: "l", name: "Ryzen L", price: 21, cores: 4, ram: 16, storage: 120, bandwidth: "Unmetered (1 Gbps)" },
+        { id: "xl", name: "Ryzen XL", price: 28, cores: 6, ram: 24, storage: 160, bandwidth: "Unmetered (1 Gbps)" },
+        { id: "xxl", name: "Ryzen XXL", price: 33, cores: 6, ram: 32, storage: 200, bandwidth: "Unmetered (1 Gbps)" },
+      ];
+    }
+    return [
+      { id: "xs", name: "Intel Gold XS", price: 5, cores: 1, ram: 6, storage: 40, bandwidth: "Unmetered (1 Gbps)" },
+      { id: "s", name: "Intel Gold S", price: 7, cores: 2, ram: 8, storage: 50, bandwidth: "Unmetered (1 Gbps)" },
+      { id: "m", name: "Intel Gold M", price: 9, cores: 4, ram: 12, storage: 100, bandwidth: "Unmetered (1 Gbps)" },
+      { id: "l", name: "Intel Gold L", price: 11, cores: 4, ram: 16, storage: 150, bandwidth: "Unmetered (1 Gbps)" },
+      { id: "xl", name: "Intel Gold XL", price: 16, cores: 6, ram: 24, storage: 200, bandwidth: "Unmetered (1 Gbps)" },
+      { id: "xxl", name: "Intel Gold XXL", price: 21, cores: 6, ram: 36, storage: 250, bandwidth: "Unmetered (1 Gbps)" },
+      { id: "2xl", name: "Intel Gold 2XL", price: 29, cores: 8, ram: 48, storage: 300, bandwidth: "Unmetered (1 Gbps)" },
+      { id: "3xl", name: "Intel Gold 3XL", price: 39, cores: 8, ram: 64, storage: 350, bandwidth: "Unmetered (1 Gbps)" },
+    ];
+  };
 
-    // Apply currency format directly if needed, but since formatPrice handles conversion:
-    return formatPrice(basePrice);
+  const getPlanPrice = (plan: Plan) => {
+    return formatPrice(plan.price);
   };
 
   const getPlanProcessorInfo = () => {
-    if (cpu === "intel") return "Intel® Xeon® (Gold / Platinum)";
-    if (cpu === "epyc") return "AMD EPYC™ (7002/7003 Series)";
-    return "AMD Ryzen™ (9 5950X / 7950X)";
+    if (cpu === "intel") return "Intel® Xeon® Gold 6150";
+    if (cpu === "epyc") return "AMD EPYC™ Milan";
+    if (cpu === "genoa") return "AMD EPYC™ Genoa";
+    return "AMD Ryzen™ 9 5900X";
   };
 
   const getCpuNote = () => {
     if (cpu === "intel") {
-      return "Intel Xeon CPU options (up to 2.80 GHz). Built for stable virtualization workloads and multi-tenant database clusters.";
+      return "Intel Xeon Gold 6150 CPU options. Built for stable virtualization workloads and multi-tenant database clusters.";
     }
     if (cpu === "epyc") {
-      return "AMD EPYC processor options. Excellent high-core counts optimized for memory-bound apps and complex microservice stacks.";
+      return "AMD EPYC Milan processor options. Excellent high-core counts optimized for memory-bound apps and complex microservice stacks.";
     }
-    return "AMD Ryzen processor options (up to 4.5 GHz+ boost). Ideal for high-speed single-threaded tasks and extreme performance KVM containers.";
+    if (cpu === "genoa") {
+      return "AMD EPYC Genoa processor options. Next-generation high performance with DDR5 ECC RAM and NVMe Gen4 SSD storage.";
+    }
+    return "AMD Ryzen 9 5900X processor options (up to 4.5 GHz+ boost). Ideal for high-speed single-threaded tasks and extreme performance KVM containers.";
+  };
+
+  const getCpuOptions = () => {
+    if (location === "in") {
+      return [
+        { id: "epyc", label: "AMD EPYC Milan" },
+        { id: "genoa", label: "AMD EPYC Genoa" },
+      ];
+    }
+    if (location === "sg") {
+      return [
+        { id: "epyc", label: "AMD EPYC Milan" },
+      ];
+    }
+    return [
+      { id: "intel", label: "Intel® Xeon® Gold" },
+      { id: "ryzen", label: "AMD Ryzen™ 9" },
+    ];
+  };
+
+  const getRamType = () => {
+    if (cpu === "genoa") return "DDR5 ECC";
+    return "DDR4 ECC";
   };
 
   return (
@@ -213,11 +282,7 @@ export default function VpsDbHosting() {
           <div className="flex flex-col items-center sm:items-start gap-2 w-full sm:w-auto">
             <span className="text-[10px] font-mono font-bold text-text-muted uppercase tracking-wider">CPU Type:</span>
             <div className="flex bg-[#070A14] border border-[#2A3650]/50 p-1.5 rounded-xl gap-1">
-              {[
-                { id: "intel", label: "Intel - Standard" },
-                { id: "epyc", label: "AMD EPYC - Premium" },
-                { id: "ryzen", label: "AMD Ryzen™ - Premium" },
-              ].map((cpuOption) => (
+              {getCpuOptions().map((cpuOption) => (
                 <button
                   key={cpuOption.id}
                   onClick={() => setCpu(cpuOption.id as CpuType)}
@@ -239,7 +304,7 @@ export default function VpsDbHosting() {
           <Cpu className="h-6 w-6 text-primary-cyan flex-shrink-0 mt-0.5" />
           <div className="space-y-1">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider font-display">
-              {cpu === "intel" ? "Intel Xeon E5/Platinum Series" : cpu === "epyc" ? "AMD EPYC High-Density Cores" : "AMD Ryzen Max Core-Clock"}
+              {cpu === "intel" ? "Intel Xeon Gold Series" : cpu === "epyc" ? "AMD EPYC Milan Standard" : cpu === "genoa" ? "AMD EPYC Genoa High Performance" : "AMD Ryzen Max Core-Clock"}
             </h4>
             <p className="text-xs text-text-muted leading-relaxed font-sans font-medium">
               {getCpuNote()}
@@ -249,7 +314,7 @@ export default function VpsDbHosting() {
 
         {/* 8 Plans Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-4 reveal-up delay-200">
-          {plans.map((plan) => (
+          {getPlans().map((plan) => (
             <div
               key={plan.id}
               className="group relative rounded-2xl border border-[#2A3650]/60 bg-[#0E1321]/50 p-6 flex flex-col justify-between space-y-6 transition-all duration-300 hover:border-primary-cyan/45 hover:shadow-[0_0_25px_rgba(108,244,255,0.06)] hover:scale-[1.01]"
@@ -295,7 +360,7 @@ export default function VpsDbHosting() {
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="h-3.5 w-3.5 text-success-teal flex-shrink-0" />
-                    <span>Memory: <span className="text-white font-bold">{plan.ram} GB DDR4 ECC</span></span>
+                    <span>Memory: <span className="text-white font-bold">{plan.ram} GB {getRamType()}</span></span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="h-3.5 w-3.5 text-success-teal flex-shrink-0" />
