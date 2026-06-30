@@ -90,30 +90,6 @@ export default function ServicesShowcase() {
       color: "from-cyan-400 to-blue-500"
     },
     {
-      id: "rdp",
-      name: "RDP Hosting",
-      slug: "rdp",
-      category: "vps",
-      tagline: "Dedicated Windows Remote Desktops",
-      description: "Optimized virtual workstations running Windows Server with low-latency graphics performance, multi-user sessions, and preconfigured administration tools.",
-      startingPrice: 476.45,
-      features: [
-        "Pre-activated Windows Server License",
-        "Administrator access & Remote Desktop Protocol",
-        "GPU Acceleration support available",
-        "Smooth multi-session workstation hosting",
-        "Vibrant Noida, Germany & Singapore locations"
-      ],
-      specs: {
-        cpu: "Up to 16 Cores (Dedicated)",
-        ram: "Up to 64 GB DDR5",
-        storage: "Up to 400 GB NVMe SSD",
-        network: "1 Gbps Unmetered Uplink"
-      },
-      icon: Monitor,
-      color: "from-blue-500 to-indigo-500"
-    },
-    {
       id: "web",
       name: "Web Hosting",
       slug: "web",
@@ -139,26 +115,27 @@ export default function ServicesShowcase() {
     },
     {
       id: "game",
-      name: "Game Servers",
-      slug: "game",
+      name: "Minecraft Hosting",
+      slug: "game/minecraft",
       category: "gaming",
-      tagline: "Ultra-low Latency Game Node Hosting",
-      description: "Optimized server instances for Minecraft, Rust, Ark, CS:GO, and more, equipped with high-CPU clocks, custom control panel, mod managers, and global routing.",
-      startingPrice: 190.58,
+      tagline: "Ultra-low Latency Minecraft Server Hosting",
+      description: "High-frequency Minecraft Server Hosting powered by high-speed CPU clock rates, custom panel, automated plugin installers, and robust DDoS protection.",
+      startingPrice: 1.70,
       features: [
         "Advanced Pterodactyl-based Control Panel",
         "1-Click plugin & Modpack installer",
-        "Real-time console, file manager, schedules",
+        "Real-time console, file manager, backups",
         "Enterprise-grade DDoS mitigation shield",
-        "No player limit cap constraints"
+        "Flexible rate: ₹40 per GB of RAM"
       ],
       specs: {
-        cpu: "High-Frequency Ryzen cores",
-        ram: "Dedicated allocations (No oversell)",
-        storage: "Unmetered NVMe SSD space",
+        cpu: "High-Frequency vCPU Cores",
+        ram: "Custom Allocations (2 GB - 64 GB)",
+        storage: "Fast NVMe Gen4 Storage",
         network: "Low-Ping Premium Routing"
       },
       icon: Gamepad2,
+      popular: true,
       color: "from-amber-400 to-orange-500"
     },
     {
@@ -218,8 +195,7 @@ export default function ServicesShowcase() {
       question: "What is your main hosting objective?",
       options: [
         { label: "Host a website, API, or static page", value: "web" },
-        { label: "Deploy a virtual desktop/admin server", value: "rdp" },
-        { label: "Run a game server (Minecraft, Rust, etc.)", value: "game" },
+        { label: "Run a Minecraft server", value: "game" },
         { label: "Host a Discord Bot, background script or database", value: "bot" },
         { label: "General development / full root access VM", value: "vps" }
       ]
@@ -238,11 +214,8 @@ export default function ServicesShowcase() {
     const nextAnswers = { ...answers, [questionId]: optionValue };
     setAnswers(nextAnswers);
 
-    if (questionId === "objective" && optionValue === "rdp") {
-      setRecommendedSlug("rdp");
-      setWizardStep(2);
-    } else if (questionId === "objective" && optionValue === "game") {
-      setRecommendedSlug("game");
+    if (questionId === "objective" && optionValue === "game") {
+      setRecommendedSlug("game/minecraft");
       setWizardStep(2);
     } else if (questionId === "objective" && optionValue === "vps") {
       setRecommendedSlug("vps");
@@ -278,7 +251,7 @@ export default function ServicesShowcase() {
     {
       id: "uptime",
       q: "What is DynoXium's network uptime guarantee?",
-      a: "All of our premium hosting nodes (VPS, RDP, Web, Game, and Bot hosting) come with a 99.9% uptime Service Level Agreement (SLA). We run high-quality redundant hardware and multi-homed BGP network uplinks in tier-3 datacenters."
+      a: "All of our premium hosting nodes (VPS, Web, Minecraft, and Bot hosting) come with a 99.9% uptime Service Level Agreement (SLA). We run high-quality redundant hardware and multi-homed BGP network uplinks in tier-3 datacenters."
     },
     {
       id: "locations",
@@ -411,9 +384,9 @@ export default function ServicesShowcase() {
         <div className="flex flex-wrap items-center justify-center gap-2 border-b border-border-dark pb-6">
           {[
             { id: "all", label: "All Hosting" },
-            { id: "vps", label: "Virtual Machines (VPS/RDP)" },
+            { id: "vps", label: "Virtual Machines (VPS)" },
             { id: "runtimes", label: "App & Script Runtimes" },
-            { id: "gaming", label: "Game Server Rigs" },
+            { id: "gaming", label: "Minecraft Hosting" },
           ].map((btn) => (
             <button
               key={btn.id}
@@ -513,51 +486,7 @@ export default function ServicesShowcase() {
         </div>
       </section>
 
-      {/* SERVICE COMPARISON MATRIX */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 z-10 relative">
-        <div className="text-center mb-12">
-          <h2 className="font-norwester text-2xl sm:text-4xl text-white uppercase tracking-wider mb-4">
-            Compare Hosting Tiers
-          </h2>
-          <p className="text-text-muted font-sans text-xs sm:text-sm max-w-xl mx-auto">
-            Find the right allocation level based on your technical dependencies and control requirements.
-          </p>
-        </div>
 
-        <div className="glass-panel border-border-dark/60 rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-[#141C2F] border-b border-border-dark">
-                  <th className="p-4 sm:p-5 text-xs sm:text-sm font-bold font-norwester text-white uppercase tracking-wider">Service</th>
-                  <th className="p-4 sm:p-5 text-xs sm:text-sm font-bold font-norwester text-white uppercase tracking-wider">CPU Power</th>
-                  <th className="p-4 sm:p-5 text-xs sm:text-sm font-bold font-norwester text-white uppercase tracking-wider">RAM Allocation</th>
-                  <th className="p-4 sm:p-5 text-xs sm:text-sm font-bold font-norwester text-white uppercase tracking-wider">Storage</th>
-                  <th className="p-4 sm:p-5 text-xs sm:text-sm font-bold font-norwester text-white uppercase tracking-wider">Access Scope</th>
-                  <th className="p-4 sm:p-5 text-xs sm:text-sm font-bold font-norwester text-white uppercase tracking-wider">Best For</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border-dark/40 font-sans text-xs sm:text-sm">
-                {services.map((item) => (
-                  <tr key={item.id} className="hover:bg-[#141C2F]/40 transition-colors">
-                    <td className="p-4 sm:p-5 font-bold text-white flex items-center gap-2">
-                      <item.icon className="w-4 h-4 text-primary-cyan flex-shrink-0" />
-                      <span>{item.name}</span>
-                    </td>
-                    <td className="p-4 sm:p-5 text-text-muted">{item.specs.cpu}</td>
-                    <td className="p-4 sm:p-5 text-text-muted">{item.specs.ram}</td>
-                    <td className="p-4 sm:p-5 text-text-muted">{item.specs.storage}</td>
-                    <td className="p-4 sm:p-5 text-text-muted font-mono text-xs">
-                      {item.id === "vps" || item.id === "rdp" ? "Full Root / Administrator" : "Container Panel / API"}
-                    </td>
-                    <td className="p-4 sm:p-5 text-text-muted font-medium">{item.tagline}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
 
       {/* FAQ SECTION */}
       <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-28 z-10 relative">

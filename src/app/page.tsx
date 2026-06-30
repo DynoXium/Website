@@ -105,16 +105,16 @@ const Sparkle = ({ className }: { className?: string }) => (
 
 const testimonials = [
   {
-    name: "Alex Mercer",
-    role: "SaaS Founder",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80",
-    quote: "DynoXium has simplified our staging builds. Deploying Next.js applications directly on git push has cut dev overhead in half.",
+    name: "Pokemon32",
+    role: "Minecraft Server Owner",
+    avatar: "https://images-ext-1.discordapp.net/external/gTeu6MRNiluNQvqyOsMDKAQ-l01f2M2HH8E9dsEDm_8/%3Fsize%3D4096/https/cdn.discordapp.com/avatars/1429468069239197717/8e8ed485d40267a64519108e7a8a6cf6.png?format=webp&quality=lossless",
+    quote: "Really smooth performance with almost no lag, and the support team replies fast too. The panel is easy to use and everything works nicely. Had a great experience hosting my Minecraft server here. ",
   },
   {
-    name: "Rohit Sharma",
-    role: "Discord Bot Creator",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
-    quote: "The Free Tier is extremely robust. I run two discord.py bots always-online with zero downtime or memory crashes.",
+    name: "Kr Arjan",
+    role: "Discord Bot Developer",
+    avatar: "https://cdn.discordapp.com/avatars/606851356854321171/1e409739493fc380fd8f67db0751f13f.png?size=4096",
+    quote: "",
   },
   {
     name: "Sarah Jenkins",
@@ -1468,22 +1468,27 @@ CMD ["node", "main.js"]`;
             <div className="lg:col-span-7 flex flex-col justify-start min-h-[calc(100vh-5rem)] lg:min-h-0 items-start text-left w-full pt-8 lg:pt-0">
 
               {/* Rating Banner */}
-              <div className="flex flex-wrap items-center gap-3 mb-6 bg-[#161C2C]/70 border border-[#2A3650]/40 px-4 py-2 rounded-lg backdrop-blur-md hero-reveal">
+              <a
+                href="https://www.trustpilot.com/review/dynoxium.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-wrap items-center gap-3 mb-6 bg-[#161C2C]/70 border border-[#2A3650]/40 px-4 py-2 rounded-lg backdrop-blur-md hero-reveal cursor-pointer hover:border-[#00B67A]/50 transition-all duration-300 group"
+              >
                 {/* 5 Green Stars */}
                 <div className="flex items-center gap-0.5">
                   {[...Array(5)].map((_, i) => (
-                    <div key={i} className="bg-[#22c55e] p-1 rounded-sm flex items-center justify-center">
+                    <div key={i} className="bg-[#00B67A] p-1 rounded-sm flex items-center justify-center">
                       <Star className="h-3 w-3 fill-white text-white" />
                     </div>
                   ))}
                 </div>
-                <span className="text-xs sm:text-sm text-text-light font-medium">
-                  We&apos;re rated <strong className="text-white">4.7</strong> out of <strong className="text-white">5</strong> stars
+                <span className="text-xs sm:text-sm text-text-light font-medium group-hover:text-white transition-colors">
+                  Review us on <strong className="text-white">Trustpilot</strong>
                 </span>
-                <span className="text-xs font-bold text-white flex items-center gap-1 uppercase bg-black px-2 py-0.5 rounded border border-[#2A3650] tracking-tight">
-                  <Star className="h-3.5 w-3.5 fill-green-500 text-green-500" /> REVIEWS.io
+                <span className="text-xs font-bold text-white flex items-center gap-1.5 uppercase bg-black px-2.5 py-0.5 rounded border border-[#2A3650] tracking-tight group-hover:border-[#00B67A]/40 transition-colors">
+                  <span className="text-[#00B67A] font-extrabold text-sm">★</span> Trustpilot
                 </span>
-              </div>
+              </a>
 
               {/* Headline */}
               <h1 className="font-display text-5xl sm:text-6xl font-bold tracking-tight text-white uppercase leading-[1.05] hero-stagger-1">
@@ -2504,7 +2509,7 @@ CMD ["node", "main.js"]`;
               </div>
 
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-text-light mb-0 uppercase md:whitespace-nowrap">
-                Trusted by Architects & Developers
+                Trusted by Developers & Community Owners
               </h2>
 
               {/* Right Lines */}
@@ -2515,7 +2520,7 @@ CMD ["node", "main.js"]`;
               </div>
             </div>
             <p className="text-text-muted max-w-2xl mx-auto text-sm mt-4">
-              Read review feedback from independent server administrators and SaaS founders hosting on our infrastructure.
+              Read review feedback from independent server administrators and community Owners hosting their servers on our infrastructure.
             </p>
           </div>
 
@@ -2567,12 +2572,10 @@ CMD ["node", "main.js"]`;
                   {/* User Info Block */}
                   <div className="flex flex-col items-center text-center">
                     <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#2A3650]/80 group-hover:border-primary-cyan/50 transition-colors duration-300 mb-3">
-                      <Image
+                      <img
                         src={test.avatar}
                         alt={test.name}
-                        fill
-                        sizes="48px"
-                        className="object-cover"
+                        className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="text-xs font-bold text-text-light group-hover:text-white transition-colors">{test.name}</div>

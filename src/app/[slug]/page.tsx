@@ -1,5 +1,4 @@
 import Vps from "../services/vps";
-import Rdp from "../services/rdp";
 import Web from "../services/web";
 import Bot from "../services/bot";
 import Free from "../services/free";
@@ -29,7 +28,6 @@ interface PageProps {
 export async function generateStaticParams() {
   return [
     { slug: "vps" },
-    { slug: "rdp" },
     { slug: "web" },
     { slug: "bot" },
     { slug: "free" },
@@ -54,9 +52,6 @@ export default async function DynamicRoutePage({ params }: PageProps) {
   switch (slug) {
     case "vps":
       content = <Vps />;
-      break;
-    case "rdp":
-      content = <Rdp />;
       break;
     case "web":
       content = <Web />;

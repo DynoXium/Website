@@ -7,7 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     "",
     "/blog",
-    "/game",
     "/tools",
   ].map((route) => ({
     url: `${baseUrl}${route}`,
@@ -19,7 +18,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Dynamic service, company, support, and legal pages
   const dynamicSlugs = [
     "vps",
-    "rdp",
     "web",
     "bot",
     "free",
@@ -44,14 +42,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Individual game pages
   const gameSlugs = [
     "minecraft",
-    "rust",
-    "fivem",
-    "ark",
-    "terraria",
-    "valheim",
-    "palworld",
-    "cs2",
-    "hytale",
   ].map((slug) => ({
     url: `${baseUrl}/game/${slug}`,
     lastModified: new Date(),

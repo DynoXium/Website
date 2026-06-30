@@ -97,9 +97,8 @@ export default function Header() {
       items: [
         { name: "All Services", path: "/services", desc: "Browse our entire hosting ecosystem" },
         { name: "VPS Hosting", path: "/vps", desc: "Dedicated root VPS with KVM cores" },
-        { name: "RDP Hosting", path: "/rdp", desc: "High-performance remote desktops" },
         { name: "Web Hosting", path: "/web", desc: "Next-gen static & dynamic web edge" },
-        { name: "GameServer", path: "/game", desc: "High-performance game servers" },
+        { name: "Minecraft Hosting", path: "/game/minecraft", desc: "High-performance Minecraft servers" },
         { name: "Discord Bot", path: "/bot", desc: "Always online logs & runtime nodes" },
         { name: "Free Hosting", path: "/free", desc: "Get started for free" },
       ],

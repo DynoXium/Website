@@ -297,10 +297,14 @@ export default function WebHosting() {
                 </ul>
               </div>
 
-              {/* Order button */}
-              <button className="w-full py-2.5 rounded-xl bg-primary-cyan text-black hover:bg-transparent hover:text-primary-cyan border-2 border-primary-cyan font-bold text-xs uppercase tracking-widest transition-all shadow-[0_0_15px_rgba(108,244,255,0.1)] active:scale-[0.98] cursor-pointer">
+              <a
+                href="https://discord.dynoxium.com/verify/DynoXium%20Community"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 rounded-xl bg-primary-cyan text-black hover:bg-transparent hover:text-primary-cyan border-2 border-primary-cyan font-bold text-xs uppercase tracking-widest transition-all shadow-[0_0_15px_rgba(108,244,255,0.1)] active:scale-[0.98] cursor-pointer text-center block"
+              >
                 Order Now
-              </button>
+              </a>
             </div>
           ))}
         </div>

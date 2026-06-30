@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import {
   MessageSquare,
   Gamepad2,
@@ -47,6 +48,13 @@ import {
 } from "lucide-react";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const handleScrollToTop = (path: string) => {
+    if (pathname === path) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   const [discordWidget, setDiscordWidget] = useState<{
     instant_invite: string;
     presence_count: number;
@@ -127,7 +135,7 @@ export default function Footer() {
 
             <div className="flex-shrink-0 w-full lg:w-auto">
               <a
-                href={discordWidget?.instant_invite || "https://discord.gg"}
+                href="https://discord.dynoxium.com/verify/DynoXium%20Community"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full lg:w-auto inline-flex items-center justify-center gap-3 px-6 py-3 bg-[#5865F2] hover:bg-[#4752C4] text-white rounded-2xl font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-[0_4px_20px_rgba(88,101,242,0.25)] hover:shadow-[0_4px_25px_rgba(88,101,242,0.45)] hover:scale-[1.03] active:scale-[0.97]"
@@ -159,7 +167,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-text-muted leading-relaxed">
-              Founded in <span className="font-bold text-white">India</span> by <span className="font-bold text-white">Kr Arjan</span>, with <span className="font-bold text-white">Randeep Royal</span> serving as <span className="font-bold text-white">Co-Founder</span>, <span className="font-bold text-white">Dynoxium</span> was built with a simple goal—to make high-quality hosting reliable, accessible, and easy to manage. From game servers to cloud hosting services, we focus on delivering dependable performance, modern technology, and support you can count on.
+              DynoXium, founded in <span className="font-bold text-white">India</span> by <span className="font-bold text-white">Kr Arjan</span>, with <span className="font-bold text-white">Randeep Royal</span> serving as <span className="font-bold text-white">Co-Founder</span>, <span className="font-bold text-white">Dynoxium</span> was built with a simple goal—to make high-quality hosting reliable, accessible, and easy to manage. From game servers to cloud hosting services, we focus on delivering dependable performance, modern technology, and support you can count on.
             </p>
 
             {/* Social Icons Rounded Squares */}
@@ -205,25 +213,25 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* COLUMN 1: GAME SERVER */}
+          {/* COLUMN 1: GAME SERVERS */}
           <div className="flex flex-col gap-4">
             <div className="font-display text-sm font-bold text-white uppercase tracking-wider">
-              Game Server
+              Game Servers
             </div>
             <ul className="flex flex-col gap-3 text-sm">
               {[
-                { name: "Minecraft", icon: Gamepad2, path: "/game/minecraft" },
-                { name: "FiveM", icon: Play, path: "#" },
-                { name: "Palworld", icon: Flame, path: "#" },
-                { name: "Rust", icon: Hammer, path: "#" },
-                { name: "Counter Strike", icon: Trees, path: "#" },
-                { name: "Hytale", icon: Sparkles, path: "#" },
+                { name: "Minecraft Java", icon: Gamepad2, path: "/game/minecraft" },
+                { name: "Minecraft Bedrock", icon: Gamepad2, path: "/game/minecraft" },
+                { name: "Forge & Fabric Modded", icon: Gamepad2, path: "/game/minecraft" },
+                { name: "Spigot & Paper SMP", icon: Gamepad2, path: "/game/minecraft" },
+                { name: "BungeeCord Networks", icon: Gamepad2, path: "/game/minecraft" },
               ].map((item, idx) => {
                 const Icon = item.icon;
                 return (
                   <li key={idx}>
                     <Link
                       href={item.path}
+                      onClick={() => handleScrollToTop(item.path)}
                       className="flex items-center gap-2 text-[#8E8E93] hover:text-white transition-all group"
                     >
                       <Icon className="h-3.5 w-3.5 text-primary-cyan/40 group-hover:text-primary-cyan transition-colors" />
@@ -232,15 +240,6 @@ export default function Footer() {
                   </li>
                 );
               })}
-              <li>
-                <Link
-                  href="/game"
-                  className="flex items-center gap-1.5 text-primary-cyan hover:text-secondary-cyan font-semibold transition-all group"
-                >
-                  View All
-                  <ArrowUpRight className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -252,9 +251,8 @@ export default function Footer() {
             <ul className="flex flex-col gap-3 text-sm">
               {[
                 { name: "VPS Hosting", icon: Cpu, path: "/vps" },
-                { name: "RDP Hosting", icon: Monitor, path: "/rdp" },
                 { name: "Web Hosting", icon: Globe, path: "/web" },
-                { name: "GameServer", icon: Gpu, path: "/game" },
+                { name: "Minecraft Hosting", icon: Gamepad2, path: "/game/minecraft" },
                 { name: "Discord Bot", icon: MessageSquare, path: "/bot" },
                 { name: "Free Hosting", icon: Zap, path: "/free" },
               ].map((item, idx) => {
@@ -263,6 +261,7 @@ export default function Footer() {
                   <li key={idx}>
                     <Link
                       href={item.path}
+                      onClick={() => handleScrollToTop(item.path)}
                       className="flex items-center gap-2 text-[#8E8E93] hover:text-white transition-all group"
                     >
                       <Icon className="h-3.5 w-3.5 text-primary-cyan/40 group-hover:text-primary-cyan transition-colors" />
@@ -271,15 +270,6 @@ export default function Footer() {
                   </li>
                 );
               })}
-              <li>
-                <Link
-                  href="/game"
-                  className="flex items-center gap-1.5 text-primary-cyan hover:text-secondary-cyan font-semibold transition-all group"
-                >
-                  View All
-                  <ArrowUpRight className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -301,6 +291,7 @@ export default function Footer() {
                   <li key={idx}>
                     <Link
                       href={item.path}
+                      onClick={() => handleScrollToTop(item.path)}
                       className="flex items-center gap-2 text-[#8E8E93] hover:text-white transition-all group"
                     >
                       <Icon className="h-3.5 w-3.5 text-primary-cyan/40 group-hover:text-primary-cyan transition-colors" />
@@ -312,6 +303,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/tools"
+                  onClick={() => handleScrollToTop("/tools")}
                   className="flex items-center gap-1.5 text-primary-cyan hover:text-secondary-cyan font-semibold transition-all group"
                 >
                   View All
@@ -333,13 +325,14 @@ export default function Footer() {
                 { name: "Status", icon: Activity, path: "#" },
                 { name: "Create Ticket", icon: FileText, path: "#" },
                 { name: "Contact Us", icon: MessageSquare, path: "/contact" },
-                { name: "Discord", icon: Users, path: "#" },
+                { name: "Discord", icon: Users, path: "https://discord.dynoxium.com/verify/DynoXium%20Community" },
               ].map((item, idx) => {
                 const Icon = item.icon;
                 return (
                   <li key={idx}>
                     <Link
                       href={item.path}
+                      onClick={() => handleScrollToTop(item.path)}
                       className="flex items-center gap-2 text-[#8E8E93] hover:text-white transition-all group"
                     >
                       <Icon className="h-3.5 w-3.5 text-primary-cyan/40 group-hover:text-primary-cyan transition-colors" />
@@ -369,6 +362,7 @@ export default function Footer() {
                   <li key={idx}>
                     <Link
                       href={item.path}
+                      onClick={() => handleScrollToTop(item.path)}
                       className="flex items-center gap-2 text-[#8E8E93] hover:text-white transition-all group"
                     >
                       <Icon className="h-3.5 w-3.5 text-primary-cyan/40 group-hover:text-primary-cyan transition-colors" />
@@ -397,6 +391,7 @@ export default function Footer() {
                   <li key={idx}>
                     <Link
                       href={item.path}
+                      onClick={() => handleScrollToTop(item.path)}
                       className="flex items-center gap-2 text-[#8E8E93] hover:text-white transition-all group"
                     >
                       <Icon className="h-3.5 w-3.5 text-primary-cyan/40 group-hover:text-primary-cyan transition-colors" />
