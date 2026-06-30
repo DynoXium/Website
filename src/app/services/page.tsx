@@ -71,7 +71,7 @@ export default function ServicesShowcase() {
       category: "vps",
       tagline: "High Performance KVM VPS Nodes",
       description: "Dedicated virtual private servers with full root access, tailored for demanding production workloads, databases, and general infrastructure.",
-      startingPrice: 285.87,
+      startingPrice: 5.0,
       features: [
         "100% Dedicated KVM Virtualization",
         "Ryzen / EPYC / Xeon Processor options",
