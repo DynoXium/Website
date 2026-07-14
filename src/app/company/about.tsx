@@ -190,10 +190,10 @@ export default function AboutUs() {
                 <Gamepad2 className="h-6 w-6" />
               </div>
               <h3 className="font-display text-lg font-bold text-white uppercase tracking-tight">
-                Game Server Hosting
+                MInecraft Server Hosting
               </h3>
               <p className="text-xs sm:text-sm text-text-muted leading-relaxed font-medium">
-                We support over 10+ games, including Minecraft, Hytale, Terraria, ARK and FiveM. Our automated modpack installation and 24/7 support ensure a seamless gaming experience for users of all experience levels.
+                Experience high-frequency Minecraft server hosting powered by blazing-fast CPU clock speeds, our custom-built control panel, one-click automated plugin installers, enterprise-grade NVMe SSDs, advanced DDoS protection, and a reliable network built for smooth, uninterrupted gameplay.
               </p>
             </div>
             <Link href="/game" className="inline-flex items-center gap-1.5 text-xs font-bold text-primary-cyan hover:underline pt-2">
@@ -216,7 +216,7 @@ export default function AboutUs() {
               </p>
             </div>
             <Link href="/vps" className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:underline pt-2">
-              <span>Configure VPS Node</span>
+              <span>Configure VPS</span>
               <ArrowRight className="h-3 w-3" />
             </Link>
           </div>
@@ -228,14 +228,14 @@ export default function AboutUs() {
                 <Server className="h-6 w-6" />
               </div>
               <h3 className="font-display text-lg font-bold text-white uppercase tracking-tight">
-                Virtual Desktop Servers (VDS)
+                Discord Bot Hosting
               </h3>
               <p className="text-xs sm:text-sm text-text-muted leading-relaxed font-medium">
-                For those seeking robust, raw performance, our dedicated servers offer exclusive use of high-powered hardware, ensuring optimal performance for demanding enterprise applications and massive game instances.
+                Run your Node.js, Python, Java, and Go bots on lightweight, high-performance runtimes backed by fully managed container panels, seamless zero-downtime deployments, automatic updates, real-time resource monitoring, and enterprise-grade reliability.
               </p>
             </div>
             <Link href="#" className="inline-flex items-center gap-1.5 text-xs font-bold text-success-teal hover:underline pt-2">
-              <span>View Dedicated Plans</span>
+              <span>View Bot Hosting Plans</span>
               <ArrowRight className="h-3 w-3" />
             </Link>
           </div>

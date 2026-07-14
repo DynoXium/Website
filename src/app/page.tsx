@@ -106,34 +106,34 @@ const Sparkle = ({ className }: { className?: string }) => (
 const testimonials = [
   {
     name: "Pokemon32",
-    role: "Minecraft Server Owner",
+    role: "Minecraft Server Administrator",
     avatar: "https://images-ext-1.discordapp.net/external/gTeu6MRNiluNQvqyOsMDKAQ-l01f2M2HH8E9dsEDm_8/%3Fsize%3D4096/https/cdn.discordapp.com/avatars/1429468069239197717/8e8ed485d40267a64519108e7a8a6cf6.png?format=webp&quality=lossless",
     quote: "Really smooth performance with almost no lag, and the support team replies fast too. The panel is easy to use and everything works nicely. Had a great experience hosting my Minecraft server here. ",
   },
   {
     name: "Kr Arjan",
-    role: "Discord Bot Developer",
+    role: "Developer",
     avatar: "https://cdn.discordapp.com/avatars/606851356854321171/1e409739493fc380fd8f67db0751f13f.png?size=4096",
     quote: "",
   },
   {
-    name: "Sarah Jenkins",
-    role: "Server Administrator",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
-    quote: "Minecraft server latency is incredibly low. Players connecting from Sydney and Singapore both get solid, stable green pings.",
-  },
-  {
-    name: "Emily Chen",
-    role: "SaaS Developer",
-    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80",
-    quote: "Low latency, fast deployment. We migrated our entire backend services to Dynoxium and saw immediate load time drops.",
-  },
-  {
-    name: "Marcus Vance",
-    role: "Systems Engineer",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80",
-    quote: "The support is lightning fast. I had a firewall configuration issue at 2 AM and the team resolved it within minutes.",
-  },
+    name: "Pranav Nagpal",
+    role: "Developer",
+    avatar: "https://cdn.discordapp.com/avatars/1001807101116567572/2fed10242ae38305a263fbf87f311456.png?size=4096",
+    quote: "Been using it for 10 days now. Bought 8 GB ram minecraft server to play with college friends. It worked smoothly for 20 players and supported all the cool mods. Love it.",
+  },// 
+  // {
+  //   name: "Emily Chen",
+  //   role: "SaaS Developer",
+  //   avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80",
+  //   quote: "Low latency, fast deployment. We migrated our entire backend services to Dynoxium and saw immediate load time drops.",
+  // },
+  // {
+  //   name: "Marcus Vance",
+  //   role: "Systems Engineer",
+  //   avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80",
+  //   quote: "The support is lightning fast. I had a firewall configuration issue at 2 AM and the team resolved it within minutes.",
+  // },
 ];
 
 export default function Home() {

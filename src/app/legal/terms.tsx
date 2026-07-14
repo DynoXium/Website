@@ -94,7 +94,7 @@ export default function TermsOfService() {
       content: (
         <ol className="list-decimal pl-5 space-y-2 text-[#A0AEC0]">
           <li>To use DynoXium's Services, you must be at least 13 years of age. If you are under the age of 18, you may only use the Services with the permission and supervision of your parent or legal guardian, who agrees to be bound by these Terms on your behalf.</li>
-          <li>If acting on behalf of a business, you confirm you have authority to bind that entity.</li>
+          <li>If acting on behalf of a business, you need to confirm you have authority to bind that entity.</li>
           <li>We may request identity verification at any time.</li>
           <li>Services may not be used in restricted jurisdictions.</li>
         </ol>
@@ -251,6 +251,7 @@ export default function TermsOfService() {
               <li>Setup fees</li>
               <li>Add-ons</li>
               <li>Abuse-related suspension</li>
+              <li>Dedicated Additional IP</li>
             </ul>
           </li>
           <li>Refunds are issued to the original payment method only.</li>
