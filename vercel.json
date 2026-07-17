@@ -1,5 +1,11 @@
 {
     "regions": [
         "bom1"
+    ],
+    "rewrites": [
+        {
+            "source": "/client/:path*",
+            "destination": "https://billing.dynoxium.com/:path*"
+        }
     ]
 }
