@@ -167,19 +167,22 @@ export default function Home() {
       id: "vps",
       label: "VPS Hosting",
       menus: [
-        { id: "os", label: "OS Reinstallation", desc: "Reinstall Linux distributions (Ubuntu, Debian, CentOS) in seconds.", icon: HardDrive, image: "/panel/vps/os.png" },
-        { id: "vnc", label: "VNC Console", desc: "Secure out-of-band VNC access to manage your system remotely.", icon: Monitor, image: "/panel/vps/vnc.png" },
-        { id: "firewall", label: "Network Firewall", desc: "Manage inbound and outbound port rules at the edge.", icon: ShieldAlert, image: "/panel/vps/firewall.png" },
-        { id: "scaling", label: "Resource Scaling", desc: "Upgrade CPU threads, memory, and NVMe drives on-demand.", icon: Zap, image: "/panel/vps/scaling.png" }
+        { id: "overview", label: "System Overview", desc: "Live CPU & RAM metrics, NVMe disk volume usage, network transfer stats, and root SSH credentials.", icon: Activity, image: "/panel/vps/overview.webp" },
+        { id: "console", label: "Live Console", desc: "Direct web-based interactive SSH terminal connected straight to your Linux VPS root shell.", icon: Terminal, image: "/panel/vps/console.webp" },
+        { id: "files", label: "File Manager", desc: "Root directory explorer with direct file upload, in-browser code editor, and archive management.", icon: HardDrive, image: "/panel/vps/files.webp" },
+        { id: "credentials", label: "Hostname & Credentials", desc: "Instantly update custom FQDN machine hostnames and securely reset root account passwords.", icon: Shield, image: "/panel/vps/credentials.webp" },
+        { id: "reinstall", label: "OS Reinstallation", desc: "One-click deployment of Ubuntu, Debian, and standard Linux distributions with automatic partitioning.", icon: RefreshCw, image: "/panel/vps/reinstall.webp" },
+        { id: "oneclick", label: "One-Click Installers", desc: "Deploy Pterodactyl Panel, Wings daemon, Paymenter, or CtrlPanel in seconds with zero hassle.", icon: Zap, image: "/panel/vps/oneclick.webp" }
       ]
     },
     {
       id: "reseller",
       label: "Reseller Hosting",
       menus: [
-        { id: "users", label: "User Management", desc: "Create, suspend, or terminate client hosting accounts.", icon: Users, image: "/panel/reseller/users.png" },
-        { id: "api", label: "API Integration", desc: "Automate provisioning with our full-featured REST API backend.", icon: Code, image: "/panel/reseller/api.png" },
-        { id: "branding", label: "Custom Branding", desc: "White-label the panel with your own brand logo, domains, and styles.", icon: Palette, image: "/panel/reseller/branding.png" }
+        { id: "overview", label: "Operations Overview", desc: "Comprehensive analytics covering active client accounts, allocated VPS limits, and growth trends.", icon: Activity, image: "/panel/reseller/overview.webp" },
+        { id: "inventory", label: "VPS Inventory", desc: "Full overview and control of client VPS allocations, assigned IPs, specs, and online states.", icon: Server, image: "/panel/reseller/inventory.webp" },
+        { id: "settings", label: "White-Label Branding", desc: "Complete white-label customizations with custom brand name, CNAME domain routing, and SMTP relay.", icon: Palette, image: "/panel/reseller/settings.webp" },
+        { id: "logs", label: "Activity Logs", desc: "Real-time auditing of user authentication logins, power dispatches, and administrative commands.", icon: FileCode, image: "/panel/reseller/logs.webp" }
       ]
     }
   ];
@@ -2300,7 +2303,7 @@ CMD ["node", "main.js"]`;
                 </div>
                 {/* Mock address bar */}
                 <div className="flex-grow max-w-md mx-6 bg-[#0E1321]/90 border border-[#2A3650]/40 rounded-lg px-4 py-1 text-center font-mono text-[10px] text-text-muted/70 tracking-wide truncate">
-                  panel.dynoxium.host
+                  {activeCategory === "reseller" ? "reseller.dynoxium.com" : activeCategory === "vps" ? "vps.dynoxium.com" : activeCategory === "web" ? "web.dynoxium.com" : "panel.dynoxium.com"}
                 </div>
                 <div className="flex gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-text-muted/20" />

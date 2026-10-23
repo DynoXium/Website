@@ -270,7 +270,9 @@ export default function Header() {
 
               {/* Command Center Link ("GO" + ArrowUpRight) */}
               <Link
-                href="#"
+                href="https://client.dynoxium.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 title="Command Center"
                 className={`flex items-center gap-1 bg-[#3388FF] hover:bg-[#6CF4FF] text-white hover:text-[#0B0F19] font-black rounded-lg transform-gpu transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.98] cursor-pointer shadow-md hover:shadow-[0_0_15px_rgba(108,244,255,0.3)] uppercase tracking-widest group/btn btn-hover-lift ${scrolled ? "py-2 px-4 text-xs" : "py-2.5 px-6 text-sm"
                   }`}
@@ -380,7 +382,9 @@ export default function Header() {
               </button>
 
               <Link
-                href="#"
+                href="https://client.dynoxium.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
                 className="flex items-center justify-center gap-1.5 w-full bg-[#3388FF] hover:bg-[#6CF4FF] text-white hover:text-[#0B0F19] font-black py-3 rounded-lg shadow-md transition-all active:scale-[0.98] uppercase tracking-widest group/btn"
               >

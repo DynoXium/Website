@@ -7,5 +7,12 @@
             "source": "/client/:path*",
             "destination": "https://billing.dynoxium.com/:path*"
         }
+    ],
+    "redirects": [
+        {
+            "source": "/go",
+            "destination": "https://client.dynoxium.com",
+            "permanent": false
+        }
     ]
 }
